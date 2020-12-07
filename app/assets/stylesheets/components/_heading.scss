@@ -1,0 +1,48 @@
+h1 {
+  color: #509696;
+  width: 480px;
+  border-bottom-style: solid;
+  text-align: center;
+  border-bottom-width: medium;
+}
+
+.subheading {
+  font-size: 24px;
+  width: 480px;
+  text-align: center;
+}
+
+.muted {
+  color: #808080;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  margin-block-start: 0%;
+  margin-block-end: 0%;
+  // text-align: center;
+}
+
+h2 {
+  font-size: 14px;
+  width: 480px;
+  // text-align: center;
+}
+
+.blue {
+  color: #46B3E6;
+  font-size: 16px;
+  &:hover {
+    display: inline-block;
+    transition-duration: 0.8s;
+    text-decoration: none;
+  }
+}
+
+.information {
+  font-size: 20px;
+  color: #000000;
+  &:hover {
+    transition-duration: 0.8s;
+    text-decoration: none;
+  }
+}
