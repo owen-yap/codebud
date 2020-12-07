@@ -8,7 +8,11 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   has_many :questions
-  has_many :messages
+  has_many :messages, foreign_key: 'sender_id'
   has_many :skills, through: :user_skills
   has_many :proposals, through: :questions
+
+  def received_messages
+    Messages.where(receiver_id: self.id)
+  end
 end
