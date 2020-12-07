@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_08_035404) do
+ActiveRecord::Schema.define(version: 2020_12_08_035405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 2020_12_08_035404) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "min_price"
+    t.integer "max_price"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +55,5 @@ ActiveRecord::Schema.define(version: 2020_12_08_035404) do
 
   add_foreign_key "messages", "users", column: "receiver_id"
   add_foreign_key "messages", "users", column: "sender_id"
+  add_foreign_key "questions", "users"
 end
