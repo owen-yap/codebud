@@ -1,33 +1,36 @@
-#webdev-animation {
-  #webdev-animation {
+svg {
+  height: 50vh;
   
-    * {
-      transform-box: fill-box;
-    }
-    
-    #in-browser {
-      opacity: 0;
-      transform-origin: center bottom;
-      
-      #hero, #Logo, #menu, #h1 {
-        opacity: 0;
-        transform-origin: left top;
-      }
-      
-      #body_text * {
-        opacity: 0;
-        transform-origin: left top;
-      }
-      
-      #image {
-        opacity: 0;
-        transform-origin: center center;
-      }
-    }
-   
-    #Code * {
-        transform-origin: left center; /* or transform-origin: 50% */
-    }
-    
+}
+
+#webdev-animation {
+  
+  * {
+    transform-box: fill-box;
   }
+  
+  #in-browser {
+    opacity: 0;
+    transform-origin: center bottom;
+    
+    #hero, #Logo, #menu, #h1 {
+      opacity: 0;
+      transform-origin: left top;
+    }
+    
+    #body_text * {
+      opacity: 0;
+      transform-origin: left top;
+    }
+    
+    #image {
+      opacity: 0;
+      transform-origin: center center;
+    }
+  }
+ 
+  #Code * {
+      transform-origin: left center; /* or transform-origin: 50% */
+  }
+  
 }

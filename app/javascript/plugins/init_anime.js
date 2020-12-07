@@ -1,4 +1,8 @@
-function initAnime() {
+import anime from 'animejs/lib/anime.es.js';
+
+
+const initAnime = () => {
+
   var code = {
     targets: '#webdev-animation #Code *',
     scaleX: [
@@ -13,7 +17,6 @@ function initAnime() {
     loop: true
   });
 
-  // code
   tl.add(code);
 
   // window change
@@ -46,6 +49,7 @@ function initAnime() {
     delay: anime.stagger(300)
   });
 
+
   // body
   tl.add({
     targets: [
@@ -73,6 +77,9 @@ function initAnime() {
       { value: 1, duration: 1000 }
     ]
   });
-}
+
+
+};
+
 
 export { initAnime };
