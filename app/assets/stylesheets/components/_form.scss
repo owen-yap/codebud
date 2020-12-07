@@ -1,0 +1,30 @@
+form {
+  section {
+    box-shadow: 2px 2px 8px rgb(150, 150, 150);
+    background-color: white;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 700px;
+    margin: 2rem 0;
+    img {
+      width: 30px;
+    }
+
+    label {
+      display: block;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      background-color: #EBEBEB;
+      border: none;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+  }
+}
