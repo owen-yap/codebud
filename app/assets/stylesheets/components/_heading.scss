@@ -1,4 +1,4 @@
-h1 {
+.main-heading {
   color: #509696;
   width: 480px;
   border-bottom-style: solid;
@@ -7,19 +7,12 @@ h1 {
 }
 
 .subheading {
-  font-size: 24px;
+  font-size: 1.5rem;
   width: 480px;
-  text-align: center;
 }
 
 .muted {
   color: #808080;
-  width: auto;
-  height: auto;
-  display: inline-block;
-  margin-block-start: 0%;
-  margin-block-end: 0%;
-  // text-align: center;
 }
 
 h2 {

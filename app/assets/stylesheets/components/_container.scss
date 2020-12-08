@@ -1,0 +1,43 @@
+.split-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  .left-container {
+    width: 35%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $darkblue;
+    color: white;
+
+    .logo {
+      width: 400px;
+    }
+
+    .acc-img {
+      width: 85%;
+    }
+
+    p {
+      font-size: 1.3rem;
+      display: inline-block;
+      width: 75%;
+    }
+  }
+
+  .right-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  
+    form {
+      .input-half {
+        width: 50%; 
+      }
+    }
+  }
+}
