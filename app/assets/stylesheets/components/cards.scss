@@ -1,5 +1,7 @@
 .card-qn {
-  height: 120px;
+  height: 140px;
+  min-width: 400px;
+  max-width: 600px;
   background: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
@@ -63,3 +65,84 @@
 }
 
 
+// account details
+.card-container {
+  .detail-header {
+    font-size: 18px;
+    padding: 0 0 10px 10px;
+  }
+  .detail-desc {
+    background-color: white;
+    border-radius: 12px;
+    padding: 10px;
+    width: 672px;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display: flex;
+    .avatar {
+      width: 90px;
+      border-radius: 50%;
+      padding: 10px;
+      // Have to test using avatar
+    }
+    .name-email {
+      width: 50%;
+    }
+    .password {
+      width: 50%;
+    }
+  }
+}
+.card-row {
+  background-color: white;
+  width: 495px;
+  height: 175px;
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+// order card
+
+.card-order {
+  padding: 10px 10px;
+  display: inline-block;
+  box-shadow: 2px 2px 8px rgb(184, 184, 184);
+  transition: box-shadow ease 0.2s;
+  margin: 10px 0;
+  min-width: 400px;
+  min-height: 350px;
+
+  .card-order-user {
+    color: $darkgray;
+    font-weight: bold;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .card-order-infos {
+    display: flex;
+    align-items: center;
+    .card-title {
+      font-size: 2rem;
+    }
+    .card-order-price {
+      display: inline-block;
+      padding-right: 5px;
+      margin-left: auto;
+
+      .price {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+a:hover .card-order {
+  box-shadow: 2px 2px 12px rgb(122, 122, 122);
+}
