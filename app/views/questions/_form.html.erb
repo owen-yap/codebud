@@ -1,0 +1,9 @@
+<%= simple_form_for(question) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :min_price, collection: 1..20, label:"Min price" %>
+    <%= f.input :max_price, collection: 21..50 %>
+    <%= f.input :start_time%>
+    <%= f.input :end_time %>
+    <%= f.button :submit, "Ask Question", class: "btn white-btn"%>
+  <% end %>
