@@ -17,24 +17,40 @@
         
         <ul class="navbar-nav nav-right">
           <li class="nav-item active navlink">
-            <%= link_to root_path, class: "mr-2" do %>
+            <%= link_to root_path, class: "how-it-works mr-3" do %>
+              Dashboard
+            <% end %>
+          </li>
+          
+          <li class="nav-item active navlink">
+            <%= link_to root_path, class: "mr-3" do %>
               <%= image_tag "speech-bubble.svg" %>
             <% end %>
           </li>
 
           <li class="nav-item active navlink">
-            <%= link_to root_path, class: "mr-2" do %>
+            <%= link_to root_path, class: "mr-3" do %>
               <%= image_tag "friends.svg" %>
             <% end %>
           </li>
           
           <li class="nav-item active navlink">
-            <%= link_to root_path, class: "mr-2" do %>
+            <%= link_to root_path, class: "mr-3" do %>
               <%= image_tag "bell.svg" %>
             <% end %>
           </li>
           
-          <%= avatar(current_user) %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= avatar(current_user) %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "Edit Account", edit_user_registration_path, class: "dropdown-item" %>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Log Out", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+            </div>
+          </li>
         </ul>
       </div>
 
