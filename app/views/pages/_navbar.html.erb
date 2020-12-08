@@ -18,7 +18,7 @@
         </li>
         <li class="nav-item navlink">
           <%= link_to "Log In", root_path, class:"btn light-btn" %>
-          <%= link_to "Log Out", destroy_user_session(current_user), class:"btn light-btn" %>
+          <%= link_to "Log Out", destroy_user_session_path(current_user), class:"btn light-btn" %>
         </li>
       </ul>
     </div>
@@ -30,14 +30,14 @@
             <%= link_to "How it works", root_path, class: "how-it-works mr-2" %>
           </li>
         </ul>
-        
+
         <ul class="navbar-nav nav-right">
           <li class="nav-item active navlink">
             <%= link_to root_path, class: "how-it-works mr-3" do %>
               Dashboard
             <% end %>
           </li>
-          
+
           <li class="nav-item active navlink">
             <%= link_to root_path, class: "mr-3" do %>
               <%= image_tag "speech-bubble.svg" %>
@@ -49,13 +49,13 @@
               <%= image_tag "friends.svg" %>
             <% end %>
           </li>
-          
+
           <li class="nav-item active navlink">
             <%= link_to root_path, class: "mr-3" do %>
               <%= image_tag "bell.svg" %>
             <% end %>
           </li>
-          
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= avatar(current_user, "avatar-sm") %>
