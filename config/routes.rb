@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   get '/account', to: 'pages#account'
   resources :questions
+  resources :bios, only: [:new, :create, :edit, :update]
+  resources :skill, only: [:new]
 end
