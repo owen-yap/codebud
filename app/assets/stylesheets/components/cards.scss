@@ -1,55 +1,84 @@
-.card-qn {
+.ask-a-question {
   height: 140px;
-  min-width: 400px;
-  max-width: 600px;
+  width: 90%;
+  max-width: 800px;
   background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
   display: flex;
   justify-content: space-between;
-}
-
-.card-qn img {
-  height: 90%;
-  width: 120px;
-  object-fit: cover;
-  padding-right: 10px;
-  padding-top: 10px;
-}
-
-.card-qn h2 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-qn p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-qn .card-qn-infos {
+  align-items: center;
   padding: 16px;
+  img {
+    height: 90%;
+    width: 120px;
+    object-fit: cover;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+  h2 {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
 }
 
 .card-tutor {
-  min-width: 400px;
-  max-width: 600px;
-  height: 160px;
   background: $lightblue;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.card-template {
+  width: 90%;
+  max-width: 800px;
+  height: 160px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
   border-radius: 8px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-}
-.card-tutor h2 {
-  font-size: 18px;
-  font-weight: 400;
-  margin-top: 30px;
-  color:white;
+  padding: 16px;
+
+  img {
+    align-self: flex-start;
+  }
+  .card-subheading {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  .white-btn {
+    align-self: center;
+  }
+  .info {
+    flex-grow: 1;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    h2 {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin: 0;
+    }
+    .card-tag {
+      display: inline-block;
+      background-color: $lightgray;
+      padding: 0.1rem;
+    }
+    a {
+      color: white;
+      transition: color ease 0.2s;
+      &:hover {
+        color: rgb(194, 194, 194);
+        text-decoration: none;
+        display: inline-block;
+      }
+    }
+  }
 }
 
 .card-tutor p {
@@ -58,54 +87,29 @@
   margin-top: 10px;
 }
 
-.card-tutor img {
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
-  margin: 15px 0px 50px 15px;
-}
-
 
 // account details
-.card-container {
+.card-account {
   .detail-header {
     font-size: 18px;
     padding: 0 0 10px 10px;
   }
-  .detail-desc {
+  .account-details {
+    justify-content: flex-start;
     background-color: white;
-    border-radius: 12px;
-    padding: 10px;
-    width: 672px;
-    height: auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    display: flex;
-    .avatar {
-      width: 90px;
-      border-radius: 50%;
-      padding: 10px;
-      // Have to test using avatar
-    }
-    .name-email {
-      width: 50%;
-    }
-    .password {
-      width: 50%;
-    }
+
   }
 }
-.card-row {
-  background-color: white;
-  width: 495px;
-  height: 175px;
-  align-items: center;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
+.card-questions {
   justify-content: center;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  height: 500px;
+  img {
+    align-self: center;
+  }
 }
-
 // order card
 
 .card-order {

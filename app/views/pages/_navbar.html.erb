@@ -1,22 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-color">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000022">
   <div class="container">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "codebud-logo-1-light.png", class: 'navbar-logo' %>
     <% end %>
-    <button class="navbar-toggler hamburger" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <%= render 'hamburger' %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav nav-right">
         <li class="nav-item active navlink">
-          <%= link_to "How it works", root_path, class: "how-it-works" %>
+          <%= link_to "How it works", root_path, class: "how-it-works mr-2" %>
         </li>
         <li class="nav-item navlink">
-          <%= link_to "Sign Up", root_path %>
+          <%= link_to "Sign Up", root_path, class: "btn dark-btn mr-2" %>
         </li>
         <li class="nav-item navlink">
-          <%= link_to "Log In", root_path %>
+          <%= link_to "Log In", root_path, class:"btn light-btn" %>
         </li>
       </ul>
     </div>

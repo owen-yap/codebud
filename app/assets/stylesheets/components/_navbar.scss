@@ -6,22 +6,22 @@
   width: 200px;
 }
 
-.navlink {
-  color: white;
-
+.nav-right {
+  display: inline-block;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
-.hamburger {
-  background-color: lightblue;
-  z-index: 2;
-  transition: background-color ease 0.3s;
-
-  &:hover {
-    background-color: #46B3E6;
-  }
+.navlink {
+  .how-it-works{
+    color: white;
+    display: inline-block;
+  } 
 }
 
 @media only screen and (max-width: 995px) {
+
   .navlink {
     border: solid 1px gray;
     padding: 0.3rem;
