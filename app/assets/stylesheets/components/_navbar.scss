@@ -1,12 +1,44 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar-color {
+  background-color: #000022;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-logo {
+  width: 200px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navlink {
+  color: white;
+
+}
+
+.hamburger {
+  background-color: lightblue;
+  z-index: 2;
+  transition: background-color ease 0.3s;
+
+  &:hover {
+    background-color: #46B3E6;
+  }
+}
+
+@media only screen and (max-width: 995px) {
+  .navlink {
+    border: solid 1px gray;
+    padding: 0.3rem;
+    background-color: white;
+
+    a {
+      color: black;
+      font-size: 1.3rem;
+      display: block;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: lightblue;
+      a{
+        color: gray;
+      }
+    }
+  }
 }

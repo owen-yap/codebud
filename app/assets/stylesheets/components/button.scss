@@ -1,10 +1,11 @@
 .dark-btn {
   color: white;
   border-radius: 4px;
-  background: $light-blue;
-  font-weight: 700;
-  line-height: 2.5;
-  transition: background 0.3s ease;
+  background: $lightblue;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  min-width: 110px;
+  padding: 0.3rem;
 
   &:hover {
   background-color: $darkblue;
@@ -14,28 +15,46 @@
 
 .light-btn {
   color: white;
-  line-height: 2.5;
   border-radius: 4px;
-  font-weight: 700;
-  background: $lighter-blue;
-  transition: background 0.3s ease;
+  background: $lighterblue;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  min-width: 110px;
+  padding: 0.3rem;
 
   &:hover {
-    background-color: $light-blue;
+  background-color: $darkblue;
+  color: white;
   }
 }
 
 .white-btn {
   color: black;
-  background:white;
   border-radius: 4px;
-  line-height: 2.5;
-  font-weight: lighter;
-  transition: opacity 0.3s ease;
+  background: white;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  min-width: 110px;
+  padding: 0.3rem;
 
   &:hover {
-   background-color: #f8f9fa ;
-   border: 1px solid $lightgray;
+  background-color: $lightgray;
+  color: black;
+  }
+}
+
+.round-btn {
+  color: black;
+  border-radius: 20px;
+  background: $lightblue;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  min-width: 110px;
+  padding: 0.3rem;
+
+  &:hover {
+  background-color: $lighterblue;
+  color: black;
   }
 }
 
@@ -56,33 +75,17 @@
   }
 }
 
-
-.round-btn {
-  color: black;
-  background: $light-blue;
-  border-radius: 50px;
-  line-height: 2.5;
-  font-weight: lighter;
-  transition: opacity 0.3s ease;
-
-  &:hover {
-    background-color: $darkblue ;
-    color: white
-  }
-}
-
 .fat-btn {
-  color :white;
-  background: $light-blue;
-  border-radius: 6px;
-  padding: 12px;
-  font-weight: lighter;
-  line-height: 2.5;
-  transition: opacity 0.3s ease;
+  color: white;
+  border-radius: 4px;
+  background: $lightblue;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  padding: 1rem;
 
   &:hover {
-    background-color: $darkblue ;
-    color: white,
+  background-color: $darkblue;
+  color: white;
   }
 }
 
@@ -91,8 +94,7 @@
   border: 1px solid $darkgray;
   border-radius: 8px;
   font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  transition: color 0.2s ease, border 0.2s ease;
   line-height: 2.5;
 
   &:hover {

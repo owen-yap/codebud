@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-color">
+  <div class="container">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "codebud-logo-1-light.png", class: 'navbar-logo' %>
+    <% end %>
+    <button class="navbar-toggler hamburger" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <%= render 'hamburger' %>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item active navlink">
+          <%= link_to "How it works", root_path, class: "how-it-works" %>
+        </li>
+        <li class="nav-item navlink">
+          <%= link_to "Sign Up", root_path %>
+        </li>
+        <li class="nav-item navlink">
+          <%= link_to "Log In", root_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
