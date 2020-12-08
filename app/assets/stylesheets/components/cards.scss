@@ -64,35 +64,49 @@
   margin: 15px 0px 50px 15px;
 }
 
+.card-row {
+  background-color: white;
+  width: 495px;
+  height: 175px;
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 8px;
+}
 
 // account details
+
 .card-container {
+
   .detail-header {
     font-size: 18px;
     padding: 0 0 10px 10px;
   }
+
   .detail-desc {
     background-color: white;
     border-radius: 12px;
     padding: 10px;
     width: 672px;
     height: auto;
+    display: flex;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     display: flex;
-    .avatar {
-      width: 90px;
-      border-radius: 50%;
-      padding: 10px;
-      // Have to test using avatar
+
     }
+
     .name-email {
       width: 50%;
     }
+
     .password {
       width: 50%;
     }
   }
 }
+
 .card-row {
   background-color: white;
   width: 495px;
@@ -146,3 +160,4 @@
 a:hover .card-order {
   box-shadow: 2px 2px 12px rgb(122, 122, 122);
 }
+
