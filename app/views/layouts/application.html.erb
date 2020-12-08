@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <%= render "pages/navbar" unless current_page?(new_user_registration_path) %>
+    <%= render "pages/navbar" unless current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
     <%= yield %>
     <%= render 'shared/flashes' %>
   </body>
