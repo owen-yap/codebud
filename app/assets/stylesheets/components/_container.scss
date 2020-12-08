@@ -3,14 +3,14 @@
   width: 100vw;
   height: 100vh;
   .left-container {
-    width: 35%;
+    width: 40%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: space-around;
     align-items: center;
-    background-color: $darkblue;
+    background-color: #000022;
     color: white;
 
     .logo {
