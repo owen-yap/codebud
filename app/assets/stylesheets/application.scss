@@ -11,6 +11,9 @@
   box-sizing: border-box;
 }
 
+ul, ol {
+  list-style-type: none;
+}
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
