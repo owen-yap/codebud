@@ -1,0 +1,9 @@
+<%= simple_form_for [ @user ] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :password %>
+  <%= f.input :email %>
+  <%= f.simple_fields_for :skills do |sf|%>
+    <%= f.input :skills, collection: @skills %>
+  <% end  %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
