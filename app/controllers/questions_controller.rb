@@ -48,6 +48,6 @@ class QuestionsController < ApplicationController
 
 
   def params_qn
-    params.require(:question).permit(:title, :description, :min_price, :max_price, :start_time, :end_time, :user_id)
+    params.require(:question).permit(:title, :description, :min_price, :max_price, :start_time, :end_time, :user_id, :skills)
   end
 end
