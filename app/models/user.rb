@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # devise
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  #has_one_attached :photo
+  has_one_attached :photo
 
   has_many :questions
   has_many :messages, foreign_key: 'sender_id'
