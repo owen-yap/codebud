@@ -45,3 +45,22 @@
     }
   }
 }
+
+.sidenav {
+  height: 100vh;
+  border-right: solid 1px black;
+  position: fixed;
+  a {
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: left;
+    display: block;
+    padding: 8px;
+    &:hover {
+      color: black;
+      background-color: #D9D9D9;
+      text-decoration: none;
+    }
+  }
+}
