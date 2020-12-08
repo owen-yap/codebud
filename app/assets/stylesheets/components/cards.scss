@@ -54,8 +54,8 @@
     align-self: center;
   }
   .info {
-    flex-grow: 1;
     display:flex;
+    flex-grow: 1;
     flex-direction: column;
     justify-content: space-around;
     h2 {
@@ -97,7 +97,9 @@
   .account-details {
     justify-content: flex-start;
     background-color: white;
-
+    p {
+      margin: 0;
+    }
   }
 }
 .card-questions {
