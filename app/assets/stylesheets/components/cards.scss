@@ -1,7 +1,6 @@
 .ask-a-question {
   height: 140px;
-  width: 90%;
-  max-width: 800px;
+  width: 100%;
   background: white;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
   display: flex;
@@ -25,6 +24,13 @@
     opacity: .7;
     margin-bottom: 0;
     margin-top: 8px;
+  }
+  h2, p, a {
+    color: black;
+    &:hover {
+      color: $lightblue;
+      text-decoration: none;
+    }
   }
 }
 
