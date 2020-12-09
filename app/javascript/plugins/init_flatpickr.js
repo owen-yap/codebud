@@ -1,3 +1,5 @@
+import flatpickr from "flatpickr";
+
 const initFlatpickr = () => {
 
   const startTimeInput = document.getElementById('question_start_time');
@@ -9,14 +11,14 @@ const initFlatpickr = () => {
     // to not enable user to select end time before start time selected
     endTimeInput.disabled = true;
 
-     // flatpicker.js.org/options   default time picker is not enabled
+    // flatpicker.js.org/options   default time picker is not enabled
     const startDateFp = flatpickr(startTimeInput, {
-      minDate : "today",
+      minDate: "today",
       enableTime: true,
       dateFormat: "d-m-Y, h:i K"  // time formatting
     });
 
-     // to check -> console.log('im in the file');
+    // to check -> console.log('im in the file');
 
     startTimeInput.addEventListener("change", (event) => {
       // startDateFp.selectedDates[0]);
