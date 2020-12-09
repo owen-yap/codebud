@@ -1,39 +1,47 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
 
 puts 'Destroying current db....'
+User.destroy_all
 Skill.destroy_all
 
 puts 'Seeding current db....'
 
-%w[Ruby Python JS C PHP Laravel Lisp Java Perl Rails SQL Swift Django].each do |skill|
+%w[Ruby Python Javascript C PHP Laravel Lisp Java Perl Rails SQL Swift Django].each do |skill|
   skill = Skill.new(name: skill)
   skill.save!
-  puts 'Skill instance saved!👍'
+  puts 'Skill instance saved!👩‍🏫'
 end
 
-puts 'Seeding Done 👍'
+user = User.new(name: "John", 
+                email: "abc@gmail.com",
+                username: "JohnDoe",
+                tutor: false,
+                password: "lewagon")
+user.bio = Bio.create(content: "I am currently going through university and need to get past my python mods. Someone please help me")
+user.skills << Skill.find_by_name("Python")
+user.save!
 
-# 10.times do
-#   user = User.new(name: %w[Tom Tim John Collin Mary].sample, skillset: %w[Ruby Python JS C PHP].sample)
-#   user.save!
-#   puts 'User instance saved!👍'
-#   question = Question.new(category: %w[Ruby Python JS C PHP].sample, description: 'sample desc', price: (10..30).to_a.sample)
-#   question.user = user # assign question to user
-#   question.save!
-#   puts 'Question instance saved!👍'
-#   order = Order.new(status: 'pending tutor')
-#   order.user = user # assign order to user
-#   order.save!
-#   puts 'Order instance saved!👍'
-#   review = Review.new(rating: (1..5).to_a.sample, content: 'sample cont')
-#   review.order = order # assign review to order
-#   # review.order.user = user # assign review to user
-#   review.save!
-#   puts 'User instance saved!👍'
-# end
+tutor = User.new(name: Faker::Name.unique.name, 
+                email: Faker::Internet.email,
+                username: Faker::Name.unique.name,
+                tutor: true,
+                password: "lewagon")
+
+3.times do 
+  question = Question.new(title: Faker::Quotes::Shakespeare.hamlet_quote, 
+                          description: Faker::Quote.matz,
+                          min_price: (1..5).to_a.sample,
+                          max_price: (6..10).to_a.sample,
+                          start_time: Faker::Time.between(from: DateTime.now - 2, to: DateTime.now - 1),
+                          end_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now))
+  Skill.all.shuffle.first(2).each do |skill|
+    question.skills << skill
+  end
+  question.user = user
+  question.save!
+end
+
+proposal = Proposal.new(price: (1..10).to_a.sample, status: 'pending', meeting_time: DateTime.now )
+proposal.question = Question.all.sample
+
+puts "Completed ✨✨✨"

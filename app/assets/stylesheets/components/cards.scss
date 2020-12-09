@@ -70,11 +70,15 @@ a:hover {
   .btn {
     align-self: center;
   }
+  a {
+    width: 90px;
+  }
   .info {
-    display:flex;
-    flex-grow: 1;
-    flex-direction: column;
-    justify-content: space-around;
+    // display:flex;
+    // flex-grow: 1;
+    // flex-direction: column;
+    // justify-content: space-around;
+    width: 80%;
     h2 {
       color: white;
       font-size: 1.8rem;
