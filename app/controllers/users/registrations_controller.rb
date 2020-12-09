@@ -12,11 +12,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    binding.pry
-    skill_ids = params.dig(:user, :skill_ids)
-        .keep_if { |v| v.present? }
+    # skill_ids = params.dig(:user, :skill_ids)
+    #                   .keep_if { |v| v.present? }
 
-  skill_ids.each { |id| resource.skills << Skill.find(id) }
+    # skill_ids.each { |id| resource.skills << Skill.find(id) }
   end
 
   # GET /resource/edit
@@ -57,7 +56,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
-  
+
   # end
 
   # The path used after sign up for inactive accounts.
