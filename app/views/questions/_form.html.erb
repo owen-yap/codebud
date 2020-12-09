@@ -6,7 +6,7 @@
         What do you need help with?
       </p>
       <%= f.input :title %>
-      <%= f.input :description %>
+      <%= f.input :description, as: :text %>
     </div>
   </section>
 
@@ -29,10 +29,12 @@
         <%= image_tag 'three.svg', class: "avatar-sm" %>
         Availability and Price
       </p>
-    <%= f.input :start_time%>
-    <%= f.input :end_time %>
-    <%= f.input :min_price, collection: 1..20, label:"Min price" %>
-    <%= f.input :max_price, collection: 21..50 %>
+        <%= f.input :start_time, as: :string %>
+        <%= f.input :end_time, as: :string %>
+      <div>
+        <%= f.input :min_price, collection: 1..20, label:"Min price" %>
+        <%= f.input :max_price, collection: 21..50 %>
+      </div>
     </div>
   </section>
 
