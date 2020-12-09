@@ -1,14 +1,18 @@
-
-<div class='bio-container'>
-  <%= simple_form_for @bio do |f| %>
-    <%= f.input :content %>
-
-    <%# there's no link btw bio and skills, hence we use simple_fields to allow skills instance to be displayed on bio form %>
-    <%= f.simple_fields_for :user do |user_form| %>
-      <%= user_form.collection_check_boxes :skill_ids, Skill.all, :id, :name,
-       item_label_class: 'skills-label', item_wrapper_class: 'skills-item' %>
-    <% end %>
-    
-    <%= f.submit %>
-  <% end %>
+<div class="d-flex justify-content-center">
+      <div class="question-form">
+      	  <%= simple_form_for @bio do |f| %>
+      	<section>
+      	    <%= f.input :content %>
+          
+      	    <%# there's no link btw bio and skills, hence we use simple_fields to allow skills instance to be displayed on bio form %>
+      	    <%= f.simple_fields_for :user do |user_form| %>
+      	      <%= user_form.collection_check_boxes :skill_ids, Skill.all, :id, :name,
+      	      item_label_class: 'skills-label', item_wrapper_class: 'skills-item' %>
+      	    <% end %>
+          
+      	</section>
+      	    <%= f.submit class: "btn light-btn" %>
+      	  <% end %>
+      </div>
 </div>
+

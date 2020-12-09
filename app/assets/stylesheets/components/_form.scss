@@ -3,9 +3,10 @@
     box-shadow: 2px 2px 8px rgb(150, 150, 150);
     background-color: white;
     padding: 1.5rem;
-    width: 90%;
+    width: 100%;
     max-width: 700px;
-    margin: 2rem 0;
+    margin: 2rem auto;
+    border-radius: 8px;
     img {
       width: 30px;
     }
@@ -21,6 +22,7 @@
       background-color: #EBEBEB;
       border: none;
       padding: 5px;
+      border-radius: 8px;
     }
 
     textarea {
