@@ -10,13 +10,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    super
+  def after_sign_up_path_for(resource)
+    new_bio_path
+  end
+
+  # def create
+    # super
     # skill_ids = params.dig(:user, :skill_ids)
     #                   .keep_if { |v| v.present? }
-
     # skill_ids.each { |id| resource.skills << Skill.find(id) }
-  end
+  # end
 
   # GET /resource/edit
   # def edit
