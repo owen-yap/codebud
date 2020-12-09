@@ -4,7 +4,7 @@ class SkillsController < ApplicationController
   end
   def update
     current_user.skills.clear # destroy current skills
-    array = params[:skillset][:user][:skill_ids] # get skill ids in an array
+    array = params[:skillset][:user][:skillset] # get skill ids in an array
     array.each do |skill_id| # assign each new skill id to user and user
       next if skill_id.empty?
       user_skill = UserSkill.new

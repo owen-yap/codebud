@@ -97,8 +97,9 @@
                 <div class="modal-body">
                   <%= simple_form_for :skillset, url: skills_path, method: :patch, id: 'edit_skills', remote: true do |f| %>
                     <%= f.simple_fields_for :user do |user_form| %>
-                      <%= user_form.collection_check_boxes :skill_ids, Skill.all, :id, :name,
-                      item_label_class: 'skills-label', item_wrapper_class: 'skills-item' %>
+                      <%=  user_form.collection_check_boxes :skillset, Skill.all, :id, :name, 
+                                                            { checked: current_user.skills.map(&:id), item_wrapper_class: 'skills-item' },
+                                                            { class: "skills-selector"}  %>
                     <% end %>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
