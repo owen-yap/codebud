@@ -17,9 +17,33 @@
       <%= link_to "Apply", question_path(question), class: "btn fat-btn" %>
     </div>
   <% end %>
-  <h2 class="subheading">Questions Applied</h2>
-  <div class='card-template card-questions mt-3 mb-3'>
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" alt="IMG HERE" width='81' height='81'>
-    <p class='muted'>No questions applied. Apply for a question now.</p>
-  </div>
+  <h2 class="subheading mt-3">Questions Applied</h2>
+  <% if current_user.proposals.empty? %>  
+    <div class='card-template card-questions mt-3 mb-3'>
+      <%= image_tag 'missing.svg' %>
+      <p class='muted'>No questions applied. Apply for a question now.</p>
+    </div>
+  <% else %>
+    <% @proposals.each do |proposal| %>
+      <div class="card-template question mb-2">
+        <div class="info">
+          <h6 class="title mb-2"><%= proposal.question.title %> </h6>
+            <div class="tags">
+              <% proposal.question.skills.each do |skill| %>
+                <p class="card-tag"> <%= skill.name %> </p>
+              <% end %>
+            </div>
+        </div>
+        <% if proposal.status == 'pending' %>
+          <%= link_to "Pending", question_path(proposal.question), class: "btn fat-btn pending" %>
+        <% elsif proposal.status == 'selected' %>
+          <%= link_to "Selected", question_path(proposal.question), class: "btn fat-btn accepted" %>
+        <% else %>
+          <%= link_to question_path(proposal.question), class: 'btn fat-btn rejected' do %>
+            <%= image_tag 'trash.svg', width: '30px', height: '30px' %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
 </div>

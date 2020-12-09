@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = current_user.questions
     @all_questions = Question.all
+    @proposals = current_user.proposals.where(status: %w[pending selected rejected])
   end
 
   def new
