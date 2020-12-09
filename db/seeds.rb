@@ -1,6 +1,7 @@
 require 'faker'
 
 puts 'Destroying current db....'
+Message.destroy_all
 User.destroy_all
 Skill.destroy_all
 
@@ -12,7 +13,7 @@ puts 'Seeding current db....'
   puts 'Skill instance saved!👩‍🏫'
 end
 
-user = User.new(name: "John", 
+user = User.new(name: "John",
                 email: "abc@gmail.com",
                 username: "JohnDoe",
                 tutor: false,
@@ -21,14 +22,14 @@ user.bio = Bio.create(content: "I am currently going through university and need
 user.skills << Skill.find_by_name("Python")
 user.save!
 
-tutor = User.new(name: Faker::Name.unique.name, 
+tutor = User.new(name: Faker::Name.unique.name,
                 email: Faker::Internet.email,
                 username: Faker::Name.unique.name,
                 tutor: true,
                 password: "lewagon")
 
-3.times do 
-  question = Question.new(title: Faker::Quotes::Shakespeare.hamlet_quote, 
+3.times do
+  question = Question.new(title: Faker::Quotes::Shakespeare.hamlet_quote,
                           description: Faker::Quote.matz,
                           min_price: (1..5).to_a.sample,
                           max_price: (6..10).to_a.sample,

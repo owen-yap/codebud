@@ -30,6 +30,7 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initFlatpickr } from '../plugins/init_flatpickr';
 import { initAnime } from './../plugins/init_anime.js';
+import { initBioPills } from '../plugins/init_bio_pills';
 
 // when the page have fully loaded then call these js plugins so the dom are fully loaded and can be targeted
 document.addEventListener('turbolinks:load', () => {
@@ -37,6 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initAnime();
   initFlatpickr();
+  initBioPills();
 });
 
 
