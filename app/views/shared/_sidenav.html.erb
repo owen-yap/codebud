@@ -1,5 +1,5 @@
 <ul class="sidenav pt-5">
-  <li><%= link_to "Dashboard", root_path %></li>
-  <li><%= link_to "Sessions", root_path %></li>
-  <li><%= link_to "Account Details", account_path %></li>
+  <li><%= link_to "Dashboard", root_path, active?(request.env['PATH_INFO'], root_path) %></li>
+  <li><%= link_to "Sessions", root_path, active?(request.env['PATH_INFO'], root_path) %></li>
+  <li><%= link_to "Account Details", account_path, active?(request.env['PATH_INFO'], account_path) %></li>
 </ul>
