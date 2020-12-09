@@ -1,2 +1,36 @@
-<h1>Proposals#index</h1>
-<p>Find me in app/views/proposals/index.html.erb</p>
+<div class="container-sm">
+  <div class="d-flex justify-content-center flex-column">
+    <%= link_to "< Back", questions_path, class: "muted" %>
+    <h1 class="main-heading mb-3">Pick Your Tutor</h1>
+    <h2 class="caption"><%= @question.title %></h2>
+  </div>
+  <div class="text-right">
+    <%= link_to "View Question >", question_path(@question), class: "blue" %>
+  </div>
+    <% @proposals.each do |proposal| %>
+      <div class="card-template card-tutor mt-3 mb-3">
+        <%= avatar(proposal.user, "avatar-lg") %>
+        <div class="info ml-4">
+          <h2><%= proposal.user.name %></h2>
+          <p class="card-subheading">Good with: </p>
+          <ul class="tags">
+            <% proposal.user.skills.each do |skill| %>
+              <li class="card-tag">skill</li>
+            <% end %>
+          </ul>
+          <a href="#">View full profile ></a>
+        </div>
+
+        <div class="info">
+          <p class="card-subheading">Availability:</p>
+          <p class="card-subheading"><%= proposal.meeting_time %></p>
+        </div>
+
+        <div class="info">
+          <p class="card-subheading">Price:</p>
+          <p class="card-subheading"><%= proposal.price %></p>
+        </div>
+        <a href"#" class="btn white-btn">Select</a>
+      </div>
+    <% end %>
+</div>

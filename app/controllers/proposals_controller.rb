@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
   def index
-    @proposals = Question.find(params[:id]).proposals
-    raise
+    @question = Question.find(params[:question_id])
+    @proposals = @question.proposals
   end
 
   def new

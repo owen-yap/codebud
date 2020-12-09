@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'proposals/index'
-  get 'proposals/new'
-  get 'proposals/create'
   root to: 'pages#home'
   get '/uikit', to: 'pages#index'
   devise_for :users, controllers: {
