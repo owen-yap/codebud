@@ -2,7 +2,7 @@
       <div class="question-form">
       	  <%= simple_form_for @bio do |f| %>
       	<section>
-      	    <%= f.input :content %>
+      	    <%= f.input :content, label: "Tell us about yourself!" %>
           
       	    <%# there's no link btw bio and skills, hence we use simple_fields to allow skills instance to be displayed on bio form %>
       	    <%= f.simple_fields_for :user do |user_form| %>

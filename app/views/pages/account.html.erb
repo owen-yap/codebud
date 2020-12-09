@@ -32,12 +32,8 @@
           <div class='card-account col-6'>
             <div class='detail-header'>
               <strong>Bio</strong>
-<<<<<<< HEAD
-              <a href='#' class="blue ml-2" data-toggle="modal" data-target="#exampleModal">🖊Edit Bio</a>
+              <a href='#' class="blue ml-2" data-toggle="modal" data-target="#exampleModal1">🖊Edit Bio</a>
               <%#= link_to "🖊Edit Bio", edit_user_registration_path, class: "blue ml-2" %>
-=======
-              <%= link_to "🖊Edit Bio", class: "blue ml-2", data: { toggle: "exampleModal" } %>
->>>>>>> master
             </div>
             <div class='card-template account-details bio'>
               <p>
@@ -47,7 +43,7 @@
           </div> 
 
           <!-- Modal for edit-->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -58,7 +54,6 @@
                 </div>
 
                 <div class="modal-body">
-                  <%#  %>
                   <%= simple_form_for @user.bio, remote: true do |f| %>
                     <%= f.input :content %>
                     <div class="modal-footer">
@@ -69,7 +64,7 @@
                     </div>
                   <% end %>
                 </div>
-                
+
               </div>
             </div>
           </div>
@@ -78,7 +73,8 @@
           <div class='card-account col-6'>
             <div class='detail-header'>
               <strong>Skills</strong>
-              <%= link_to "🖊Edit Skills", edit_user_registration_path, class: "blue ml-2" %>
+              <a href='#' class="blue ml-2" data-toggle="modal" data-target="#exampleModal2">🖊Edit Skills</a>
+              <%#= link_to "🖊Edit Skills", edit_user_registration_path, class: "blue ml-2" %>
             </div>
             <div class='card-template account-details'>
               <% @user.skills.each do |skill| %>
@@ -86,8 +82,38 @@
               <% end %>
             </div>
           </div>
-        </div>
 
+          <!-- Modal for skills-->
+          <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Edit Skills</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div class="modal-body">
+                  <%= simple_form_for :skillset, url: skills_path, method: :patch, id: 'edit_skills', remote: true do |f| %>
+                    <%= f.simple_fields_for :user do |user_form| %>
+                      <%= user_form.collection_check_boxes :skill_ids, Skill.all, :id, :name,
+                      item_label_class: 'skills-label', item_wrapper_class: 'skills-item' %>
+                    <% end %>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <%= f.submit "Save Changes", class: "btn btn-primary" %>
+                                                  <%# data: { dismiss: "modal" } %>
+                                                  <%# does not transistion out clean, have to use js %>
+                    </div>
+                  <% end %>
+                </div>
+
+              </div>
+            </div>
+          </div>
+       
+        </div>
       </div>
     </div>
   </div>

@@ -5,10 +5,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  patch '/skills', to: 'skills#update'
 
   get '/account', to: 'pages#account'
   resources :bios, only: [:new, :create, :edit, :update]
-  resources :skill, only: [:new]
+  resources :skill, only: [:show, :new]
   resources :questions do
     resources :proposals
   end
