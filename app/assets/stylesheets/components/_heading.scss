@@ -8,6 +8,13 @@
   margin: 0 auto;
 }
 
+.caption {
+  font-size: 1.6rem;
+  text-align: center;
+  display: inline-block;
+  width: 70%;
+  margin: 0 auto;
+}
 .subheading {
   font-size: 1.3rem;
   display: inline-block;
@@ -16,6 +23,10 @@
 .muted {
   color: #808080;
   display: inline-block;
+}
+
+.gray {
+  color: #808080;
 }
 
 .blue {
