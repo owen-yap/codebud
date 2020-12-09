@@ -1,4 +1,4 @@
-class SkillController < ApplicationController
+class SkillsController < ApplicationController
   def show
     @skill = Skill.find(params[:id])
   end
