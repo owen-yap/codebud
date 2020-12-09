@@ -81,7 +81,8 @@
   background: $lightblue;
   font-weight: 600;
   transition: background-color 0.2s ease;
-  padding: 1rem;
+  padding: 0.7rem;
+  width: 90px;
 
   &:hover {
   background-color: $darkblue;
