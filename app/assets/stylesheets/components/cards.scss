@@ -7,9 +7,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px;
+  transition: box-shadow ease 0.2s;
   img {
     height: 90%;
-    width: 120px;
+    width: 100px;
     object-fit: cover;
     padding-right: 10px;
     padding-top: 10px;
@@ -25,11 +26,21 @@
     margin-bottom: 0;
     margin-top: 8px;
   }
-  h2, p, a {
+  h2, p {
     color: black;
-    &:hover {
-      color: $lightblue;
-      text-decoration: none;
+    text-decoration: none;
+    transition: color ease 0.2s;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+  .ask-a-question {
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    .card-qn-infos {
+      p, h2 {
+        color: $darkblue;
+      }
     }
   }
 }
@@ -41,7 +52,7 @@
 .card-template {
   width: 100%;
   max-width: 800px;
-  height: 160px;
+  min-height: 160px;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
   border-radius: 8px;
   display: flex;
@@ -56,7 +67,7 @@
     margin: 0;
     font-size: 1.1rem;
   }
-  .white-btn {
+  .btn {
     align-self: center;
   }
   .info {
@@ -168,3 +179,6 @@ a:hover .card-order {
   box-shadow: 2px 2px 12px rgb(122, 122, 122);
 }
 
+.question {
+  background-color: white;
+}
