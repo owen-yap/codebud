@@ -16,8 +16,9 @@
         <%= image_tag 'two.svg', class: "avatar-sm" %>
         Languages / Frameworks / Topics
       </p>
-      <%= f.association :skills, collection: Skill.all ,
+      <%= f.association :skills, collection: Skill.all,
         as: :check_boxes,
+        include_blank: false,
         input_html: { class: "skills-selector" },
         item_wrapper_class: 'skills-item' %>
     </div>

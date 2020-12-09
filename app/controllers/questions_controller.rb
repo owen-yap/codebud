@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params_qn)
     @question.user = current_user
+    raise
     if @question.save!
       redirect_to question_path(@question)
     else
@@ -48,6 +49,7 @@ class QuestionsController < ApplicationController
 
 
   def params_qn
-    params.require(:question).permit(:title, :description, :min_price, :max_price, :start_time, :end_time, :user_id, :skills)
+    params.require(:question).permit(:title, :description, :min_price,
+    :max_price, :start_time, :end_time, :user_id, skill_ids: [])
   end
 end
