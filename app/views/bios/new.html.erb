@@ -6,10 +6,9 @@
     <%# there's no link btw bio and skills, hence we use simple_fields to allow skills instance to be displayed on bio form %>
     <%= f.simple_fields_for :user do |user_form| %>
       <%= user_form.collection_check_boxes :skill_ids, Skill.all, :id, :name,
-       item_label_class: 'my-custom-class', input_html: { class: "skills-selector" },
-      item_wrapper_class: 'skills-item' %>
+       item_label_class: 'skills-label', item_wrapper_class: 'skills-item' %>
     <% end %>
-
+    
     <%= f.submit %>
   <% end %>
 </div>
