@@ -1,23 +1,21 @@
 .main-heading {
   color: #509696;
+  font-size: 2rem;
   width: 480px;
   border-bottom-style: solid;
   text-align: center;
   border-bottom-width: medium;
+  margin: 0 auto;
 }
 
 .subheading {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   width: 480px;
 }
 
 .muted {
   color: #808080;
-}
-
-h2 {
-  font-size: 14px;
-  // text-align: center;
+  display: inline-block;
 }
 
 .blue {
@@ -38,4 +36,8 @@ h2 {
     transition-duration: 0.8s;
     text-decoration: none;
   }
+}
+
+.title {
+  font-size: 1.4rem;
 }

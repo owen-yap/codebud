@@ -26,12 +26,9 @@ require("jquery")
 // External imports
 import "bootstrap";
 
-import flatpickr from "flatpickr";
-
-
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { initFlatpickr} from '../plugins/init_flatpickr';
+import { initFlatpickr } from '../plugins/init_flatpickr';
 import { initAnime } from './../plugins/init_anime.js';
 
 // when the page have fully loaded then call these js plugins so the dom are fully loaded and can be targeted

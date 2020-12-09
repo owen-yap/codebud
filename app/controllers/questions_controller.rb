@@ -1,9 +1,8 @@
 class QuestionsController < ApplicationController
-
   before_action :set_question, only: %i[show edit update destroy]
 
   def index
-    @questions = Question.all
+    @questions = current_user.questions
   end
 
   def new
@@ -22,7 +21,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
@@ -46,7 +44,6 @@ class QuestionsController < ApplicationController
   def set_question
     @question = Question.find(params[:id])
   end
-
 
   def params_qn
     params.require(:question).permit(:title, :description, :min_price,
