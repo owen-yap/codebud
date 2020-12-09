@@ -4,10 +4,19 @@
   <p><%= @question.description %></p>
   <span>$<%= @question.min_price %> to
   <span>$<%= @question.max_price %>
-    <% @question.skills_ids.each do |skillid| %>
-      <p>Skills required: <%=  Skill.find([:skillid]) %> </p>
+  <div>
+    <h6>Skill set required: </h6>
+    <% @question.skills.each do |skill| %>
+      <%=  skill.name %>
     <% end %>
+  </div>
+  <h6>Time</h6>
   <p>Start Time: <%= @question.start_time %></p>
   <p>End Time: <%= @question.end_time %></p>
 
+  <span><%= link_to "Edit Question" ,edit_question_path(@question), class: "btn light-btn" %> </span>
+  <span> <%= link_to "Delete Question",
+      question_path(@question),
+      method: :delete,
+      data: { confirm: "Are you deleting this question?"}, class: "btn dark-btn" %></span>
 </div>

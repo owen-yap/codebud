@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
   belongs_to :user
-  has_many :requirements
+  has_many :requirements, dependent: :destroy
   has_many :skills, through: :requirements
 
   validates :start_time, :end_time, presence: true

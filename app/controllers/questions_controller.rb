@@ -12,7 +12,6 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params_qn)
     @question.user = current_user
-    raise
     if @question.save!
       redirect_to question_path(@question)
     else
@@ -21,6 +20,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+
   end
 
   def edit

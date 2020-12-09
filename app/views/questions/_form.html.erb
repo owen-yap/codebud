@@ -19,6 +19,7 @@
       <%= f.association :skills, collection: Skill.all,
         as: :check_boxes,
         include_blank: false,
+        include_hidden: false,
         input_html: { class: "skills-selector" },
         item_wrapper_class: 'skills-item' %>
     </div>
