@@ -32,15 +32,45 @@
           <div class='card-account col-6'>
             <div class='detail-header'>
               <strong>Bio</strong>
-              <%= link_to "🖊Edit Bio", data-toggle="exampleModal", class: "blue ml-2" %>
+              <a href='#' class="blue ml-2" data-toggle="modal" data-target="#exampleModal">🖊Edit Bio</a>
+              <%#= link_to "🖊Edit Bio", edit_user_registration_path, class: "blue ml-2" %>
             </div>
             <div class='card-template account-details bio'>
               <p>
                 <%= @user.bio.content %>
               </p>
             </div>
+          </div> 
+
+          <!-- Modal for edit-->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Edit Bio</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div class="modal-body">
+                  <%#  %>
+                  <%= simple_form_for @user.bio, remote: true do |f| %>
+                    <%= f.input :content %>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <%= f.submit "Save Changes", class: "btn btn-primary" %>
+                                                  <%# data: { dismiss: "modal" } %>
+                                                  <%# does not transistion out clean, have to use js %>
+                    </div>
+                  <% end %>
+                </div>
+                
+              </div>
+            </div>
           </div>
-    
+
+
           <div class='card-account col-6'>
             <div class='detail-header'>
               <strong>Skills</strong>

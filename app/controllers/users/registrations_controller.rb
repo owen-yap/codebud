@@ -9,11 +9,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # POST /resource
   def after_sign_up_path_for(resource)
     new_bio_path
   end
-
+  
+  # POST /resource
   # def create
     # super
     # skill_ids = params.dig(:user, :skill_ids)
