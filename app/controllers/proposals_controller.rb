@@ -10,7 +10,10 @@ class ProposalsController < ApplicationController
   def create
     proposal = Proposal.new(proposal_params)
     proposal.status = 'pending'
-    
+    proposal.user = current_user
+    proposal.question = Question.find(params[:question_id])
+    proposal.save!
+    redirect_to questions_path
   end
 
   def cancel
