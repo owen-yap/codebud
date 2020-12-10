@@ -18,7 +18,7 @@
     </div>
   <% end %>
   <h2 class="subheading mt-3">Questions Applied</h2>
-  <% if current_user.proposals.empty? %>  
+  <% if @proposals.empty? %>  
     <div class='card-template card-questions mt-3 mb-3'>
       <%= image_tag 'missing.svg' %>
       <p class='muted'>No questions applied. Apply for a question now.</p>
