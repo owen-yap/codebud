@@ -104,14 +104,14 @@
   }
 }
 
-.gray-btn-sm {
-  color: black;
-  background: darkgray;
-  border-radius: 4px;
-  line-height: 1.2;
-  padding: 8px;
-  font-size: 10px;
-  font-weight: lighter;
-  transition: opacity 0.3s ease;
-  margin: 8px 0px 8px 0px;
+.pending {
+  background-color: $lightgray !important;
+}
+
+.accepted {
+  background-color: #5BD28C;
+}
+
+.rejected {
+  background-color: #FD5F72;
 }
