@@ -29,6 +29,7 @@ tutor1 = User.new(name: Faker::Name.unique.name,
                 password: "lewagon")
 tutor1.skills << Skill.find_by_name("Python")
 tutor1.skills << Skill.find_by_name("Javascript")
+tutor1.bio = Bio.create(content: "")
 tutor1.save!
 
 tutor2 = User.new(name: Faker::Name.unique.name,
@@ -38,6 +39,7 @@ tutor2 = User.new(name: Faker::Name.unique.name,
                 password: "lewagon")
 tutor2.skills << Skill.find_by_name("Ruby")
 tutor2.skills << Skill.find_by_name("Rails")
+tutor2.bio = Bio.create(content: "")
 tutor2.save!
 
 
@@ -65,5 +67,10 @@ proposal2 = Proposal.new(price: (1..10).to_a.sample, status: 'pending', meeting_
 proposal2.question = Question.first
 proposal2.user = tutor2
 puts "Proposal 2 created 💍" if proposal2.save!
+
+proposal3 = Proposal.new(price: (1..10).to_a.sample, status: 'pending', meeting_time: DateTime.now )
+proposal3.question = Question.all[1]
+proposal3.user = tutor2
+puts "Proposal 3 created 💍" if proposal3.save!
 
 puts "Completed ✨✨✨"

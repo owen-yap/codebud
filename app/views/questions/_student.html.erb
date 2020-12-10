@@ -1,0 +1,27 @@
+<div class="col-7 pt-5 pl-4">
+  <h2 class="subheading">Get Started</h2>
+  <%= link_to new_question_path do %>
+    <div class="ask-a-question">
+      <div class="card-qn-infos">
+        <h2>Ask a question</h2>
+        <p>Specify the problem &middot; Set a price &middot; Connect and learn</p>
+      </div>
+      <%= image_tag "code.svg" %>
+    </div>
+  <% end %>
+
+  <h2 class="subheading mt-5">Active Questions</h2>
+  <% @questions.each do |question| %>
+    <div class="card-template question mb-2">
+      <div class="info">
+        <h6 class="title mb-2"><%= question.title %> </h6>
+          <div class="tags">
+            <% question.skills.each do |skill| %>
+              <p class="card-tag"> <%= skill.name %> </p>
+            <% end %>
+          </div>
+      </div>
+          <%= link_to "Pick a tutor", question_proposals_path(question), class: "btn fat-btn" %>
+    </div>
+  <% end %>
+</div>
