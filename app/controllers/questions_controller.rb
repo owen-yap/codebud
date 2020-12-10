@@ -3,6 +3,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = current_user.questions
+    @all_questions = Question.all
   end
 
   def new
@@ -20,7 +21,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
@@ -47,6 +47,6 @@ class QuestionsController < ApplicationController
 
   def params_qn
     params.require(:question).permit(:title, :description, :min_price,
-    :max_price, :start_time, :end_time, :user_id, skill_ids: [])
+                                     :max_price, :start_time, :end_time, :user_id, skill_ids: [])
   end
 end
