@@ -7,6 +7,10 @@ class Question < ApplicationRecord
   validates :start_time, :end_time, :title, :description, :min_price, :max_price, presence: true
   validate :end_time_after_start_time
 
+  def selected_proposal
+    return self.proposals.find_by status: "selected"
+  end
+
   private
 
   def end_time_after_start_time
