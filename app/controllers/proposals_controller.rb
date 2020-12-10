@@ -29,6 +29,7 @@ class ProposalsController < ApplicationController
     redirect_to questions_path
   end
 
+
   # def set_proposal
   #   @proposal = Proposal.find(params[:id])
   # end
