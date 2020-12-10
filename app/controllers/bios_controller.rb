@@ -20,9 +20,11 @@ class BiosController < ApplicationController
     redirect_to root_path
   end
 
-  def edit; end
-
-  def update; end
+  def update
+    @bio = Bio.find(params[:id])
+    @bio.update(params_bio)
+    redirect_to account_path
+  end
 
   private
 
