@@ -35,6 +35,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'pg_search', '~> 2.3.0'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'pry-byebug'
