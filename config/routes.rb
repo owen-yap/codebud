@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :questions do
     resources :proposals
   end
+  get '/cancel/:id', to: 'proposals#cancel', as: :cancel
 end

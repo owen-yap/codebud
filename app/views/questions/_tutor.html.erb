@@ -18,7 +18,7 @@
     </div>
   <% end %>
   <h2 class="subheading mt-3">Questions Applied</h2>
-  <% if current_user.proposals.empty? %>  
+  <% if @proposals.empty? %>  
     <div class='card-template card-questions mt-3 mb-3'>
       <%= image_tag 'missing.svg' %>
       <p class='muted'>No questions applied. Apply for a question now.</p>
@@ -39,8 +39,9 @@
         <% elsif proposal.status == 'selected' %>
           <%= link_to "Selected", question_path(proposal.question), class: "btn fat-btn accepted" %>
         <% else %>
-          <%= link_to question_path(proposal.question), class: 'btn fat-btn rejected' do %>
-            <%= image_tag 'trash.svg', width: '30px', height: '30px' %>
+          <%= link_to cancel_path(proposal), class: 'btn fat-btn rejected' do %>
+            <%= image_tag 'trash.svg', width: '20px', height: '20px' %>
+            Rejected
           <% end %>
         <% end %>
       </div>
