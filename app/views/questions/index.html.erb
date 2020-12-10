@@ -18,27 +18,23 @@
 
       <h2 class="subheading mt-5">Active Questions</h2>
       <% @questions.each do |question| %>
-            <div class="card-template question mb-2">
-              <div class="info">
-                <h6 class="title mb-2"><%= question.title %> </h6>
-                <p>Skill set required: </p>
-                  <% question.skills.each do |skill| %>
-                    <span class="btn gray-btn-sm mt-0"> <%= skill.name %> </span>
-                  <% end %>
-              </div>
-               
-            </div>
-
-        <% end %>
-
-            <%= link_to "Pick a tutor", question_proposals_path(question), class: "btn fat-btn" %>
+        <div class="card-template question mb-2">
+          <div class="info">
+            <h6 class="title mb-2"><%= question.title %> </h6>
+            <p>Skill set required: </p>
+              <% question.skills.each do |skill| %>
+                <span class="btn gray-btn-sm mt-0"> <%= skill.name %> </span>
+              <% end %>
+              <%= link_to "Pick a tutor", question_proposals_path(question), class: "btn fat-btn" %>
           </div>
-      <% end %>
+        </div>
 
+    <% end %>
     </div>
+
+  </div>
 
     <div class="col-3 pt-5">
       <h2 class="subheading">Help and Support</h2>
     </div>
-  </div>
 </div>
