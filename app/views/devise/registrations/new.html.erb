@@ -8,8 +8,8 @@
   </div>
   
   <div class="right-container">
-    <div>
-      <%= link_to "< Back", root_path, class: "muted" %>
+    <%= link_to "< Back", root_path, class: "muted back-link" %>
+    <div class="login-form">
       <h2 class="subheading mb-3"><strong>Sign up with Codebud</strong></h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>

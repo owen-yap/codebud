@@ -8,7 +8,7 @@ class Question < ApplicationRecord
   validate :end_time_after_start_time
 
   def selected_proposal
-    return self.proposals.find_by status: "selected"
+    return proposals.find_by status: "selected"
   end
 
   private

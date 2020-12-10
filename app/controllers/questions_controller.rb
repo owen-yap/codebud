@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = current_user.questions
-    @all_questions = Question.all
+    @all_questions = Question.all.select { |question| question.proposals.all? { |proposal| proposal.status == 'pending' } }
     @proposals = current_user.proposals.where(status: %w[pending selected rejected])
   end
 
@@ -22,7 +22,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
