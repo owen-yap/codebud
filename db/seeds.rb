@@ -29,6 +29,7 @@ tutor1 = User.new(name: Faker::Name.unique.name,
                 password: "lewagon")
 tutor1.skills << Skill.find_by_name("Python")
 tutor1.skills << Skill.find_by_name("Javascript")
+tutor1.bio = Bio.create(content: "")
 tutor1.save!
 
 tutor2 = User.new(name: Faker::Name.unique.name,
@@ -38,6 +39,7 @@ tutor2 = User.new(name: Faker::Name.unique.name,
                 password: "lewagon")
 tutor2.skills << Skill.find_by_name("Ruby")
 tutor2.skills << Skill.find_by_name("Rails")
+tutor2.bio = Bio.create(content: "")
 tutor2.save!
 
 
