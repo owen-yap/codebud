@@ -21,13 +21,13 @@
             <% end %>
           </div>
       </div>
-          <% if question.selected_proposal %>
-            <%= link_to "View",question_path(question), class: "btn fat-btn accepted" %>
-            <!-- link to view the question with the selected tutor -->
-          <% else %>
-            <%= link_to "Pick a Tutor", question_proposals_path(question), class: "btn fat-btn" %>
-            <!-- link to view the proposals and select the tutors-->
-          <% end %>
+        <% if question.selected_proposal %>
+          <%= link_to "View",question_path(question), class: "btn fat-btn accepted" %>
+          <!-- link to view the question with the selected tutor -->
+        <% else %>
+          <%= link_to "Pick a Tutor", question_proposals_path(question), class: "btn fat-btn" %>
+          <!-- link to view the proposals and select the tutors-->
+        <% end %>
     </div>
   <% end %>
 </div>
