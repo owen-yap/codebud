@@ -22,14 +22,25 @@ user.bio = Bio.create(content: "I am currently going through university and need
 user.skills << Skill.find_by_name("Python")
 user.save!
 
-tutor = User.new(name: Faker::Name.unique.name,
+tutor1 = User.new(name: Faker::Name.unique.name,
                 email: Faker::Internet.email,
                 username: Faker::Name.unique.name,
                 tutor: true,
                 password: "lewagon")
-tutor.skills << Skill.find_by_name("Python")
-tutor.skills << Skill.find_by_name("Javascript")
-tutor.save!
+tutor1.skills << Skill.find_by_name("Python")
+tutor1.skills << Skill.find_by_name("Javascript")
+tutor1.save!
+
+tutor2 = User.new(name: Faker::Name.unique.name,
+                email: Faker::Internet.email,
+                username: Faker::Name.unique.name,
+                tutor: true,
+                password: "lewagon")
+tutor2.skills << Skill.find_by_name("Ruby")
+tutor2.skills << Skill.find_by_name("Rails")
+tutor2.save!
+
+
 
 3.times do
   question = Question.new(title: Faker::Quotes::Shakespeare.hamlet_quote,
@@ -45,9 +56,14 @@ tutor.save!
   question.save!
 end
 
-proposal = Proposal.new(price: (1..10).to_a.sample, status: 'pending', meeting_time: DateTime.now )
-proposal.question = Question.all.sample
-proposal.user = tutor
-puts "Proposal created 💍" if proposal.save!
+proposal1 = Proposal.new(price: (1..10).to_a.sample, status: 'pending', meeting_time: DateTime.now )
+proposal1.question = Question.first
+proposal1.user = tutor1
+puts "Proposal created 💍" if proposal1.save!
+
+proposal2 = Proposal.new(price: (1..10).to_a.sample, status: 'pending', meeting_time: DateTime.now )
+proposal2.question = Question.first
+proposal2.user = tutor2
+puts "Proposal 2 created 💍" if proposal2.save!
 
 puts "Completed ✨✨✨"
