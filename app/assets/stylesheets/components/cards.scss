@@ -73,10 +73,10 @@ a:hover {
   
   .card-tag {
     display: inline-block;
-    background-color: $lightgray;
-    padding: 0.2rem 0.3rem;
-
+    color: $lightgray;
+    padding: 0.2rem;
   }
+
   .info {
     width: 80%;
     padding: 0;
@@ -96,16 +96,9 @@ a:hover {
       margin-bottom: 10px;
     }
     p {
-      color: $darkgray;
       font-size: 0.8rem;
       font-weight: 300;
       margin: 0;
-    }
-
-    .card-tag {
-      display: inline-block;
-      background-color: $lightgray;
-      padding: 0.1rem;
     }
 
     a {

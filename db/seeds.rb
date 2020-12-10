@@ -27,6 +27,9 @@ tutor = User.new(name: Faker::Name.unique.name,
                 username: Faker::Name.unique.name,
                 tutor: true,
                 password: "lewagon")
+tutor.skills << Skill.find_by_name("Python")
+tutor.skills << Skill.find_by_name("Javascript")
+tutor.save!
 
 3.times do
   question = Question.new(title: Faker::Quotes::Shakespeare.hamlet_quote,

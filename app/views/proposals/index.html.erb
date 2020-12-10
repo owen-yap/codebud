@@ -13,11 +13,11 @@
         <div class="info ml-4">
           <h2><%= proposal.user.name %></h2>
           <p class="card-subheading">Good with: </p>
-          <ul class="tags">
+          <div class="tags">
             <% proposal.user.skills.each do |skill| %>
-              <li class="card-tag">skill</li>
+              <p class="card-tag"><%= skill.name %></p>
             <% end %>
-          </ul>
+          </div>
           <a href="#">View full profile ></a>
         </div>
 
