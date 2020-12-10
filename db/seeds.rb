@@ -68,4 +68,9 @@ proposal2.question = Question.first
 proposal2.user = tutor2
 puts "Proposal 2 created 💍" if proposal2.save!
 
+proposal3 = Proposal.new(price: (1..10).to_a.sample, status: 'pending', meeting_time: DateTime.now )
+proposal3.question = Question.all[1]
+proposal3.user = tutor2
+puts "Proposal 3 created 💍" if proposal3.save!
+
 puts "Completed ✨✨✨"

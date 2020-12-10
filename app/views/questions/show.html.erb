@@ -1,5 +1,5 @@
 <div class="container">
-
+<%= link_to "< Back", questions_path, class: "muted" %>
   <h3><%= @question.title %></h3>
   <p><%= @question.description %></p>
   <span>$<%= @question.min_price %> to
@@ -13,7 +13,7 @@
   <h6>Time</h6>
   <p>Start Time: <%= @question.start_time %></p>
   <p>End Time: <%= @question.end_time %></p>
-
+  <h4> Tutor assigned: <%= @question.selected_proposal.user.name %> </h4>
   <span><%= link_to "Edit Question" ,edit_question_path(@question), class: "btn light-btn" %> </span>
   <span> <%= link_to "Delete Question",
       question_path(@question),
