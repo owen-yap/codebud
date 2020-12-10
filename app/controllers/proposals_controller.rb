@@ -26,6 +26,7 @@ class ProposalsController < ApplicationController
         proposal.save!
       end
     end
+    # go to order path when it is created
     redirect_to questions_path
   end
 
