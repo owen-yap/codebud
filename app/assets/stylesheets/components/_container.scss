@@ -34,11 +34,14 @@
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-  
-    form {
-      .input-half {
-        width: 50%; 
-      }
+    position: relative;
+    .back-link {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+    }
+    .login-form {
+      width: 60%;
     }
   }
 }

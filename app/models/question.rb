@@ -7,8 +7,15 @@ class Question < ApplicationRecord
   validates :start_time, :end_time, :title, :description, :min_price, :max_price, presence: true
   validate :end_time_after_start_time
 
+  include PgSearch::Model
+  pg_search_scope :global_search, against: %i[title description], associated_against: {
+    skills: :name
+  }, using: {
+    tsearch: { prefix: true }
+  }
+
   def selected_proposal
-    return self.proposals.find_by status: "selected"
+    return proposals.find_by status: "selected"
   end
 
   private
