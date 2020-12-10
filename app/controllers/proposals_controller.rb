@@ -9,4 +9,11 @@ class ProposalsController < ApplicationController
 
   def create
   end
+
+  def cancel
+    proposal = Proposal.find(params[:id])
+    proposal.status = 'cancelled'
+    proposal.save!
+    redirect_to questions_path
+  end
 end
