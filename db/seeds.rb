@@ -44,5 +44,7 @@ end
 
 proposal = Proposal.new(price: (1..10).to_a.sample, status: 'pending', meeting_time: DateTime.now )
 proposal.question = Question.all.sample
+proposal.user = tutor
+puts "Proposal created 💍" if proposal.save!
 
 puts "Completed ✨✨✨"

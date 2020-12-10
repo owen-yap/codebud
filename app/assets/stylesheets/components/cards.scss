@@ -66,18 +66,29 @@ a:hover {
     margin: 0;
     font-size: 1.1rem;
   }
+  
   .btn {
     align-self: center;
+  } 
+  
+  .card-tag {
+    display: inline-block;
+    background-color: $lightgray;
+    padding: 0.2rem 0.3rem;
+
   }
   .info {
     width: 80%;
     padding: 0;
+    display: flex;
+    flex-direction: column;
     h2 {
       color: white;
       font-size: 1.8rem;
       font-weight: 400;
       margin: 0;
     }
+
     h6 {
       color: black;
       font-size: 1.2rem;
@@ -96,6 +107,7 @@ a:hover {
       background-color: $lightgray;
       padding: 0.1rem;
     }
+
     a {
       color: white;
       transition: color ease 0.2s;
