@@ -55,7 +55,7 @@
 
                 <div class="modal-body">
                   <%= simple_form_for @user.bio, remote: true do |f| %>
-                    <%= f.input :content %>
+                    <%= f.input :content, input_html: {rows: 10, cols: 50} %>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       <%= f.submit "Save Changes", class: "btn btn-primary" %>
