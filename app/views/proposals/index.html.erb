@@ -30,7 +30,13 @@
           <p class="card-subheading">Price:</p>
           <p class="card-subheading"><%= proposal.price %></p>
         </div>
-        <a href"#" class="btn white-btn">Select</a>
+        <%= simple_form_for(proposal, url: accept_proposal_path, method: :post) do |f| %>
+          <!-- :id extracts the proposal_id but you hides it . It allow you to
+            access the id as its is in the params that was passed in the form-->
+          <%= f.input :id, as: :hidden %>
+          <%= f.submit 'Select', class: "btn white-btn" %>
+         <% end %>
       </div>
+
     <% end %>
 </div>

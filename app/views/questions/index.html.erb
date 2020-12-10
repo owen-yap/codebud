@@ -27,7 +27,13 @@
                 <% end %>
               </div>
           </div>
-              <%= link_to "Pick a tutor", question_proposals_path(question), class: "btn fat-btn" %>
+              <% if question.proposals.find_by status: "selected" %>
+                <p class= "btn fat-green-btn" >View</p>
+                <!-- link to view the proposed -->
+              <% else %>
+                <p class= "btn fat-btn" >Pick a Tutor</p>
+                <!-- link to view the proposed -->
+              <% end %>
         </div>
 
     <% end %>
