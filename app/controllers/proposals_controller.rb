@@ -10,7 +10,7 @@ class ProposalsController < ApplicationController
   def create
   end
 
-  def cancel  
+  def cancel
     proposal = Proposal.find(params[:id])
     proposal.status = 'cancelled'
     proposal.save!
@@ -28,12 +28,13 @@ class ProposalsController < ApplicationController
       if proposal == @accepted_proposal
         @accepted_proposal.status = "selected"
         @accepted_proposal.save!
+        # message popup
       else
         proposal.status = "rejected"
         proposal.save!
       end
     end
-    
+
     # go to order path when it is created
     redirect_to questions_path
   end

@@ -13,4 +13,9 @@ Rails.application.routes.draw do
     resources :proposals
   end
   get '/cancel/:id', to: 'proposals#cancel', as: :cancel
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
 end
