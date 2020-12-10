@@ -9,4 +9,27 @@ class ProposalsController < ApplicationController
 
   def create
   end
+
+  def accept
+    @accepted_proposal = Proposal.find(params[:proposal][:id].to_i)
+
+    @question = @accepted_proposal.question
+
+    @allproposals = @question.proposals
+
+    @allproposals.each do |proposal|
+      if proposal == @accepted_proposal
+        @accepted_proposal.status = "selected"
+        @accepted_proposal.save!
+      else
+        proposal.status = "rejected"
+        proposal.save!
+      end
+    end
+    redirect_to questions_path
+  end
+
+  # def set_proposal
+  #   @proposal = Proposal.find(params[:id])
+  # end
 end
