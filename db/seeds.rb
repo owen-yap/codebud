@@ -25,11 +25,12 @@ data['items'].each do |set|
   user = User.find_by(email: set['owner']['display_name'].gsub(" ", "_") + '@gmail.com') if !user.valid?
 
   puts 'skills creation......🎂'
-  if Skill.find_by(name: set['tags'][0]).nil?
-    skill = Skill.new(name: set['tags'][0].capitalize )
+  skill_name = set['tags'][0].capitalize
+  if Skill.find_by(name: skill_name).nil?
+    skill = Skill.new(name: skill_name )
     skill.save!
   else
-    skill = Skill.find_by(name: set['tags'][0])
+    skill = Skill.find_by(name: skill_name)
   end
   
   user.skills << skill
