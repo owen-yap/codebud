@@ -31,6 +31,7 @@ import "bootstrap";
 import { initFlatpickr } from '../plugins/init_flatpickr';
 import { initAnime } from './../plugins/init_anime.js';
 import { initBioPills } from '../plugins/init_bio_pills';
+import { initChatroomCable } from '../channels/chatroom_channel'
 
 // when the page have fully loaded then call these js plugins so the dom are fully loaded and can be targeted
 document.addEventListener('turbolinks:load', () => {
@@ -39,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   initAnime();
   initFlatpickr();
   initBioPills();
+  initChatroomCable();
 });
 
 

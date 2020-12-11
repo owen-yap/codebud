@@ -16,8 +16,13 @@ Rails.application.routes.draw do
   end
   get '/cancel/:id', to: 'proposals#cancel', as: :cancel
 
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
+  resources :users, only: [] do
+    resources :messages, only: [:index, :create]
   end
+  # get '/users/:id/messages', to: 'messages#show' , as: :messages
+
+  # resources :messages, only: [:create]
+
+
 
 end
