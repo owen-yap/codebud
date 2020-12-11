@@ -44,7 +44,7 @@ tutor2.save!
 
 
 
-3.times do
+100.times do
   question = Question.new(title: Faker::Quotes::Shakespeare.hamlet_quote,
                           description: Faker::Quote.matz,
                           min_price: (1..5).to_a.sample,

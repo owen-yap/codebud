@@ -10,7 +10,7 @@ class ProposalsController < ApplicationController
   def create
   end
 
-  def cancel  
+  def cancel
     proposal = Proposal.find(params[:id])
     proposal.status = 'cancelled'
     proposal.save!
@@ -33,7 +33,8 @@ class ProposalsController < ApplicationController
         proposal.save!
       end
     end
-    
+
+    @question.status = "in progress"
     # go to order path when it is created
     redirect_to questions_path
   end
