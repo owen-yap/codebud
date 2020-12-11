@@ -19,6 +19,10 @@ class Question < ApplicationRecord
     return proposals.find_by status: "selected"
   end
 
+  def is_applied_by?(given_user)
+    proposals.where(user: given_user).exists?
+  end
+
   private
 
   def end_time_after_start_time

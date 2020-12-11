@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   include Pagy::Backend
 
   def index
-    @questions = current_user.questions.where(status: "pending")
+    @questions = current_user.questions.where(status: ["pending", "in progress"])
     @proposals = current_user.proposals.where(status: %w[pending selected rejected])
 
     if params[:query].present?
