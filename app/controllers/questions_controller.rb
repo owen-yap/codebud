@@ -3,8 +3,13 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = current_user.questions
-    @all_questions = Question.all
     @proposals = current_user.proposals.where(status: %w[pending selected rejected])
+
+    if params[:query].present?
+      @all_questions = Question.global_search(params[:query]).select { |question| question.proposals.all? { |proposal| proposal.status == 'pending' } }
+    else
+      @all_questions = Question.all.select { |question| question.proposals.all? { |proposal| proposal.status == 'pending' } }
+    end
   end
 
   def new
@@ -22,7 +27,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit

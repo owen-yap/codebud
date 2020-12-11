@@ -1,22 +1,31 @@
-<div class="container">
-<%= link_to "< Back", questions_path, class: "muted" %>
-  <h3><%= @question.title %></h3>
-  <p><%= @question.description %></p>
-  <span>$<%= @question.min_price %> to
-  <span>$<%= @question.max_price %>
-  <div>
-    <h6>Skill set required: </h6>
-    <% @question.skills.each do |skill| %>
-      <%=  skill.name %>
-    <% end %>
-  </div>
-  <h6>Time</h6>
-  <p>Start Time: <%= @question.start_time %></p>
-  <p>End Time: <%= @question.end_time %></p>
-  <h4> Tutor assigned: <%= @question.selected_proposal.user.name %> </h4>
-  <span><%= link_to "Edit Question" ,edit_question_path(@question), class: "btn light-btn" %> </span>
-  <span> <%= link_to "Delete Question",
-      question_path(@question),
-      method: :delete,
-      data: { confirm: "Are you deleting this question?"}, class: "btn dark-btn" %></span>
+<div class="container-sm">
+   <%= link_to "< Back", :back, class: "muted mt-5" %>
+   <div class="card-template question mb-3 mt-3">
+      <div class="info">
+        <h3 class="title mb-2"><%= @question.title %> </h3>
+        <div class="tags">
+          <% @question.skills.each do |skill| %>
+            <p class="card-tag"> <%= skill.name %> </p>
+          <% end %>
+        </div>
+        <div>
+          <p>Availability: <%= "#{@question.start_time} to #{@question.end_time}" %> &nbsp; &nbsp; &nbsp; &nbsp;<%= "Price range: #{@question.min_price} to #{@question.max_price}" %></p>
+        </div>
+      </div>
+      <% if current_user.tutor %>
+        <%= link_to "Apply", new_question_proposal_path(@question), class: "btn light-btn" %>
+      <% end %>
+    </div>
+
+    <div class="card-template bg-white">
+      <p><%= @question.description %></p>
+    </div>
+
+  <% if current_user == @question.user %>
+    <%= link_to "Edit Question" ,edit_question_path(@question), class: "btn light-btn" %>
+    <%= link_to "Delete Question",
+        question_path(@question),
+        method: :delete,
+        data: { confirm: "Are you deleting this question?"}, class: "btn dark-btn" %>
+  <% end %>
 </div>
