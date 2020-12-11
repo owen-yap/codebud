@@ -8,9 +8,15 @@ class ProposalsController < ApplicationController
   end
 
   def create
+    proposal = Proposal.new(proposal_params)
+    proposal.status = 'pending'
+    proposal.user = current_user
+    proposal.question = Question.find(params[:question_id])
+    proposal.save!
+    redirect_to questions_path
   end
 
-  def cancel  
+  def cancel
     proposal = Proposal.find(params[:id])
     proposal.status = 'cancelled'
     proposal.save!
@@ -33,12 +39,14 @@ class ProposalsController < ApplicationController
         proposal.save!
       end
     end
-    
+
     # go to order path when it is created
     redirect_to questions_path
   end
 
+  def proposal_params
+    params.require(:proposal).permit(:price, :status, :meeting_time)
+  end
   # def set_proposal
   #   @proposal = Proposal.find(params[:id])
-  # end
 end
