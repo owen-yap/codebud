@@ -23,7 +23,7 @@ user.skills << Skill.find_by_name("Python")
 user.save!
 
 tutor1 = User.new(name: Faker::Name.unique.name,
-                email: Faker::Internet.email,
+                email: "elon@tesla.com",
                 username: Faker::Name.unique.name,
                 tutor: true,
                 password: "lewagon")
@@ -44,7 +44,7 @@ tutor2.save!
 
 
 
-3.times do
+100.times do
   question = Question.new(title: Faker::Quotes::Shakespeare.hamlet_quote,
                           description: Faker::Quote.matz,
                           min_price: (1..5).to_a.sample,

@@ -1,14 +1,16 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[show edit update destroy]
 
+  include Pagy::Backend
+
   def index
-    @questions = current_user.questions
+    @questions = current_user.questions.where(status: "pending")
     @proposals = current_user.proposals.where(status: %w[pending selected rejected])
 
     if params[:query].present?
-      @all_questions = Question.global_search(params[:query]).select { |question| question.proposals.all? { |proposal| proposal.status == 'pending' } }
+      @pagy, @all_questions = pagy(Question.where(status: "pending").global_search(params[:query]), items: 3)
     else
-      @all_questions = Question.all.select { |question| question.proposals.all? { |proposal| proposal.status == 'pending' } }
+      @pagy, @all_questions = pagy(Question.where(status: "pending"), items: 3)
     end
   end
 
