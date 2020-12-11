@@ -68,7 +68,6 @@ data['items'].each do |set|
   puts 'user saved! 🎉🎉🎉'
 end
 
-
 puts 'Creating Proposal'
 
 3.times do 
@@ -77,6 +76,7 @@ puts 'Creating Proposal'
                 username: Faker::Name.unique.name,
                 tutor: true,
                 password: "lewagon")
+
   tutor1.skills << Skill.all.sample
   tutor1.skills << Skill.all.sample
   tutor1.bio = Bio.create(content: "")
