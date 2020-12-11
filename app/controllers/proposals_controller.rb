@@ -8,6 +8,12 @@ class ProposalsController < ApplicationController
   end
 
   def create
+    proposal = Proposal.new(proposal_params)
+    proposal.status = 'pending'
+    proposal.user = current_user
+    proposal.question = Question.find(params[:question_id])
+    proposal.save!
+    redirect_to questions_path
   end
 
   def cancel
@@ -26,20 +32,20 @@ class ProposalsController < ApplicationController
 
     @allproposals.each do |proposal|
       if proposal == @accepted_proposal
-        @accepted_proposal.status = "selected"
-        @accepted_proposal.save!
-        # message popup
+        @accepted_proposal.update(status: "selected")
       else
-        proposal.status = "rejected"
-        proposal.save!
+        proposal.update(status: "rejected")
       end
     end
 
+    @question.update(status: "in progress")
     # go to order path when it is created
     redirect_to questions_path
   end
 
+  def proposal_params
+    params.require(:proposal).permit(:price, :status, :meeting_time)
+  end
   # def set_proposal
   #   @proposal = Proposal.find(params[:id])
-  # end
 end

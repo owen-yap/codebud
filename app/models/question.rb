@@ -6,6 +6,7 @@ class Question < ApplicationRecord
 
   validates :start_time, :end_time, :title, :description, :min_price, :max_price, presence: true
   validate :end_time_after_start_time
+  validates :status, inclusion: { in: ["pending", "in progress", "answered"] }
 
   include PgSearch::Model
   pg_search_scope :global_search, against: %i[title description], associated_against: {
@@ -16,6 +17,10 @@ class Question < ApplicationRecord
 
   def selected_proposal
     return proposals.find_by status: "selected"
+  end
+
+  def is_applied_by?(given_user)
+    proposals.where(user: given_user).exists?
   end
 
   private
