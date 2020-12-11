@@ -29,6 +29,8 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @proposal = Proposal.new
+    @proposal.question = @question
   end
 
   def edit
