@@ -26,15 +26,13 @@ class ProposalsController < ApplicationController
 
     @allproposals.each do |proposal|
       if proposal == @accepted_proposal
-        @accepted_proposal.status = "selected"
-        @accepted_proposal.save!
+        @accepted_proposal.update(status: "selected")
       else
-        proposal.status = "rejected"
-        proposal.save!
+        proposal.update(status: "rejected")
       end
     end
 
-    @question.status = "in progress"
+    @question.update(status: "in progress")
     # go to order path when it is created
     redirect_to questions_path
   end

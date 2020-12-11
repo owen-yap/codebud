@@ -23,7 +23,7 @@ user.skills << Skill.find_by_name("Python")
 user.save!
 
 tutor1 = User.new(name: Faker::Name.unique.name,
-                email: Faker::Internet.email,
+                email: "elon@tesla.com",
                 username: Faker::Name.unique.name,
                 tutor: true,
                 password: "lewagon")
