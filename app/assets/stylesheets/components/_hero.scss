@@ -49,6 +49,33 @@
   }
 }
 
+.mt-10 {
+  margin: 6rem 0;
+}
+
+.section-blue {
+  background-color: $darkerblue;
+  color: white;
+
+  .content {
+    h2 {
+      font-weight: 700;
+      font-size: 3rem;
+    }
+    p {
+      color: $lighterblue;
+      line-height: 30px;
+      font-size: 1.2rem;
+    }
+  }
+}
+
 .section-gray {
-  background-color: #EBEBEB;
+  background-color: #ECECEC;
+
+  h2 {
+    color: $darkerblue;
+    font-size: 3rem;
+    font-weight: 700;
+  }
 }
