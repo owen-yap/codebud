@@ -14,7 +14,6 @@ class ProposalsController < ApplicationController
     proposal.question = Question.find(params[:question_id])
     proposal.save!
     redirect_to questions_path
-
   end
 
   def cancel
