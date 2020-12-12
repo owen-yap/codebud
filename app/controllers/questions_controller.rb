@@ -29,7 +29,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question_markdown = @question.markdown_content.html_safe
     @proposal = Proposal.new
     @proposal.question = @question
   end
@@ -57,7 +56,7 @@ class QuestionsController < ApplicationController
   end
 
   def params_qn
-    params.require(:question).permit(:title, :description, :min_price,
+    params.require(:question).permit(:title, :rich_body, :min_price,
                                      :max_price, :start_time, :end_time, :user_id, skill_ids: [])
   end
 end

@@ -3,8 +3,9 @@ class Question < ApplicationRecord
   has_many :requirements, dependent: :destroy
   has_many :skills, through: :requirements
   has_many :proposals, dependent: :destroy
+  has_rich_text :rich_body
 
-  validates :start_time, :end_time, :title, :description, :min_price, :max_price, presence: true
+  validates :start_time, :end_time, :title, :rich_body, :min_price, :max_price, presence: true
   validate :end_time_after_start_time
   validates :status, inclusion: { in: ["pending", "in progress", "answered"] }
 
@@ -23,23 +24,11 @@ class Question < ApplicationRecord
     proposals.where(user: given_user).exists?
   end
 
-  def self.markdown
-    Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
-  end
-
-  before_save :assign_markdown_content, if: -> { description_changed? }
-
   private
 
   def end_time_after_start_time
     return if end_time.blank? || start_time.blank?
 
     errors.add(:end_time, "must be after the start time") if end_time < start_time
-  end
-
-  def assign_markdown_content
-    assign_attributes({
-                        markdown_content: self.class.markdown.render(description)
-                      })
   end
 end

@@ -1,5 +1,5 @@
 <div class="container-sm">
-   <%= link_to "< Back", :back, class: "muted mt-5" %>
+   <%= link_to "< Back", root_path, class: "muted mt-5" %>
    <div class="card-template question mb-3 mt-3">
       <div class="info">
         <h3 class="title mb-2"><%= @question.title %> </h3>
@@ -50,8 +50,11 @@
       <% end %>
     </div>
 
-    <div class="card-white">
-      <p><%= @question_markdown %></p>
+    <div class="card-white line-numbers language-css">
+      <%= @question.rich_body %>
+      <code class="language-css">
+        background-color: white;
+      </code>
     </div>
 
   <% if @question.status == "in progress" %>
