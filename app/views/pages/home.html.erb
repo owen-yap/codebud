@@ -1,6 +1,6 @@
-<div class="container-fluid  hero-bg">
+<div class="container-fluid hero-bg p-0">
   <div class="container">
-    <div class="row  hero">
+    <div class="row hero">
       <div class="col-12 col-md-6 col-lg-6">
         <div class="hero-content">
           <h1><span>Instant help</span> for your coding questions</h1>
@@ -11,6 +11,73 @@
   
       <div class="col-12 col-md-6 col-lg-6">
           <%= render "learn_to_code" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container media flex-column align-items-center my-5">
+    <h5 class="mb-3 mt-5 muted">As seen on</h5>
+    <div class="media-icons">
+      <%= image_tag "startup-weekend-gray.png" %>
+      <%= image_tag "yac-gray.png" %>
+      <%= image_tag "startup-x-gray.png", class: "ml-3" %>
+    </div>
+  </div>
+
+  <div class="container-fluid py-5 section-blue m-0">
+    <div class="container">
+      <div class="row mt-10 align-items-center">
+        <div class="col-6 content">
+          <h2>Tutors exactly when you need them</h2>
+          <p>Codebud was created to give self-learners an avenue to seek help for their coding questions. If you cannot understand the solutions you find online, give codebud a try today.</p>
+        </div>
+
+        <div class="col-6 usp">
+          <div class="usp-card">
+            <%= image_tag "back-in-time.svg" %>
+            <h3>On-demand help</h3>
+          </div>
+          <div class="usp-card">
+            <%= image_tag "high-five.svg" %>
+            <h3>1-on-1 personalised answers</h3>
+          </div>
+          <div class="usp-card">
+            <%= image_tag "hand.svg" %>
+            <h3>Student sets the price</h3>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+
+  <div class="container-fluid py-5 section-gray m-0">
+    <div class="container">
+      <div class="mt-10">
+        <h2 class="text-center mb-5">It begins with a question</h2>
+        <div class="row">
+          <div class="col-4">
+            <div class="inst-card text-center p-3">
+              <%= image_tag "apply.svg", class: "mb-5" %>
+              <h3>1. Set a price</h3>
+              <p>Price your question according to how much you are willing to pay</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="inst-card text-center p-3">
+              <%= image_tag "learn.svg", class: "mb-5" %>
+              <h3>2. Connect with a tutor</h3>
+              <p>Choose a tutor based on his experiences and reviews</p>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="inst-card text-center p-3">
+              <%= image_tag "product.svg", class: "mb-5" %>
+              <h3>3. Leave a feedback</h3>
+              <p>Feedback allows tutors to improve their teaching methods</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
