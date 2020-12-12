@@ -14,6 +14,13 @@ Rails.application.routes.draw do
   resources :questions do
     resources :proposals
   end
+  resources :orders do
+    resources :payments
+  end
+
+  # Stripe webhook endpoint creation
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
   get '/cancel/:id', to: 'proposals#cancel', as: :cancel
 
   resources :users, only: [] do
