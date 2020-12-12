@@ -38,7 +38,7 @@ class ProposalsController < ApplicationController
   end
 
   def accept
-    @accepted_proposal = Proposal.find(params[:proposal][:id].to_i)
+    @accepted_proposal = Proposal.find(params[:order][:proposal_id].to_i)
     @question = @accepted_proposal.question
 
     @allproposals = @question.proposals
@@ -53,7 +53,32 @@ class ProposalsController < ApplicationController
 
     @question.update(status: "in progress")
     # go to order path when it is created
-    redirect_to questions_path
+    create_order(@accepted_proposal)
+  end
+
+  private
+
+  def create_order(proposal)
+    # create an order
+    order = Order.new
+    order.proposal = proposal
+    # add the proposal on the params to the right order
+    # intiate the payment
+
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: order.proposal.question,
+        amount: order.proposal.price_cents,
+        currency: 'sgd',
+        quantity: 1
+      }],
+      success_url: root_url,
+      cancel_url: questions_url
+    )
+    order.save!
+    order.update(session_id: session.id)
+    redirect_to new_order_payment_path(order)
   end
 
   def proposal_params
