@@ -1,7 +1,8 @@
 <div class="container">
-<h3>Edit Question: <%= @question.title %> </h3>
-  <div class="container">
-  <%= render "form", question: @question %>
+  <%= link_to "< Back", question_path(@question), class: "muted mt-2 mb-5" %>
+  <h3>Edit Question: <%= @question.title %> </h3>
+  <div class="container p-0">
+    <%= render "form", question: @question %>
   </div>
 </div>
 

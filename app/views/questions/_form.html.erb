@@ -6,7 +6,9 @@
         What do you need help with?
       </p>
       <%= f.input :title %>
-      <%= f.input :description, as: :text %>
+      <div class="form-inputs">
+        <%= f.rich_text_area :rich_body %>
+      </div>
     </div>
   </section>
 

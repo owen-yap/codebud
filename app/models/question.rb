@@ -3,8 +3,9 @@ class Question < ApplicationRecord
   has_many :requirements, dependent: :destroy
   has_many :skills, through: :requirements
   has_many :proposals, dependent: :destroy
+  has_rich_text :rich_body
 
-  validates :start_time, :end_time, :title, :description, :min_price, :max_price, presence: true
+  validates :start_time, :end_time, :title, :rich_body, :min_price, :max_price, presence: true
   validate :end_time_after_start_time
   validates :status, inclusion: { in: ["pending", "in progress", "answered"] }
 
@@ -19,7 +20,7 @@ class Question < ApplicationRecord
     return proposals.find_by status: "selected"
   end
 
-  def is_applied_by?(given_user)
+  def applied_by?(given_user)
     proposals.where(user: given_user).exists?
   end
 

@@ -17,4 +17,12 @@ class User < ApplicationRecord
   def received_messages
     Messages.where(receiver_id: id)
   end
+
+
+  # finding messages sent and recieved by this user between the current user
+  def messages_with(user)
+    Message.where("(receiver_id = ? AND sender_id = ?)
+    OR (receiver_id = ? AND sender_id = ?)",
+    user.id, self.id, self.id, user.id)
+  end
 end

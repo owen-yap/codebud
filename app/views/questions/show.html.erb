@@ -1,5 +1,5 @@
 <div class="container-sm">
-   <%= link_to "< Back", :back, class: "muted mt-5" %>
+   <%= link_to "< Back", root_path, class: "muted mt-5" %>
    <div class="card-template question mb-3 mt-3">
       <div class="info">
         <h3 class="title mb-2"><%= @question.title %> </h3>
@@ -14,7 +14,7 @@
       </div>
       <% if current_user.tutor %>
         <%#= link_to "Apply", new_question_proposal_path(@question), class: "btn light-btn" %>
-        <% if @question.is_applied_by?(current_user)  %>
+        <% if @question.applied_by?(current_user)  %>
           <p class="btn light-btn pending" disabled>Pending</p>
         <% else %>
           <a href="#", class="btn light-btn", data-toggle="modal", data-target="#exampleModal" >Apply</a>
@@ -35,7 +35,7 @@
                   <%= f.input :meeting_time, label: 'Available Time' %>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <% if @question.is_applied_by?(current_user)  %>
+                    <% if @question.applied_by?(current_user)  %>
                       <%= f.button :submit, "Apply", class: "btn btn-primary", disabled: true %>
                     <% else %>
                       <%= f.button :submit, "Apply", class: "btn btn-primary" %>
@@ -50,8 +50,11 @@
       <% end %>
     </div>
 
-    <div class="card-template bg-white">
-      <p><%= @question.description %></p>
+    <div class="card-white line-numbers language-css">
+      <%= @question.rich_body %>
+      <code class="language-css">
+        background-color: white;
+      </code>
     </div>
 
   <% if @question.status == "in progress" %>
