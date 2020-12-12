@@ -39,7 +39,6 @@ class ProposalsController < ApplicationController
     end
 
     @question.update(status: "in progress")
-
     # go to order path when it is created
     redirect_to questions_path
   end
