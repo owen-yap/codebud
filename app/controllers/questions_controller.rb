@@ -23,6 +23,13 @@ class QuestionsController < ApplicationController
     @question.user = current_user
     if @question.save!
       redirect_to question_path(@question)
+      url = "https://api.telegram.org/bot1344893186:AAFwGnlTgTZyKzp-fjQIxIS4ZlyW-k3lOKQ/sendMessage"
+      message = "New Question 🖐\n\n ◼<b>Question:</b> #{@question.title}\n\n ◼<b>Topics</b>: #{@question.skills.pluck(:name).join(' ')}\n\n ◼<b>Price:</b> #{@question.max_price}\n\n ◼<b>Availability:</b> #{@question.start_time}\n\n Apply for this question now at https://codebud.co on your desktop"
+      HTTParty.post(url, body: {
+                      chat_id: "@codebud_tutors",
+                      text: message,
+                      parse_mode: "HTML"
+                    })
     else
       render :new
     end
