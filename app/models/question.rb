@@ -19,9 +19,15 @@ class Question < ApplicationRecord
     return proposals.find_by status: "selected"
   end
 
-  def is_applied_by?(given_user)
+  def applied_by?(given_user)
     proposals.where(user: given_user).exists?
   end
+
+  def self.markdown
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+  end
+
+  before_save :assign_markdown_content, if: -> { description_changed? }
 
   private
 
@@ -29,5 +35,11 @@ class Question < ApplicationRecord
     return if end_time.blank? || start_time.blank?
 
     errors.add(:end_time, "must be after the start time") if end_time < start_time
+  end
+
+  def assign_markdown_content
+    assign_attributes({
+                        markdown_content: self.class.markdown.render(description)
+                      })
   end
 end

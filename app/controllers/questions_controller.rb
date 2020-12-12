@@ -29,6 +29,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question_markdown = @question.markdown_content.html_safe
     @proposal = Proposal.new
     @proposal.question = @question
   end
