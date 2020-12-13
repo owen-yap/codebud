@@ -8,7 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
-
+require("trix")
+require("@rails/actiontext")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -32,6 +33,7 @@ import { initFlatpickr } from '../plugins/init_flatpickr';
 import { initAnime } from './../plugins/init_anime.js';
 import { initBioPills } from '../plugins/init_bio_pills';
 import { initChatroomCable } from '../channels/chatroom_channel'
+import { initFormattingToPreBlocks } from '../plugins/init_prism'
 
 // when the page have fully loaded then call these js plugins so the dom are fully loaded and can be targeted
 document.addEventListener('turbolinks:load', () => {
@@ -41,6 +43,6 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
   initBioPills();
   initChatroomCable();
+  initFormattingToPreBlocks();
+  Prism.highlightAll();
 });
-
-
