@@ -8,12 +8,11 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-  config.hosts << "f01088c4a069.ngrok.io"
   # Show full error reports.
   config.consider_all_requests_local = true
 
   # Ngrok tunneling
-  config.hosts << "b66fb05e22f3.ngrok.io"
+  # config.hosts << "b66fb05e22f3.ngrok.io"
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
@@ -31,7 +30,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  config.force_ssl = true
+  # config.force_ssl = true
 
   # defined default url options in dev env
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
