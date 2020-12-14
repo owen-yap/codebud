@@ -37,6 +37,9 @@ gem 'devise'
 gem 'pg_search', '~> 2.3.0'
 gem 'nokogiri'
 gem 'pagy', '~> 3.5'
+gem 'money-rails'
+gem 'stripe'
+gem 'stripe_event'
 
 group :development, :test do
   gem 'pry-byebug'
