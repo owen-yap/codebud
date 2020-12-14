@@ -18,11 +18,11 @@ data['items'].each do |set|
   url_so = set['link']
   puts 'user creation....🦆'
 
-    user = User.new(username: set['owner']['display_name'].gsub(" ", "_"),
-                  name: set['owner']['display_name'],                 
-                  email: set['owner']['display_name'].downcase.gsub(" ", "_") + '@gmail.com',
-                  password: "lewagon"
-                  )
+  user = User.new(username: set['owner']['display_name'].gsub(" ", "_"),
+                name: set['owner']['display_name'],                 
+                email: set['owner']['display_name'].downcase.gsub(" ", "_") + '@gmail.com',
+                password: "lewagon"
+                )
   user = User.find_by(email: set['owner']['display_name'].downcase.gsub(" ", "_") + '@gmail.com') if !user.valid?
 
   puts 'skills creation......🎂'

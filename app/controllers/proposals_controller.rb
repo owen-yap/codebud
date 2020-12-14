@@ -28,6 +28,7 @@ class ProposalsController < ApplicationController
                     })
     end
     redirect_to questions_path
+
   end
 
   def cancel
