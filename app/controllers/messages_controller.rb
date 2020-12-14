@@ -15,9 +15,10 @@ class MessagesController < ApplicationController
     @message.question = @question
 
     if @message.save
+      # looks for partial _message.html.erb if not default look for _message.json
       MessageChannel.broadcast_to(
         @question,
-        render_to_string(partial: "message", locals: { message: @message })
+        render_to_string(partial: "message", formats: [:html], locals: { message: @message })
       )
     else
       render "/index"

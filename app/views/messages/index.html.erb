@@ -5,7 +5,7 @@
       <%= link_to "< Back", root_path, class: "muted mt-5" %>
       <div class="card-template question mb-3 mt-3">
         <div class="info">
-          <h3 class="title mb-2"><%= @question.title %> </h3>
+          <h3 class="title mb-2"> <%= @question.title %> </h3>
           <div class="tags">
             <% @question.skills.each do |skill| %>
               <p class="card-tag"> <%= skill.name %> </p>
@@ -24,24 +24,24 @@
     </div>
     <!-- message window -->
     <div class="col-6">
-      <p>#Qn-<%= @question.title %></p>
-      <div id="messages" data-question-id="<%= @question.id %>">
-        <% @question.messages.each do |message| %>
-          <div class="message-container" id="message-<%= message.id %>">
-            <i class="author">
-              <span><%= message.sender.username %></span>
-              <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-            </i>
-            <p><%= message.content %></p>
-          </div>
+      <div class="msg-container-sm">
+        <p><strong>#Qn-<%= @question.title %></strong></p>
+        <div id="messages" data-question-id="<%= @question.id %>" data-current-user-id="<%=current_user.id%>">
+          <% @question.messages.each do |message| %>
+            <div class="message-container" id="message-<%= message.id %>" data-user-id="<%=message.user.id%>">
+              <i class="author">
+                <span><%= message.sender.username %></span>
+                <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+              </i>
+              <p><%= message.content %></p>
+            </div>
+          <% end %>
+        </div>
+        <%= simple_form_for [ @question, @message ] do |f| %>
+          <%= f.input :content, label: false, placeholder: "type your message" %>
+          <%= f.submit ' ➢ ', data: { disable_with: false } %>
         <% end %>
       </div>
-
-      <%= simple_form_for [ @question, @message ] do |f| %>
-        <%= f.input :content, label: false, placeholder: "send a message" %>
-        <%= f.submit %>
-
-      <% end %>
     </div>
   </div>
 </div>
