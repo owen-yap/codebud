@@ -34,7 +34,7 @@ import { initAnime } from './../plugins/init_anime.js';
 import { initBioPills } from '../plugins/init_bio_pills';
 import { initChatroomCable } from '../channels/chatroom_channel'
 import { initFormattingToPreBlocks } from '../plugins/init_prism'
-
+import { initMsgStyle } from '../plugins/init_msg_style'
 // when the page have fully loaded then call these js plugins so the dom are fully loaded and can be targeted
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -45,4 +45,5 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initFormattingToPreBlocks();
   Prism.highlightAll();
+  initMsgStyle();
 });
