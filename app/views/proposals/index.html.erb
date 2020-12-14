@@ -31,7 +31,7 @@
           <p class="card-subheading"><%= proposal.price %></p>
         </div>
         
-        <%= simple_form_for( :order, url:  orders_path, method: :post) do |f| %>
+        <%= simple_form_for( :order, url: orders_path, method: :post) do |f| %>
           <!-- :id extracts the proposal_id but you hides it . It allow you to
            access the id as its is in the params that was passed in the form-->
           <%= f.input :proposal_id, as: :hidden, input_html: {value: proposal.id } %>
