@@ -2,6 +2,7 @@ require 'faker'
 require 'json'
 require 'open-uri'
 require 'nokogiri'
+require 'httparty'
 
 puts 'Destroying current db....'
 Message.destroy_all
