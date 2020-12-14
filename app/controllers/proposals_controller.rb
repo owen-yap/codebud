@@ -15,7 +15,7 @@ class ProposalsController < ApplicationController
     proposal.save!
     question = proposal.question
     if question.user.chat_id
-      url = "https://api.telegram.org/bot1344893186:AAFwGnlTgTZyKzp-fjQIxIS4ZlyW-k3lOKQ/sendMessage"
+      url = "https://api.telegram.org/bot#{ENV['TELEGRAM_KEY']}/sendMessage"
       if question.proposals.count == 1
         message = "A tutor just applied for your question!"
       else
