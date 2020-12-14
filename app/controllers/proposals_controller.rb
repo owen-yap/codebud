@@ -13,6 +13,20 @@ class ProposalsController < ApplicationController
     proposal.user = current_user
     proposal.question = Question.find(params[:question_id])
     proposal.save!
+    question = proposal.question
+    if question.user.chat_id
+      url = "https://api.telegram.org/bot1344893186:AAFwGnlTgTZyKzp-fjQIxIS4ZlyW-k3lOKQ/sendMessage"
+      if question.proposals.count == 1
+        message = "A tutor just applied for your question!"
+      else
+        message = "#{question.proposals.count} tutors have applied for your question!"
+      end
+      HTTParty.post(url, body: {
+                      chat_id: question.user.chat_id,
+                      text: message,
+                      parse_mode: "HTML"
+                    })
+    end
     redirect_to questions_path
   end
 
