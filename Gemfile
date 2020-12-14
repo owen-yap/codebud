@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant
+gem 'httparty'
+
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -37,6 +39,9 @@ gem 'devise'
 gem 'pg_search', '~> 2.3.0'
 gem 'nokogiri'
 gem 'pagy', '~> 3.5'
+gem 'money-rails'
+gem 'stripe'
+gem 'stripe_event'
 
 group :development, :test do
   gem 'pry-byebug'

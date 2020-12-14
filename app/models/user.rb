@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :skills, through: :user_skills
   has_many :proposals, dependent: :destroy
   has_one :bio, dependent: :destroy
+  
 
   def received_messages
     Messages.where(receiver_id: id)
