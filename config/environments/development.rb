@@ -8,11 +8,15 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+
+  # config.hosts << "f01088c4a069.ngrok.io"
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
   # Ngrok tunneling
-  # config.hosts << "b66fb05e22f3.ngrok.io"
+
+  config.hosts << "122728c06313.ngrok.io"
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
