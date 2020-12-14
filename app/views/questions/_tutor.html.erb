@@ -23,7 +23,7 @@
   <% end %>
   <%== pagy_bootstrap_nav(@pagy) %>
   <h2 class="subheading mt-3">Questions Applied</h2>
-  <% if @proposals.empty? %>  
+  <% if @proposals.empty? %>
     <div class='card-template card-questions mt-3 mb-3'>
       <%= image_tag 'missing.svg' %>
       <p class='muted'>No questions applied. Apply for a question now.</p>
@@ -42,7 +42,7 @@
         <% if proposal.status == 'pending' %>
           <%= link_to "Pending", question_path(proposal.question), class: "btn fat-btn pending" %>
         <% elsif proposal.status == 'selected' %>
-          <%= link_to "Selected", question_path(proposal.question), class: "btn fat-btn accepted" %>
+          <%= link_to "Selected", user_messages_path(proposal.question.user), class: "btn fat-btn accepted" %>
         <% else %>
           <%= link_to cancel_path(proposal), class: 'btn fat-btn rejected' do %>
             <%= image_tag 'trash.svg', width: '20px', height: '20px' %>
