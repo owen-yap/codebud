@@ -2,7 +2,7 @@ const initMsgStyle = () => {
   // check if this page have a message container
   const messagesContainer = document.getElementById('messages');
   if (messagesContainer) {
-   // find the student
+   // find the current user
    const current_user = messagesContainer.dataset.currentUserId;
    // array of messages
    const msgs= document.querySelectorAll('.message-container');

@@ -26,6 +26,8 @@ const initChatroomCable = () => {
   }
   // check if this page have a message container
   const messagesContainer = document.getElementById('messages');
+  const current_user = messagesContainer.dataset.currentUserId;
+
   if (messagesContainer) {
     const id = messagesContainer.dataset.questionId;
     // listening for broadcast in channel , MessageChannel for this qn
@@ -33,6 +35,10 @@ const initChatroomCable = () => {
       received(data) {
         // called when data is broadcast in the cable
         messagesContainer.insertAdjacentHTML('beforeend', data);
+        const lastmsg = messagesContainer.children[messagesContainer.children.length - 1];
+        if (lastmsg.dataset.userId === current_user) {
+          lastmsg.classList.add("msgblue")
+        }
       }
     });
   }

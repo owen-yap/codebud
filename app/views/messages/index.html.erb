@@ -5,7 +5,7 @@
       <%= link_to "< Back", root_path, class: "muted mt-5" %>
       <div class="card-template question mb-3 mt-3">
         <div class="info">
-          <h3 class="title mb-2"> <%= @question.title %> </h3>
+          <h3 class="title mb-2">Question: <%= @question.title %> </h3>
           <div class="tags">
             <% @question.skills.each do |skill| %>
               <p class="card-tag"> <%= skill.name %> </p>
