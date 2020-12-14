@@ -12,11 +12,17 @@ Rails.application.routes.draw do
   resources :bios, only: [:new, :create, :edit, :update]
   resources :skill, only: [:show, :new]
 
+  resources :orders do
+    resources :payments
+  end
+
   resources :questions do
     resources :messages, only: [:index, :create]
     resources :proposals
   end
 
-  get '/cancel/:id', to: 'proposals#cancel', as: :cancel
+  # Stripe webhook endpoint creation
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 
+  get '/cancel/:id', to: 'proposals#cancel', as: :cancel
 end
