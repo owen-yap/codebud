@@ -39,7 +39,6 @@ class ProposalsController < ApplicationController
 
   def accept
     @accepted_proposal = Proposal.find(params[:proposal][:id].to_i)
-
     @question = @accepted_proposal.question
 
     @allproposals = @question.proposals
