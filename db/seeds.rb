@@ -11,7 +11,7 @@ User.destroy_all
 Skill.destroy_all
 
 puts 'Seeding current db....'
-url = 'https://api.stackexchange.com/2.2/questions?pagesize=100&order=desc&sort=activity&site=stackoverflow'
+url = 'https://api.stackexchange.com/2.2/questions?pagesize=20&order=desc&sort=activity&site=stackoverflow'
 data = JSON.parse(open(url).read)
 
 data['items'].each do |set|
@@ -53,7 +53,7 @@ data['items'].each do |set|
   html_doc = Nokogiri::HTML(open(url_so).read)
   question = Question.new
   html_doc.search('.js-post-body').each do |element|
-    question.description = element.text.strip #this gets description
+    question.rich_body = element.text.strip #this gets description
   end
   html_doc.search('#question-header > h1 > a').each do |element|
     question.title = element.text.strip
