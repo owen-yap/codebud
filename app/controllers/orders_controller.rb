@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
 
   def create
     # create an order
+
     # order = Order.new
     # order.proposal = Proposal.find(set_proposal_id)
     # # add the proposal on the params to the right order
@@ -24,10 +25,10 @@ class OrdersController < ApplicationController
     # # binding.pry
     # order.update(session_id: session.id)
     # redirect_to new_order_payment_path(order)
+
   end
 
-
-  private 
+  private
 
   def set_proposal_id
     params.require(:order).permit(:proposal_id)[:proposal_id]
