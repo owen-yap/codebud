@@ -3,7 +3,7 @@ class TelegramWebhookController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    url = "https://api.telegram.org/bot1344893186:AAFwGnlTgTZyKzp-fjQIxIS4ZlyW-k3lOKQ/sendMessage"
+    url = "https://api.telegram.org/bot#{ENV['TELEGRAM_KEY']}/sendMessage"
     chat_id = params["message"]["from"]["id"]
     name = params["message"]["from"]["first_name"]
     message = params["message"]["text"]
