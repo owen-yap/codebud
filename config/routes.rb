@@ -26,8 +26,9 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resources :messages, only: [:index, :create]
   end
-  # get '/users/:id/messages', to: 'messages#show' , as: :messages
 
+  post '/1344893186:AAFwGnlTgTZyKzp-fjQIxIS4ZlyW-k3lOKQ', to: "telegram_webhook#index"
+  # get '/users/:id/messages', to: 'messages#show' , as: :messages
   # resources :messages, only: [:create]
 
 
