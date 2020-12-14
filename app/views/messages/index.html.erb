@@ -1,9 +1,9 @@
-<h1>#<%= @user.username %></h1>
-<div id="messages" data-user-id="<%= @user.id %>">
-  <% current_user.messages_with(@user).each do |message| %>
+<h1>#<%= @question.title %></h1>
+<div id="messages" data-question-id="<%= @question.id %>">
+  <% @question.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
       <i class="author">
-        <span><%= message.user.username %></span>
+        <span><%= message.sender.username %></span>
         <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
       </i>
       <p><%= message.content %></p>
@@ -11,8 +11,8 @@
   <% end %>
 </div>
 
-<%= simple_form_for [ @user, @message ] do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@user.username}" %>
+<%= simple_form_for [ @question, @message ] do |f| %>
+  <%= f.input :content, label: false, placeholder: "send a message" %>
   <%= f.submit %>
 
 <% end %>

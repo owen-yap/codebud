@@ -11,18 +11,12 @@ Rails.application.routes.draw do
   get '/account', to: 'pages#account'
   resources :bios, only: [:new, :create, :edit, :update]
   resources :skill, only: [:show, :new]
+
   resources :questions do
+    resources :messages, only: [:index, :create]
     resources :proposals
   end
+
   get '/cancel/:id', to: 'proposals#cancel', as: :cancel
-
-  resources :users, only: [] do
-    resources :messages, only: [:index, :create]
-  end
-  # get '/users/:id/messages', to: 'messages#show' , as: :messages
-
-  # resources :messages, only: [:create]
-
-
 
 end

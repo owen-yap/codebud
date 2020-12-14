@@ -1,26 +1,28 @@
 class MessagesController < ApplicationController
 
   def index
-    @user = User.find(params[:user_id])
+    # @user = User.find(params[:user_id])
+    @question = Question.find(params[:question_id])
     @message = Message.new
   end
 
   def create
-    @receiver = User.find(params[:user_id])
+    @question = Question.find(params[:question_id])
+    @receiver = @question.selected_proposal.user
     @message = Message.new(params_message)
     @message.receiver_id = @receiver.id
     @message.sender_id = current_user.id
-      if @message.save
-        MessageChannel.broadcast_to(
-          @receiver,
-          render_to_string(partial: "message", locals: { message: @message })
-        )
-        redirect_to user_messages_path(@receiver, anchor: "message-#{@message.id}")
-      else
-        render "/index"
-      end
-  end
+    @message.question = @question
 
+    if @message.save
+      MessageChannel.broadcast_to(
+        @question,
+        render_to_string(partial: "message", locals: { message: @message })
+      )
+    else
+      render "/index"
+    end
+  end
 
   private
 

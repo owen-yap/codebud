@@ -22,7 +22,7 @@
           </div>
       </div>
         <% if question.selected_proposal %>
-          <%= link_to "View",user_messages_path(question.selected_proposal.user_id), class: "btn fat-btn accepted" %>
+          <%= link_to "View",question_messages_path(question), class: "btn fat-btn accepted" %>
           <!-- link to view the question with the selected tutor -->
         <% else %>
           <%= link_to "Pick a Tutor", question_proposals_path(question), class: "btn fat-btn" %>
