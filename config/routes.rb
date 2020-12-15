@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
     resources :proposals
   end
-  
+
   resources :orders do
     resources :payments
   end
@@ -25,9 +25,6 @@ Rails.application.routes.draw do
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   post "/#{ENV['TELEGRAM_KEY']}", to: "telegram_webhook#index"
-  # get '/users/:id/messages', to: 'messages#show' , as: :messages
-  # resources :messages, only: [:create]
 
   get '/cancel/:id', to: 'proposals#cancel', as: :cancel
-
 end

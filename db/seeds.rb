@@ -19,7 +19,7 @@ data['items'].each do |set|
   puts 'user creation....🦆'
 
   user = User.new(username: set['owner']['display_name'].gsub(" ", "_"),
-                name: set['owner']['display_name'],                 
+                name: set['owner']['display_name'],
                 email: set['owner']['display_name'].downcase.gsub(" ", "_") + '@gmail.com',
                 password: "lewagon"
                 )
@@ -33,7 +33,7 @@ data['items'].each do |set|
   else
     skill = Skill.find_by(name: skill_name)
   end
-  
+
   user.skills << skill
 
   user.save!
@@ -42,7 +42,7 @@ data['items'].each do |set|
   url_user = set['owner']['link']
   html_doc1 = Nokogiri::HTML(open(url_user).read)
   bio = Bio.new
-    
+
   html_doc1.search('.profile-user--bio > p').each do |element|
     bio.content = element.text.strip
   end
@@ -58,7 +58,7 @@ data['items'].each do |set|
   html_doc.search('#question-header > h1 > a').each do |element|
     question.title = element.text.strip
   end
-  question.min_price = (1..9).to_a.sample 
+  question.min_price = (1..9).to_a.sample
   question.max_price = (15..39).to_a.sample
   question.start_time = Time.strptime('06/30/2020 12:34', '%m/%d/%Y %H:%M')
   question.end_time = Time.strptime('07/15/2020 10:04', '%m/%d/%Y %H:%M')
@@ -72,7 +72,7 @@ end
 
 puts 'Creating Proposal'
 
-3.times do 
+3.times do
   tutor1 = User.new(name: Faker::Name.unique.name,
                 email: Faker::Internet.email,
                 username: Faker::Name.unique.name,
