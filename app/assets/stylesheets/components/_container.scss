@@ -87,12 +87,7 @@
 }
 
 .review-container {
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
-  width: 60%;
-  height: 100%;
-  margin: 20px auto;
-  background-color: rgba(109, 108, 108, 0.4);
+  padding: 10px;
   border-radius: 8px;
+  box-shadow: rgba(77, 76, 76, 0.4);
 }
