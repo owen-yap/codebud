@@ -39,6 +39,9 @@ const initChatroomCable = () => {
         if (lastmsg.dataset.userId === current_user) {
           lastmsg.classList.add("msgblue")
         }
+        else {
+          lastmsg.scrollIntoView({behavior: "smooth", block: "end"});
+        }
       }
     });
   }
