@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
 
     tokens.each do |token|
       token.add_grant(grant)
-      @video_tokens[User.find_by(email: token.identity)] =
+      @video_tokens[User.find_by(email: token.identity).id] =
         {
           token: token,
           room: "video-#{@order.id}"

@@ -10,5 +10,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: %i[name photo username tutor])
   end
 
-  
+  private
+
+  def set_user
+    cookies[:user_id] = current_user.id || 'guest'
+  end
 end
