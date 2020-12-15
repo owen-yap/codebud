@@ -16,11 +16,13 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    authorize @question
   end
 
   def create
     @question = Question.new(params_qn)
     @question.user = current_user
+    authorize @question
     if @question.save!
       redirect_to question_path(@question)
       url = "https://api.telegram.org/bot#{ENV['TELEGRAM_KEY']}/sendMessage"
@@ -36,14 +38,17 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    authorize @question
     @proposal = Proposal.new
     @proposal.question = @question
   end
 
   def edit
+    authorize @question
   end
 
   def update
+    authorize @question
     if @question.update(params_qn)
       redirect_to question_path(@question)
     else
@@ -52,6 +57,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    authorize @question
     @question.destroy
     redirect_to questions_path
   end
