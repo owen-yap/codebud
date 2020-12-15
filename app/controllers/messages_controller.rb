@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
-
   def index
     # @user = User.find(params[:user_id])
     @question = Question.find(params[:question_id])
+    @order = @question.selected_proposal.order
     @message = Message.new
   end
 
@@ -30,5 +30,4 @@ class MessagesController < ApplicationController
   def params_message
     params.require(:message).permit(:content)
   end
-
 end
