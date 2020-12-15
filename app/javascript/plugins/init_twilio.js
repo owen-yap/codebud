@@ -63,7 +63,7 @@ const connectToRoom = (token) => {
     room.on('participantConnected', buddyConnected);
     room.on('disconnected', selfDisconnected);
   }, error => {
-    console.error(`Unable to connect to Room: ${error.message}`);
+    console.error('Failed to acquire media:', error.name, error.message);
   });
 }
 
@@ -96,8 +96,10 @@ const setUpTwilio = () => {
 
   tokens = JSON.parse(tokens)
 
-  const userId = document.cookie;
-  debugger;
+  const userId = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('user_id'))
+    .split('=')[1];
   const token = tokens[userId]
   setVideoVisible(true)
   addLocalVideo()

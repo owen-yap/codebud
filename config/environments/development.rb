@@ -16,7 +16,7 @@ Rails.application.configure do
 
   # Ngrok tunneling
 
-  config.hosts << "122728c06313.ngrok.io"
+  config.hosts << "90b3b24c838c.ngrok.io"
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
