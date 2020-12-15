@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
     order = Order.find(params[:id])
     order.update(order_params)
     redirect_to question_messages_path(order.proposal.question)
+    authorize order
   end
 
   def create_room

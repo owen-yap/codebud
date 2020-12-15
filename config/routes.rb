@@ -21,7 +21,11 @@ Rails.application.routes.draw do
     resources :proposals
   end
 
+<<<<<<< HEAD
   resources :orders, only: [:create, :update] do
+=======
+  resources :orders, only: [:create, :edit, :update] do
+>>>>>>> master
     resources :payments
     resources :reviews, only: [:new, :create]
   end

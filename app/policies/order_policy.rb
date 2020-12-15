@@ -1,0 +1,16 @@
+class OrderPolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
+  end
+
+  def new?
+    record.payer == user
+  end
+
+  def update?
+    record.payer == user
+  end
+
+end
