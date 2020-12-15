@@ -63,7 +63,15 @@
   overflow-y: scroll;
   background: #ECE7E1;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
-  border: solid, 20px $lightblue;
+  border-style: solid;
   padding: 20px;
   margin: 10px;
+
+  p {
+      font-size: 0.8rem;
+      display: inline-block;
+      width: 75%;
+      margin-bottom: .2rem;
+    }
+
 }
