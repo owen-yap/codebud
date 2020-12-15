@@ -18,7 +18,7 @@
               <p class="card-tag"><%= skill.name %></p>
             <% end %>
           </div>
-          <a href="#">View full profile ></a>
+          <% link_to 'View full profile', user_reviews_path(proposal.user) %>
         </div>
 
         <div class="info">

@@ -21,9 +21,13 @@ Rails.application.routes.draw do
     resources :proposals
   end
 
-  resources :orders, only: [:create] do
+  resources :orders, only: [:create, :update] do
     resources :payments
     resources :reviews, only: [:new, :create]
+  end
+
+  resources :users, only: []  do
+    resources :reviews, only: [:index]
   end
 
   # Stripe webhook endpoint creation
