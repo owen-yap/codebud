@@ -38,12 +38,13 @@
           <% end %>
         </div>
         <div class= "mt-2">
-        <%= simple_form_for [ @question, @message ] do |f| %>
-          <%= f.input :content, label: false, placeholder: "type your message" %>
-          <%= f.submit ' ➢ ', data: { disable_with: false } %>
-        <% end %>
+          <%= simple_form_for [ @question, @message ] do |f| %>
+            <%= f.input :content, label: false, placeholder: "type your message" %>
+            <%= f.submit ' ➢ ', data: { disable_with: false } %>
+          <% end %>
         </div>
       </div>
+      <%= link_to "Enter video call", create_room_path(@order), class: "btn light_btn" %>
     </div>
   </div>
 </div>

@@ -11,7 +11,7 @@ class Question < ApplicationRecord
   validates :status, inclusion: { in: ["pending", "in progress", "answered"] }
 
   monetize :price_cents
-  
+
   include PgSearch::Model
   pg_search_scope :global_search, against: %i[title description], associated_against: {
     skills: :name
@@ -20,11 +20,11 @@ class Question < ApplicationRecord
   }
 
   def selected_proposal
-    return self.proposals.find_by status: "selected"
+    return proposals.find_by status: "selected"
   end
 
   def applied_by?(given_user)
-    self.proposals.where(user: given_user).exists?
+    proposals.where(user: given_user).exists?
   end
 
   private

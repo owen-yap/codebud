@@ -13,6 +13,7 @@ class BiosController < ApplicationController
     # iterate thru array to get skill_id
     skill_ids.each do |skill_id|
       next if skill_id.empty?
+
       user_skill = UserSkill.new(user: current_user)
       user_skill.skill = Skill.find(skill_id.to_i)
       user_skill.save!
