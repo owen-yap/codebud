@@ -2,6 +2,7 @@ import consumer from "./consumer";
 import { fetchWithToken } from "../utils/fetch_with_token";
 
 const initChatroomCable = () => {
+  console.log('chatroom cable loaded');
   const input = document.querySelector('#new_message')
   if (input) {
     input.addEventListener('submit', (e) => {
@@ -26,10 +27,9 @@ const initChatroomCable = () => {
   }
   // check if this page have a message container
   const messagesContainer = document.getElementById('messages');
-  const current_user = messagesContainer.dataset.currentUserId;
-
   if (messagesContainer) {
     const id = messagesContainer.dataset.questionId;
+    const current_user = messagesContainer.dataset.currentUserId;
     // listening for broadcast in channel , MessageChannel for this qn
     consumer.subscriptions.create({ channel: 'MessageChannel', id: id }, {
       received(data) {

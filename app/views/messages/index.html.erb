@@ -1,8 +1,9 @@
+<%= link_to "< Back", root_path, class: "muted mt-2 ml-4" %>
 <div class="msg-container">
   <div class="row align-items-start">
     <!-- Question -->
-    <div class="col-6">
-      <div class="card-template question mb-3 mt-3">
+    <div class="col-6 pl-5">
+      <div class="card-template question mb-3 mt-2">
         <div class="info">
           <h3 class="title mb-2">Question: <%= @question.title %> </h3>
           <div class="tags">
@@ -17,10 +18,9 @@
         </div>
       </div>
       <div class="card-white line-numbers language-css">
-        <p class="card-tag mb-0"> Question </p>
-        <%= @question.rich_body %>
+        <p class="card-tag mb-0"> <%= @question.rich_body %></p>
       </div>
-      <%= link_to "< Back", root_path, class: "muted mt-3" %>
+
     </div>
     <!-- message window -->
     <div class="col-6">
@@ -39,10 +39,10 @@
         </div>
         <div class= "mt-2">
         <%= simple_form_for [ @question, @message ] do |f| %>
-        </div>
           <%= f.input :content, label: false, placeholder: "type your message" %>
           <%= f.submit ' ➢ ', data: { disable_with: false } %>
         <% end %>
+        </div>
       </div>
     </div>
   </div>
