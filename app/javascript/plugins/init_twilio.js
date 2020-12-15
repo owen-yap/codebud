@@ -100,11 +100,13 @@ const setUpTwilio = () => {
     .split('; ')
     .find(row => row.startsWith('user_id'))
     .split('=')[1];
-  const token = tokens[userId]
-  setVideoVisible(true)
-  addLocalVideo()
-  connectToRoom(token)
-
+  const token = tokens[userId];
+  const videoCallButton = document.getElementById('video-call');
+  videoCallButton.addEventListener('click', (e) => {
+    setVideoVisible(true)
+    addLocalVideo()
+    connectToRoom(token)
+  });
 
   // we need to find all the buddies call buttons (start video chat)
 

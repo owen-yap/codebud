@@ -5,8 +5,8 @@
     <h1>Waiting for <%= @order.proposal.user.name %> to join...</h1>
   <% end %>
   <div id="local-video">
-    <%= link_to "Disconnect", question_messages_path(@order.proposal.question), class: "round-hang-up btn btn-danger" %>
-    <div></div>
+    <%= content_tag "a", "Connect", href:"#", id: "video-call", class: "btn btn-primary" %>
+    <%= content_tag "a", "Disconnect", href:"#", class: "round-hang-up btn btn-danger" %>
   </div>
 </div>
 
