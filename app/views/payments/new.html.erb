@@ -1,21 +1,40 @@
-<div class="container">
-  <div class="row py-4">
+<div class='heading'>
+  <p class='main-heading'>You are almost there!</p>
+  <p class='subheading'>You will be connected to the tutor after payment</p>
+</div>
 
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.proposal.question.title %></strong> for <strong><%= humanized_money_with_symbol @order.proposal.price %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.session_id %>'
-          });
-        });
-      </script> 
+<div class=container-payments>
+  <div class="card-payments container-sm">
+    <h1>Checkout summary</h1>
+    
+    <div class="input-group mb-3" action=''>
+      <input type="text" class="form-control" placeholder="Enter your discount code" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary white-btn" type="button"><strong>Apply</strong></button>
+      </div>
     </div>
+
+    <p class='muted'>Tutor:</p><br>
+    <div class='tutor-1'>
+      <%= avatar(User.find(@order.proposal.user_id), "avatar-lg") %>
+      <h5><%= User.find(@order.proposal.user_id).name %></h5>
+    </div>
+    <P><%= @order.proposal.question.title %></P>
+    <div class='tutor-2'>
+      <h2>Total:</h2>
+      <h2><%= humanized_money_with_symbol(@order.proposal.price) %></h2>
+    </div>
+    <button id="pay" class="btn light-btn mt-3 w-100">Pay now</button>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      const paymentButton = document.getElementById('pay');
+      paymentButton.addEventListener('click', () => {
+        const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+        stripe.redirectToCheckout({
+          sessionId: '<%= @order.session_id %>'
+        });
+      });
+    </script> 
   </div>
 </div>

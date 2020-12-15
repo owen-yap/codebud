@@ -245,3 +245,30 @@ a:hover .card-order {
     font-weight: 700;
   }
 }
+
+.card-payments{
+  padding: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  border-radius: 6px;
+  width: 70%;
+  background-color: white;
+
+  .tutor-1 {
+    display: inline-flex;
+    align-items: center;
+    
+    h5 {
+      padding-left: 20px;
+    }
+  }
+
+  .tutor-2 {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
