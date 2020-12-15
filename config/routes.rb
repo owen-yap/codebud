@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   get '/account', to: 'pages#account'
   resources :bios, only: [:new, :create, :edit, :update]
   resources :skill, only: [:show, :new]
+
   resources :questions do
+    resources :messages, only: [:index, :create]
     resources :proposals
   end
+
   resources :orders do
     resources :payments
   end
@@ -21,16 +24,7 @@ Rails.application.routes.draw do
   # Stripe webhook endpoint creation
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
+  post "/#{ENV['TELEGRAM_KEY']}", to: "telegram_webhook#index"
+
   get '/cancel/:id', to: 'proposals#cancel', as: :cancel
-
-  resources :users, only: [] do
-    resources :messages, only: [:index, :create]
-  end
-
-  post '/1344893186:AAFwGnlTgTZyKzp-fjQIxIS4ZlyW-k3lOKQ', to: "telegram_webhook#index"
-  # get '/users/:id/messages', to: 'messages#show' , as: :messages
-  # resources :messages, only: [:create]
-
-
-
 end

@@ -2,3 +2,10 @@
   min-width: 120px;
 }
 
+.msgblue {
+  background-color: $lighterblue;
+  border-radius: 4px;
+  margin: 1px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.4);
+  padding-left: 2px;
+}

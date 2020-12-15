@@ -1,6 +1,7 @@
 class MessageChannel < ApplicationCable::Channel
   def subscribed
-    stream_for current_user
+    question = Question.find(params[:id])
+    stream_for question
   end
 
   def unsubscribed

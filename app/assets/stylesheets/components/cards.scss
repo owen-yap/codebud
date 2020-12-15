@@ -75,11 +75,11 @@ a:hover {
     margin: 0;
     font-size: 1.1rem;
   }
-  
+
   .btn {
     align-self: center;
-  } 
-  
+  }
+
   .card-tag {
     display: inline-block;
     color: $lightgray;
@@ -223,7 +223,7 @@ a:hover .card-order {
   margin: 1rem;
   box-shadow: 2px 2px 8px rgb(180, 180, 180);
   border-radius: 3px;
-  img{ 
+  img{
     width: 40px;
   }
   h3 {
@@ -237,7 +237,7 @@ a:hover .card-order {
   color: #000022;
   box-shadow: 2px 2px 8px rgb(180, 180, 180);
   border-radius: 3px;
-  img{ 
+  img{
     height: 200px;
   }
   h3 {
@@ -246,6 +246,7 @@ a:hover .card-order {
   }
 }
 
+<<<<<<< HEAD
 .card-payments{
   padding: 10px;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
@@ -272,3 +273,12 @@ a:hover .card-order {
     width: 100%;
   }
 }
+=======
+.message-card {
+  background-color: white;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 3px;
+  border: solid, 2px $lightblue;
+}
+>>>>>>> master

@@ -3,6 +3,7 @@ class Question < ApplicationRecord
   has_many :requirements, dependent: :destroy
   has_many :skills, through: :requirements
   has_many :proposals, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_rich_text :rich_body
 
   validates :start_time, :end_time, :title, :rich_body, :min_price, :max_price, presence: true
