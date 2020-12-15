@@ -2,11 +2,13 @@ class BiosController < ApplicationController
   def new
     @bio = Bio.new
     @skill = Skill.new
+    authorize @bio
   end
 
   def create
     @bio = Bio.new(params_bio)
     @bio.user = current_user
+    authorize @bio
     @bio.save!
     # extract an array of skills_ids from param
     skill_ids = params[:bio][:user][:skill_ids]
@@ -22,6 +24,7 @@ class BiosController < ApplicationController
 
   def update
     @bio = Bio.find(params[:id])
+    authorize @bio
     @bio.update(params_bio)
     redirect_to account_path
   end
