@@ -78,11 +78,21 @@
 }
 
 .container-payments {
-
   display: flex;
   justify-content: center;
   padding-top: 20px;
   width: 800px;
   height: 100%;
   margin: 0 auto;
+}
+
+.review-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  width: 60%;
+  height: 100%;
+  margin: 20px auto;
+  background-color: rgba(109, 108, 108, 0.4);
+  border-radius: 8px;
 }

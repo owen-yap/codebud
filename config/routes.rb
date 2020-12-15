@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
   root to: 'pages#home'
   get '/uikit', to: 'pages#index'
   devise_for :users, controllers: {
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
 
   resources :orders do
     resources :payments
+    resources :reviews, only: [:new, :create]
   end
 
   # Stripe webhook endpoint creation
