@@ -96,7 +96,8 @@ const setUpTwilio = () => {
 
   tokens = JSON.parse(tokens)
 
-  const userId = button.dataset.userId
+  const userId = document.cookie;
+  debugger;
   const token = tokens[userId]
   setVideoVisible(true)
   addLocalVideo()
