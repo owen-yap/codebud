@@ -3,7 +3,13 @@ class MessagesController < ApplicationController
   def index
     # @user = User.find(params[:user_id])
     @question = Question.find(params[:question_id])
+
     @message = Message.new
+    if @question.user == current_user || @question.selected_proposal.user == current_user
+      render :index
+    else
+      render :index #:not_authorized
+    end
   end
 
   def create
@@ -13,6 +19,7 @@ class MessagesController < ApplicationController
     @message.receiver_id = @receiver.id
     @message.sender_id = current_user.id
     @message.question = @question
+    authorize @message
 
     if @message.save
       # looks for partial _message.html.erb if not default look for _message.json
