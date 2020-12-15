@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+
   def create_room
     @order = Order.find(params[:id])
     account_sid = ENV['TWILIO_ACCOUNT_SID']
@@ -25,7 +26,6 @@ class OrdersController < ApplicationController
           room: "video-#{@order.id}"
         }
     end
-
     # Generate the token
   end
 

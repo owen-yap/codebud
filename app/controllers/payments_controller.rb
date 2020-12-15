@@ -3,3 +3,4 @@ class PaymentsController < ApplicationController
     @order = Order.find(params[:order_id])
   end
 end
+  
