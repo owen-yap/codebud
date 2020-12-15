@@ -1,0 +1,13 @@
+<div id="remote-video" class="video-styling waiting">
+  <% if current_user.tutor %>
+    <h1>Waiting for <%= @order.proposal.question.user.name %> to join...</h1>
+  <% else %>
+    <h1>Waiting for <%= @order.proposal.user.name %> to join...</h1>
+  <% end %>
+  <div id="local-video">
+    <div class="round-hang-up video-button"></div>
+    <div></div>
+  </div>
+</div>
+
+<div id="twilio-tokens" data-twilio-tokens="<%= JSON.generate(@video_tokens) %>"></div>

@@ -35,6 +35,8 @@ import { initBioPills } from '../plugins/init_bio_pills';
 import { initChatroomCable } from '../channels/chatroom_channel'
 import { initFormattingToPreBlocks } from '../plugins/init_prism'
 import { initMsgStyle } from '../plugins/init_msg_style'
+import { setUpTwilio } from '../plugins/init_twilio'
+
 // when the page have fully loaded then call these js plugins so the dom are fully loaded and can be targeted
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -46,4 +48,5 @@ document.addEventListener('turbolinks:load', () => {
   initFormattingToPreBlocks();
   Prism.highlightAll();
   initMsgStyle();
+  setUpTwilio();
 });
