@@ -51,6 +51,12 @@ const selfConnected = (room) => {
   });
 }
 
+const shareScreen = (room) => {
+  const stream = await navigator.mediaDevices.getDisplayMedia();
+  const screenTrack = new createLocalVideoTrack(stream.getTracks()[0]);
+  room.localParticipant.publishTrack(screenTrack);
+}
+
 const connectToRoom = (token) => {
   connect(token.token, {
     name: token.room,
@@ -108,16 +114,17 @@ const setUpTwilio = () => {
     connectToRoom(token)
   });
 
-  // we need to find all the buddies call buttons (start video chat)
+  const hangUpButton = document.querySelector(".round-hang-up");
+  hangUpButton.addEventListener('click', (e) => {
+    disconnectVideo();
+  });
 
-
-
-  const $hangUpButtons = document.querySelectorAll(".round-hang-up")
-  $hangUpButtons.forEach((button) => {
-    button.addEventListener('click', (e) => {
-      disconnectVideo();
-    })
+  const screenShareButton = document.querySelector(".screen-share");
+  screenShareButton.addEventListener('click', (e) => {
+    shareScreen();
   })
-};
+
+})
+
 
 export { setUpTwilio }

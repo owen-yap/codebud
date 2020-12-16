@@ -53,7 +53,11 @@ class ProposalsController < ApplicationController
 
     @question.update(status: "in progress")
     # go to order path when it is created
-    create_order(@accepted_proposal )
+    if @accepted_proposal.price == 0
+      redirect_to root_path
+    else
+      create_order(@accepted_proposal)
+    end
   end
 
   private
