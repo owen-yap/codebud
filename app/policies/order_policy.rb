@@ -6,10 +6,10 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def update?
-    record.payer == user
+    record.payee == user || record.payer == user
   end
 
   def create_room?
-    record.payer == user || record.proposal.user == user
+    record.payee == user || record.payer == user
   end
 end

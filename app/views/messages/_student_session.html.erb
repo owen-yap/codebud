@@ -1,0 +1,5 @@
+<% if @question.selected_proposal.order.status == 'completed' %>
+  <h5>Tutor has marked this session as completed</h5>
+  <button class='btn light-btn'>Open Dispute</button>
+  <%= link_to 'Review', new_order_review_path(@question.selected_proposal.order), class: "btn dark-btn" %>
+<% end %>

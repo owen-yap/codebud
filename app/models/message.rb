@@ -10,4 +10,5 @@ class Message < ApplicationRecord
   def receiver
     User.find(receiver_id)
   end
+
 end

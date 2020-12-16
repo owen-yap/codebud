@@ -256,7 +256,7 @@ a:hover .card-order {
   .tutor-1 {
     display: inline-flex;
     align-items: center;
-    
+
     h5 {
       padding-left: 20px;
     }
@@ -273,6 +273,15 @@ a:hover .card-order {
   }
 }
 
+<<<<<<< HEAD:app/assets/stylesheets/components/cards.scss
+=======
+
+.time-tag {
+    display: inline-block;
+    color: rgb(207, 74, 207);
+    padding-top: 2rem;
+  }
+
 .message-card {
   background-color: white;
   width: 100%;
@@ -280,3 +289,5 @@ a:hover .card-order {
   border-radius: 3px;
   border: solid, 2px $lightblue;
 }
+
+>>>>>>> master:app/assets/stylesheets/components/_cards.scss

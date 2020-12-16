@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
+  resources :users, only: []  do
+    resources :reviews, only: [:index]
+  end
+
   # Stripe webhook endpoint creation
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 end
