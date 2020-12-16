@@ -1,0 +1,24 @@
+<h1 class='main-heading w-50 pt-5'>We would like to hear from you!</h1>
+<div class='container mt-5'>
+  <%= simple_form_for [@order, @review], class: "w-100" do |f| %>
+    <div class="container-fluid w-75 bg-white review-container">
+      <div class="row">
+        <div class="col-6">
+          <%= avatar(@proposal.user, "avatar-lg") %>
+          <p class='muted'><%= @proposal.user.name %></p>
+        </div>
+        <div class="col-6">
+           <%= f.input :rating, collection: (1..5).to_a, label: "⭐Give it a rating" %>
+        </div>
+      </div>
+
+      <div class="row">
+         <div class="col-12">
+           <%= f.input :content, label: "😝How was the taste?", input_html: { rows: 10 } %>
+         </div>
+      </div>
+      
+      <%= f.submit 'Submit Review', class: "btn light-btn"  %>
+    </div>
+  <% end %>
+</div>

@@ -11,7 +11,7 @@ User.destroy_all
 Skill.destroy_all
 
 puts 'Seeding current db....'
-url = 'https://api.stackexchange.com/2.2/questions?pagesize=20&order=desc&sort=activity&site=stackoverflow'
+url = 'https://api.stackexchange.com/2.2/questions?pagesize=10&order=desc&sort=activity&site=stackoverflow'
 data = JSON.parse(open(url).read)
 
 data['items'].each do |set|
