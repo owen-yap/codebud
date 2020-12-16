@@ -1,36 +1,46 @@
 class OrdersController < ApplicationController
-  def new
+
+  def update
+    order = Order.find(params[:id])
+    order.update(order_params)
+    redirect_to question_messages_path(order.proposal.question)
   end
+  
+  def create_room
+    @order = Order.find(params[:id])
+    account_sid = ENV['TWILIO_ACCOUNT_SID']
+    api_key = ENV['TWILIO_API_KEY']
+    api_secret = ENV['TWILIO_API_SECRET']
+    student = @order.proposal.question.user
+    tutor = @order.proposal.user
 
-  def create
-    # create an order
+    tokens = []
+    @video_tokens = {}
+    # Create an Access Token
+    tokens << Twilio::JWT::AccessToken.new(account_sid, api_key, api_secret, [], identity: student.email)
+    tokens << Twilio::JWT::AccessToken.new(account_sid, api_key, api_secret, [], identity: tutor.email)
 
-    # order = Order.new
-    # order.proposal = Proposal.find(set_proposal_id)
-    # # add the proposal on the params to the right order
-    # # intiate the payment
+    # Create Video grant for our token
+    grant = Twilio::JWT::AccessToken::VideoGrant.new
+    grant.room = "video-#{@order.id}"
 
-    # session = Stripe::Checkout::Session.create(
-    #   payment_method_types: ['card'],
-    #   line_items: [{
-    #     name: order.proposal.question,
-    #     amount: order.proposal.price_cents,
-    #     currency: 'sgd',
-    #     quantity: 1
-    #   }],
-    #   success_url: root_url,
-    #   cancel_url: questions_url
-    # )
-    # order.save!
-    # # binding.pry
-    # order.update(session_id: session.id)
-    # redirect_to new_order_payment_path(order)
-
+    tokens.each do |token|
+      token.add_grant(grant)
+      @video_tokens[User.find_by(email: token.identity).id] =
+        {
+          token: token,
+          room: "video-#{@order.id}"
+        }
+    end
+    # Generate the token
   end
 
   private
+  
+  def order_params
+    params.require(:order).permit(:status)
+  end
 
-  def set_proposal_id
-    params.require(:order).permit(:proposal_id)[:proposal_id]
+  def setup_tokens
   end
 end

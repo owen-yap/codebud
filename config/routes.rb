@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
   root to: 'pages#home'
-  get '/uikit', to: 'pages#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  patch '/skills', to: 'skills#update'
 
-  post '/accept_proposal', to: "proposals#accept", as: :accept_proposal
+  get '/uikit', to: 'pages#index'
+  patch '/skills', to: 'skills#update'
   get '/account', to: 'pages#account'
+  get '/cancel/:id', to: 'proposals#cancel', as: :cancel
+  post '/accept_proposal', to: "proposals#accept", as: :accept_proposal
+  post "/#{ENV['TELEGRAM_KEY']}", to: "telegram_webhook#index"
+  get 'orders/:id', to: "orders#create_room", as: :create_room
+
   resources :bios, only: [:new, :create, :edit, :update]
   resources :skill, only: [:show, :new]
 
@@ -17,14 +21,11 @@ Rails.application.routes.draw do
     resources :proposals
   end
 
-  resources :orders do
+  resources :orders, only: [:create] do
     resources :payments
+    resources :reviews, only: [:new, :create]
   end
 
   # Stripe webhook endpoint creation
   mount StripeEvent::Engine, at: '/stripe-webhooks'
-
-  post "/#{ENV['TELEGRAM_KEY']}", to: "telegram_webhook#index"
-
-  get '/cancel/:id', to: 'proposals#cancel', as: :cancel
 end

@@ -27,8 +27,14 @@
             </div>
           </div>
         </div>
+<<<<<<< HEAD
 
+=======
+        
+        <!-- Bio -->
+>>>>>>> master
         <div class="row mt-3">
+
           <div class='card-account col-6'>
             <div class='detail-header'>
               <strong>Bio</strong>
@@ -71,7 +77,7 @@
             </div>
           </div>
 
-
+          <!-- Skills -->
           <div class='card-account col-6'>
             <div class='detail-header'>
               <strong>Skills</strong>
@@ -113,8 +119,28 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
         </div>
+
+        <div class='mt-2'>
+          <% if current_user.tutor? %>
+          <div class='review-header mb-2'>
+            <strong>Reviews</strong>
+          </div>
+          <div class='card-white'>
+            <% current_user.proposals.each do |proposal| %>
+              <% if proposal.order %>
+                <li><%= proposal.order.review.content %>
+                <p>Rating: <%= proposal.order.review.rating %>/5</p></li>
+              <% end %>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+
       </div>
     </div>
   </div>

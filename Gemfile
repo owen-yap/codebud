@@ -43,6 +43,7 @@ gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
 gem 'pundit'
+gem 'twilio-ruby'
 
 group :development, :test do
   gem 'pry-byebug'

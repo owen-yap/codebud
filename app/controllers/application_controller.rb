@@ -17,7 +17,12 @@ class ApplicationController < ActionController::Base
 
   private
 
+<<<<<<< HEAD
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+=======
+  def set_user
+    cookies[:user_id] = current_user.id || 'guest'
+>>>>>>> master
   end
 end

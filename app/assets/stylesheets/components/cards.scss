@@ -246,10 +246,29 @@ a:hover .card-order {
   }
 }
 
-.message-card {
+.card-payments{
+  padding: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  border-radius: 6px;
+  width: 70%;
   background-color: white;
-  width: 100%;
-  max-width: 1000px;
-  border-radius: 3px;
-  border: solid, 2px $lightblue;
+
+  .tutor-1 {
+    display: inline-flex;
+    align-items: center;
+    
+    h5 {
+      padding-left: 20px;
+    }
+  }
+
+  .tutor-2 {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+  }
+
+  .button {
+    width: 100%;
+  }
 }

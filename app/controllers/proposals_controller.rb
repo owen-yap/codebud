@@ -57,7 +57,7 @@ class ProposalsController < ApplicationController
     end
     @question.update(status: "in progress")
     # go to order path when it is created
-    create_order(@accepted_proposal)
+    create_order(@accepted_proposal )
   end
 
   private

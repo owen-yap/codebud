@@ -4,3 +4,4 @@ class PaymentsController < ApplicationController
     authorize @order
   end
 end
+  
