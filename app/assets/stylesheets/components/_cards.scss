@@ -273,8 +273,18 @@ a:hover .card-order {
   }
 }
 
+
 .time-tag {
     display: inline-block;
     color: rgb(207, 74, 207);
     padding-top: 2rem;
   }
+
+.message-card {
+  background-color: white;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 3px;
+  border: solid, 2px $lightblue;
+}
+
