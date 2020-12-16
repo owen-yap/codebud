@@ -1,0 +1,8 @@
+ <% if @question.selected_proposal.order.status != "completed" %>
+  <%= simple_form_for @question.selected_proposal.order do |f| %>
+    <%= f.input :status, as: :hidden, input_html: {value: "completed" } %>
+    <%= f.submit 'Session Finished', class: "btn dark-btn", id: "complete-btn" %>
+  <% end %>
+<% else %>
+  <%= link_to "Back to Dashboard", root_path, class: "btn light-btn mt-4" %>
+<% end %>
