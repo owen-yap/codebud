@@ -5,12 +5,11 @@ class OrderPolicy < ApplicationPolicy
     end
   end
 
-  def new?
-    record.payer == user
-  end
-
   def update?
     record.payer == user
   end
 
+  def create_room?
+    record.payer == user || record.proposal.user == user
+  end
 end

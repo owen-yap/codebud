@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-
   def update
     order = Order.find(params[:id])
     order.update(order_params)
@@ -9,6 +8,7 @@ class OrdersController < ApplicationController
 
   def create_room
     @order = Order.find(params[:id])
+    authorize @order
     account_sid = ENV['TWILIO_ACCOUNT_SID']
     api_key = ENV['TWILIO_API_KEY']
     api_secret = ENV['TWILIO_API_SECRET']
@@ -34,6 +34,7 @@ class OrdersController < ApplicationController
         }
     end
     # Generate the token
+    @referrer = request.referrer
   end
 
   private

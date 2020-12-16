@@ -1,14 +1,16 @@
-<div id="remote-video" class="video-styling waiting">
+<div id="remote-media-div" class="video-styling waiting">
   <% if current_user.tutor %>
     <h1>Waiting for <%= @order.proposal.question.user.name %> to join...</h1>
   <% else %>
     <h1>Waiting for <%= @order.proposal.user.name %> to join...</h1>
   <% end %>
-  <div id="local-video">
-    <%= content_tag "a", "Connect", href:"#", id: "video-call", class: "btn btn-primary" %>
-    <%= content_tag "a", "Disconnect", href:"#", class: "round-hang-up btn btn-danger" %>
-    <%= content_tag "a", "Screen Share", href:"#", class: "screen-share btn btn-secondary" %>
-  </div>
+</div>
+<div id="local-video">
+  <div></div>
+  <%= content_tag "a", "Connect", href:"#", id: "video-call", class: "btn btn-primary" %>
+  <%= link_to "Disconnect", question_messages_path(@order.proposal.question), class:"btn btn-danger", id:"hang-up" %>
+  <%= content_tag "a", "Screen Share", href:"#", class: "screen-share btn btn-secondary" %>
 </div>
 
 <div id="twilio-tokens" data-twilio-tokens="<%= JSON.generate(@video_tokens) %>"></div>
+<div data-referrer="<%= @referrer %>" id="referrer"></div>
