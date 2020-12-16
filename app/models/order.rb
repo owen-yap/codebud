@@ -7,4 +7,8 @@ class Order < ApplicationRecord
   def payer
     proposal.question.user
   end
+
+  def payee
+    proposal.user
+  end
 end
