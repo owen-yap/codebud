@@ -55,13 +55,10 @@ class ProposalsController < ApplicationController
         proposal.update(status: "rejected")
       end
     end
+
     @question.update(status: "in progress")
-    # go to order path when it is created
-    if @accepted_proposal.price == 0
-      redirect_to root_path
-    else
-      create_order(@accepted_proposal)
-    end
+
+    create_order(@accepted_proposal)
   end
 
   private
@@ -72,6 +69,11 @@ class ProposalsController < ApplicationController
     order.proposal = proposal
     # add the proposal on the params to the right order
     # intiate the payment
+    if proposal.price.zero?
+      order.save!
+      redirect_to root_path
+      return
+    end
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],

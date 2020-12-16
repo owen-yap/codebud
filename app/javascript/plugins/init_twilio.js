@@ -52,8 +52,8 @@ const selfConnected = (room) => {
 }
 
 const shareScreen = (room) => {
-  const stream = await navigator.mediaDevices.getDisplayMedia();
-  const screenTrack = new createLocalVideoTrack(stream.getTracks()[0]);
+  const stream = navigator.mediaDevices.getDisplayMedia();
+  const screenTrack = createLocalVideoTrack(stream.getTracks()[0]);
   room.localParticipant.publishTrack(screenTrack);
 }
 
@@ -121,10 +121,8 @@ const setUpTwilio = () => {
 
   const screenShareButton = document.querySelector(".screen-share");
   screenShareButton.addEventListener('click', (e) => {
-    shareScreen();
-  })
-
-})
-
+    shareScreen(token.room);
+  });
+};
 
 export { setUpTwilio }
