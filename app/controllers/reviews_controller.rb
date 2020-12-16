@@ -3,13 +3,18 @@ class ReviewsController < ApplicationController
     @order = Order.find(params[:order_id])
     @proposal = @order.proposal
     @review = Review.new
+    @review.order = @order
+
+    authorize @review
   end
 
   def create
-    review = Review.new(review_params)
+    @review = Review.new(review_params)
     @order = Order.find(params[:order_id])
-    review.order = @order
-    if review.save!
+    @review.order = @order
+
+    authorize @review
+    if @review.save!
       redirect_to root_path
     else
       render :new

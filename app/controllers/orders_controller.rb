@@ -4,8 +4,9 @@ class OrdersController < ApplicationController
     order = Order.find(params[:id])
     order.update(order_params)
     redirect_to question_messages_path(order.proposal.question)
+    authorize order
   end
-  
+
   def create_room
     @order = Order.find(params[:id])
     account_sid = ENV['TWILIO_ACCOUNT_SID']
@@ -36,7 +37,7 @@ class OrdersController < ApplicationController
   end
 
   private
-  
+
   def order_params
     params.require(:order).permit(:status)
   end

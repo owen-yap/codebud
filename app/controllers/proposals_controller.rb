@@ -12,6 +12,8 @@ class ProposalsController < ApplicationController
     proposal.status = 'pending'
     proposal.user = current_user
     proposal.question = Question.find(params[:question_id])
+    authorize proposal
+
     proposal.save!
     question = proposal.question
     if question.user.chat_id
@@ -33,6 +35,7 @@ class ProposalsController < ApplicationController
   def cancel
     proposal = Proposal.find(params[:id])
     proposal.status = 'cancelled'
+    authorize proposal
     proposal.save!
     redirect_to questions_path
   end
@@ -45,12 +48,13 @@ class ProposalsController < ApplicationController
 
     @allproposals.each do |proposal|
       if proposal == @accepted_proposal
+        authorize @accepted_proposal
         @accepted_proposal.update(status: "selected")
       else
+        authorize proposal
         proposal.update(status: "rejected")
       end
     end
-
     @question.update(status: "in progress")
     # go to order path when it is created
     create_order(@accepted_proposal )
