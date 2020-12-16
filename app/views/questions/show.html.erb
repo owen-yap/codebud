@@ -12,6 +12,9 @@
         <div>
           <p>Availability: <%= "#{@question.start_time} to #{@question.end_time}" %> &nbsp; &nbsp; &nbsp; &nbsp;<%= "Price range: #{@question.min_price} to #{@question.max_price}" %></p>
         </div>
+        <div class="time-tag">
+          <p><em>Asked: <%= ((Time.now - @question.created_at)/3600).round(1)%> hrs ago</em></p>
+        </div>
       </div>
       <% if current_user.tutor %>
         <%#= link_to "Apply", new_question_proposal_path(@question), class: "btn light-btn" %>
