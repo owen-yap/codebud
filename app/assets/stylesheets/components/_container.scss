@@ -78,11 +78,16 @@
 }
 
 .container-payments {
-
   display: flex;
   justify-content: center;
   padding-top: 20px;
   width: 800px;
   height: 100%;
   margin: 0 auto;
+}
+
+.review-container {
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: rgba(77, 76, 76, 0.4);
 }
