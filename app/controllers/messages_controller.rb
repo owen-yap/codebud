@@ -2,11 +2,7 @@ class MessagesController < ApplicationController
   def index
     # @user = User.find(params[:user_id])
     @question = Question.find(params[:question_id])
-<<<<<<< HEAD
-
-=======
     @order = @question.selected_proposal.order
->>>>>>> master
     @message = Message.new
     if @question.user == current_user || @question.selected_proposal.user == current_user
       render :index

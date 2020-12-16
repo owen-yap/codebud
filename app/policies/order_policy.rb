@@ -9,4 +9,8 @@ class OrderPolicy < ApplicationPolicy
     record.payer == user
   end
 
+  def update?
+    record.payer == user
+  end
+
 end

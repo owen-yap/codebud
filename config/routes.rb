@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :proposals
   end
 
-  resources :orders, only: [:create] do
+  resources :orders, only: [:create, :edit, :update] do
     resources :payments
     resources :reviews, only: [:new, :create]
   end
