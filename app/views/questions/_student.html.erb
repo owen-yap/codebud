@@ -21,6 +21,9 @@
               <p class="card-tag"> <%= skill.name %> </p>
             <% end %>
           </div>
+          <div class="time-tag">
+            <p><em>Asked: <%= ((Time.now - question.created_at)/3600).round(1)%> hrs ago</em></p>
+          </div>
       </div>
         <% if question.selected_proposal %>
           <%= link_to "View",question_messages_path(question), class: "btn fat-btn accepted" %>

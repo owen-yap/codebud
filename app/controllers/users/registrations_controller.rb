@@ -1,40 +1,9 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
-
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
-
-  def after_sign_up_path_for(resource)
+  def after_sign_up_path_for(_resource)
     new_bio_path
   end
-  
-  # POST /resource
-  # def create
-    # super
-    # skill_ids = params.dig(:user, :skill_ids)
-    #                   .keep_if { |v| v.present? }
-    # skill_ids.each { |id| resource.skills << Skill.find(id) }
-  # end
-
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
-
-  # PUT /resource
-  # def update
-  #   super
-  # end
-
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

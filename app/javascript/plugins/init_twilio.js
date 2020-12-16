@@ -51,6 +51,12 @@ const selfConnected = (room) => {
   });
 }
 
+const shareScreen = (room) => {
+  const stream = navigator.mediaDevices.getDisplayMedia();
+  const screenTrack = createLocalVideoTrack(stream.getTracks()[0]);
+  room.localParticipant.publishTrack(screenTrack);
+}
+
 const connectToRoom = (token) => {
   connect(token.token, {
     name: token.room,
@@ -63,7 +69,7 @@ const connectToRoom = (token) => {
     room.on('participantConnected', buddyConnected);
     room.on('disconnected', selfDisconnected);
   }, error => {
-    console.error(`Unable to connect to Room: ${error.message}`);
+    console.error('Failed to acquire media:', error.name, error.message);
   });
 }
 
@@ -96,24 +102,27 @@ const setUpTwilio = () => {
 
   tokens = JSON.parse(tokens)
 
-  const userId = document.cookie;
-  debugger;
-  const token = tokens[userId]
-  setVideoVisible(true)
-  addLocalVideo()
-  connectToRoom(token)
+  const userId = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('user_id'))
+    .split('=')[1];
+  const token = tokens[userId];
+  const videoCallButton = document.getElementById('video-call');
+  videoCallButton.addEventListener('click', (e) => {
+    setVideoVisible(true)
+    addLocalVideo()
+    connectToRoom(token)
+  });
 
+  const hangUpButton = document.querySelector(".round-hang-up");
+  hangUpButton.addEventListener('click', (e) => {
+    disconnectVideo();
+  });
 
-  // we need to find all the buddies call buttons (start video chat)
-
-
-
-  const $hangUpButtons = document.querySelectorAll(".round-hang-up")
-  $hangUpButtons.forEach((button) => {
-    button.addEventListener('click', (e) => {
-      disconnectVideo();
-    })
-  })
+  const screenShareButton = document.querySelector(".screen-share");
+  screenShareButton.addEventListener('click', (e) => {
+    shareScreen(token.room);
+  });
 };
 
 export { setUpTwilio }
