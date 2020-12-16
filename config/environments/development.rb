@@ -15,8 +15,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Ngrok tunneling
-
-  config.hosts << "90b3b24c838c.ngrok.io"
+  
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
