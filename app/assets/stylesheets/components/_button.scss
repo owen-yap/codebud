@@ -28,6 +28,21 @@
   }
 }
 
+.delete-btn {
+  color: white;
+  border-radius: 4px;
+  background: $redcolor;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  min-width: 110px;
+  padding: 0.3rem;
+
+  &:hover {
+  background-color: $red;
+  color: white;
+  }
+}
+
 .white-btn {
   color: black;
   border-radius: 4px;

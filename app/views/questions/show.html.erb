@@ -1,5 +1,5 @@
 
-<div class="container-sm">
+<div class="container-sm mb-3">
    <%= link_to "< Back", root_path, class: "muted mt-5" %>
    <div class="card-template question mb-3 mt-3">
       <div class="info">
@@ -67,7 +67,7 @@
       <%= link_to "Delete Question",
           question_path(@question),
           method: :delete,
-          data: { confirm: "Are you deleting this question?"}, class: "btn dark-btn" %>
+          data: { confirm: "Are you deleting this question?"}, class: "btn delete-btn" %>
     </div>
   <% end %>
 </div>
