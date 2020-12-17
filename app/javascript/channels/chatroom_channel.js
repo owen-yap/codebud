@@ -1,5 +1,6 @@
 import consumer from "./consumer";
 import { fetchWithToken } from "../utils/fetch_with_token";
+import { initMsgStyle } from "../plugins/init_msg_style";
 
 const initChatroomCable = () => {
   console.log('chatroom cable loaded');
@@ -37,6 +38,7 @@ const initChatroomCable = () => {
         // called when data is broadcast in the cable
         messagesContainer.insertAdjacentHTML('afterBegin', data);
         word.value = "";
+        initMsgStyle();
       }
     });
   }
