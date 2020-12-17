@@ -5,10 +5,8 @@ require 'nokogiri'
 require 'httparty'
 
 puts 'Destroying current db....'
-Message.destroy_all
-Bio.destroy_all
+Order.destroy_all
 User.destroy_all
-Skill.destroy_all
 
 puts 'Seeding current db....'
 url = 'https://api.stackexchange.com/2.2/questions?pagesize=10&order=desc&sort=activity&site=stackoverflow'
