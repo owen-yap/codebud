@@ -5,4 +5,16 @@ class Review < ApplicationRecord
   def student
     order.proposal.question.user
   end
+
+  def full_stars
+    rating.floor
+  end
+
+  def half_stars
+    (rating - full_stars).ceil
+  end
+
+  def empty_stars
+    5 - (full_stars + half_stars)
+  end
 end
