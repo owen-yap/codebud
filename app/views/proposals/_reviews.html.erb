@@ -1,0 +1,12 @@
+<strong><%= proposal.user.average_rating %></strong>
+                  <% proposal.user.full_stars.times.each do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <% proposal.user.half_stars.times.each do %>
+                    <i class="fas fa-star-half-alt"></i>
+                  <% end %>
+                  <% proposal.user.empty_stars.times.each do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                  </strong>
+                  <span>(<%= proposal.user.reviews.length %> reviews)</span>
