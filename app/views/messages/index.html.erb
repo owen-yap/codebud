@@ -1,11 +1,11 @@
-<%= link_to "< Back", root_path, class: "muted mt-2 ml-4" %>
-<div class="msg-container">
+<div class="container-fluid">
   <div class="row align-items-start">
     <!-- Question -->
     <div class="col-6 pl-5">
+      <%= link_to "< Back", root_path, class: "muted mt-2" %>
       <div class="card-template question mb-3 mt-2">
         <div class="info">
-          <h3 class="title mb-2">Question: <%= @question.title %> </h3>
+          <h3 class="title mb-2"><%= @question.title %></h3>
           <div class="tags">
             <% @question.skills.each do |skill| %>
               <p class="card-tag"> <%= skill.name %> </p>
@@ -17,9 +17,10 @@
           </div>
         </div>
       </div>
-      <div class="card-white line-numbers language-css">
+      <div class="card-white">
         <p class="card-tag mb-0"> <%= @question.rich_body %></p>
       </div>
+
       <!-- session finished button -->
       <div class='mt-3'>
         <% if current_user.tutor %>
@@ -30,26 +31,39 @@
       </div>
     </div>
     <!-- message window -->
-    <div class="col-6">
-      <div class="msg-container-sm mt-3">
-        <h6><strong>#Qn-<%= @question.title %></strong></h6>
-        <div id="messages" data-question-id="<%= @question.id %>" data-current-user-id="<%=current_user.id%>">
-          <% @question.messages.each do |message| %>
-            <div class="message-container" id="message-<%= message.id %>" data-user-id="<%=message.user.id%>">
-              <i class="author">
-                <span><%= message.sender.username %></span>
-                <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-              </i>
-              <p><%= message.content %></p>
-            </div>
-          <% end %>
-        </div>
+    <div class="col-6 pr-5 pt-5">
+      <div class="msg-container p-3">
         <div class= "mt-2">
-          <%= simple_form_for [ @question, @message ] do |f| %>
-            <%= f.input :content, label: false, placeholder: "type your message" %>
-            <%= f.submit ' ➢ ', data: { disable_with: false } %>
+          <%= simple_form_for [ @question, @message ], remote: true  do |f| %>
+            <div class="form-row align-items-center">
+              <div class="col-11">
+                <%= f.input :content, label: false, placeholder: "message", input_html: { autocomplete: "off" }  %>
+              </div>
+              <div class="col-1 align-items-center">
+                <div class="form-group">
+                  <%= button_tag type: 'submit', class: "btn btn-primary py-1 px-2" do %>
+                    <i class="fas fa-paper-plane"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
           <% end %>
         </div>
+        <div class="msg p-2 mt-2">
+          <div id="messages" data-question-id="<%= @question.id %>" data-current-user-id="<%=current_user.id%>">
+            <% @question.messages.reverse.each do |message| %>
+              <div class="message-container" id="message-<%= message.id %>" data-user-id="<%=message.user.id%>">
+                <i class="author">
+                  <span><%= message.sender.username %></span>
+                  <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+                </i>
+                <p><%= message.content %></p>
+              </div>
+            <% end %>
+          </div>
+      </div>
+        
       </div>
       <%= link_to "Enter video call", create_room_path(@order), class: "btn light_btn" %>
     </div>

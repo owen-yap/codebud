@@ -1,16 +1,18 @@
-<%= simple_form_for(question, html: { class: "question-form"}) do |f| %>
-  <section>
-    <div class="form-heading">
-      <p class="subheading">
-        <%= image_tag 'one.svg', class: "avatar-sm"%>
-        What do you need help with?
-      </p>
-      <%= f.input :title %>
-      <div class="form-inputs">
-        <%= f.rich_text_area :rich_body %>
-      </div>
+<%= simple_form_for(question, html: { class: "question-form w-100"}) do |f| %>
+    <div>
+      <section>
+        <div class="form-heading">
+          <p class="subheading">
+            <%= image_tag 'one.svg', class: "avatar-sm"%>
+            What do you need help with?
+          </p>
+          <%= f.input :title %>
+          <div class="form-inputs">
+            <%= f.rich_text_area :rich_body %>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
 
   <section>
     <div class="form-heading">
@@ -33,11 +35,19 @@
         <%= image_tag 'three.svg', class: "avatar-sm" %>
         Availability and Price
       </p>
-        <%= f.input :start_time, as: :string %>
-        <%= f.input :end_time, as: :string %>
-      <div>
-        <%= f.input :min_price, collection: 1..20, label:"Min price" %>
-        <%= f.input :max_price, collection: 21..50 %>
+      <span class="d-flex">
+        <div class="row w-100">
+          <div class="col-6">
+            <%= f.input :start_time, as: :string %>
+          </div>
+          <div class="col-6">
+            <%= f.input :end_time, as: :string %>
+          </div>
+        </div>
+      </span>
+      <div class="range-wrap">
+        <%= f.input :budget, as: :range, collection: 1..100, value:"50", wrapper_html: { class: 'mb-0' } %>
+        <span class= "bubble" id="price"> </span>
       </div>
     </div>
   </section>

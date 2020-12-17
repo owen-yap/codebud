@@ -14,7 +14,22 @@ class User < ApplicationRecord
   has_many :proposals, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_one :bio, dependent: :destroy
-  
+
+  def average_rating
+    reviews.average(:rating)
+  end
+
+  def full_stars
+    average_rating.floor
+  end
+
+  def half_stars
+    (average_rating - full_stars).ceil
+  end
+
+  def empty_stars
+    5 - (full_stars + half_stars)
+  end
 
   def received_messages
     Messages.where(receiver_id: id)

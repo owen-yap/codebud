@@ -36,6 +36,8 @@ import { initChatroomCable } from '../channels/chatroom_channel'
 import { initFormattingToPreBlocks } from '../plugins/init_prism'
 import { initMsgStyle } from '../plugins/init_msg_style'
 import { setUpTwilio } from '../plugins/init_twilio'
+import { initStarRating } from '../plugins/init_star_rating';
+import { initSlider } from '../plugins/init_slider';
 
 // when the page have fully loaded then call these js plugins so the dom are fully loaded and can be targeted
 document.addEventListener('turbolinks:load', () => {
@@ -49,4 +51,6 @@ document.addEventListener('turbolinks:load', () => {
   Prism.highlightAll();
   initMsgStyle();
   setUpTwilio();
+  initStarRating();
+  initSlider();
 });

@@ -1,21 +1,16 @@
-<div class="container-sm">
-  <div class="d-flex justify-content-center flex-column">
+<div class="container" style="max-width: 1200px">
+  <div class="row">
 
-  <h1 class="main-heading mb-3">Past Questions</h1>
-  <div>
-    <%= link_to "< Back", questions_path, class: "muted mb-2 ml-1" %>
-  </div>
-    <% @session.each do |session| %>
-        <div class="card-template question mb-2">
-          <div class="info">
-            <h6 class="title mb-2"><strong><%=session.question.title %></strong></h6>
-            <p> <%= session.question.rich_body %></p>
-          </div>
-          <div>
-            <%= link_to "View",question_messages_path(session.question), class: "btn fat-btn accepted" %>
-          </div>
+    <div class="col-2">
+      <%= render 'shared/sidenav' %>
+    </div>
+
+    <div class="col-10 pt-5">
+      <div class="container-fluid">
+        <div class="row">
+          <%= render 'page' %>
         </div>
-    <% end %>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
 </div>

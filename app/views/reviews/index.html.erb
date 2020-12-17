@@ -1,23 +1,36 @@
 <div class='container pt-3'>
 
-    <%= link_to "< Back", :back, class: "muted mt-5" %>
+  <%= link_to "< Back", :back, class: "muted mt-5" %>
 
 
   <div class="row">
     <div class="col-5">
-      <div class="card-account card-template flex-column">
-        <div class='img mx-auto'>
+      <div class="left-column flex-column">
+        <div class='img'>
           <%= avatar(current_user, "avatar-xlg") %>
         </div>
-        <p class='subheading mx-auto'><%= @user.name %></p>
+        <p class='tutorname subheading'><%= @user.name %></p>
         <div class='reviews-skill mt-3'>
           <p class='subheading'>Skills: </p>
           <% @skill_array.each do |skill| %>
             <span class='card-tag'><strong><%= skill.name %></strong></span>
           <% end %>
           <div class='avg-rate d-flex mt-3'>
-            <p>Average: <%= @review_array.average(:rating)%>⭐</p>
-            <p class='muted'>Count: (<%= @review_array.length %> reviews)</p>
+              <span>
+                <strong><%= @user.average_rating %></strong>
+                  <% @user.full_stars.times.each do %>
+                   <i class="fas fa-star"></i>
+                  <% end %>
+                  <% @user.half_stars.times.each do %>
+                    <i class="fas fa-star-half-alt"></i>
+                  <% end %>
+                  <% @user.empty_stars.times.each do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+
+                </strong>
+                <p class='muted'>(<%= @user.reviews.length %> reviews)</p>
+              </span>
           </div>
         </div>
 
@@ -26,24 +39,31 @@
 
     <div class="col-7">
       <p class='subheading'>Bio</p>
-      <div class="card-account card-template">
+      <div class="right-column-top">
         <%= @bio.content %>
       </div>
 
       <p class='subheading mt-3'>Reviews</p>
-      <div class="card-account card-template flex-column mt-2">
-        <% @review_array.each do |review| %>
-          <li><%= review.content %>
-          <p>Rating: <%= review.rating %>/5</p></li>
+      <div class="right-column-btm flex-column mt-2">
+        <% @user.reviews.each do |review| %>
+          <div class='review-profile p-2'>
+            <p><%= review.id %>. Rating: 
+              <% review.full_stars.times.each do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% review.half_stars.times.each do %>
+                <i class="fas fa-star-half-alt"></i>
+              <% end %>
+              <% review.empty_stars.times.each do %>
+                <i class="far fa-star"></i>
+              <% end %></p>
+            <%= review.content %>
+          </div>  
         <% end %>
       </div>
 
     </div>
 
-  </div>
-
-  <div class="row">
-  
   </div>
   
 </div>

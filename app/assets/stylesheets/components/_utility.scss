@@ -2,10 +2,25 @@
   min-width: 120px;
 }
 
-.msgblue {
-  background-color: $lighterblue;
-  border-radius: 4px;
+.msgwhite {
+  background-color: white;
+  width: 70%;
   margin: 1px;
   box-shadow: 0 0 2px rgba(0,0,0,0.4);
   padding-left: 2px;
+}
+
+.msggreen {
+  background-color: #DCF8C5;
+  width: 70%;
+  margin: 1px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.4);
+  padding-left: 2px;
+}
+
+.price {
+  color: #0466c8;
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-family: sans-serif;
 }

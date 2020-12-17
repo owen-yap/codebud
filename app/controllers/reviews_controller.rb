@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   def index
     @bio = User.find(params[:user_id]).bio
     @skill_array = User.find(params[:user_id]).skills
-    @review_array = User.find(params[:user_id]).reviews
+    @average_rating = User.find(params[:user_id]).average_rating
     @user = User.find(params[:user_id])
   end
 
