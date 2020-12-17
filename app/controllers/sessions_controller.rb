@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
       @proposals = @user.proposals
       @proposals.each do |proposal|
-        if proposal.status == "selected" && proposal.order.completed?
+        if proposal.status == "selected" && proposal.order && proposal.order.completed?
           @session << proposal
         end
       end
