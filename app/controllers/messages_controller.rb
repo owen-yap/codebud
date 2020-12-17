@@ -4,11 +4,6 @@ class MessagesController < ApplicationController
     @question = Question.find(params[:question_id])
     @order = @question.selected_proposal.order
     @message = Message.new
-    if @question.user == current_user || @question.selected_proposal.user == current_user
-      render :index
-    else
-      render :index #:not_authorized
-    end
   end
 
   def create
@@ -26,6 +21,7 @@ class MessagesController < ApplicationController
         @question,
         render_to_string(partial: "message", formats: [:html], locals: { message: @message })
       )
+      redirect_to question_messages_path(@question), anchor: "message-#{@message.id}"
     else
       render "/index"
     end

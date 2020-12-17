@@ -1,16 +1,19 @@
 <%= simple_form_for(question, html: { class: "question-form"}) do |f| %>
-  <section>
-    <div class="form-heading">
-      <p class="subheading">
-        <%= image_tag 'one.svg', class: "avatar-sm"%>
-        What do you need help with?
-      </p>
-      <%= f.input :title %>
-      <div class="form-inputs">
-        <%= f.rich_text_area :rich_body %>
-      </div>
+    <div>
+      <section>
+        <div class="form-heading">
+          <p class="subheading">
+            <%= image_tag 'one.svg', class: "avatar-sm"%>
+            What do you need help with?
+          </p>
+          <%= f.input :title %>
+          <div class="form-inputs">
+            <%= f.rich_text_area :rich_body %>
+          </div>
+        </div>
+      </section>
+      <p><%= image_tag "information.svg" %></p>
     </div>
-  </section>
 
   <section>
     <div class="form-heading">

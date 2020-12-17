@@ -52,29 +52,24 @@
 }
 
 .msg-container {
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
+  width: 100%;
+  background-color: $lighterblue;
+
+  form {
+    input[type=text] {
+      display: inline-block;
+      margin: 0;
+    }
+    input[type=submit] {
+      display: inline-block;
+    }
+  }
 }
 
-.msg-container-sm {
-  width: 90%;
-  max-width: 1000px;
-  height: 70vh;
+.msg {
+  background-color: #ECE7E1;
+  height: 60vh;
   overflow-y: scroll;
-  background: #ECE7E1;
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
-  border-style: solid;
-  padding: 20px;
-  margin: 10px;
-
-  p {
-      font-size: 0.8rem;
-      display: inline-block;
-      width: 75%;
-      margin-bottom: .2rem;
-    }
-
 }
 
 .container-payments {
