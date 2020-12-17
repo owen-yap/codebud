@@ -130,3 +130,19 @@
 .rejected {
   background-color: #FD5F72;
 }
+
+.pill {
+  color: white;
+  background: #FD5F72;
+  border-radius: 15px;
+  line-height: 1.2;
+  padding: 3px;
+  font-size: 10px;
+  font-weight: lighter;
+  // transition: opacity 0.3s ease;
+  margin: 2px 0px 2px 0px;
+  border-style: solid $lightgray 1px;
+}
+.avg-rate {
+  justify-content: space-between;
+}

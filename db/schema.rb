@@ -127,7 +127,9 @@ ActiveRecord::Schema.define(version: 2020_12_16_073452) do
     t.bigint "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["order_id"], name: "index_reviews_on_order_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -179,6 +181,7 @@ ActiveRecord::Schema.define(version: 2020_12_16_073452) do
   add_foreign_key "requirements", "questions"
   add_foreign_key "requirements", "skills"
   add_foreign_key "reviews", "orders"
+  add_foreign_key "reviews", "users"
   add_foreign_key "user_skills", "skills"
   add_foreign_key "user_skills", "users"
 end

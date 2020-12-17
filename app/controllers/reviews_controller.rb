@@ -1,4 +1,11 @@
 class ReviewsController < ApplicationController
+  def index
+    @bio = User.find(params[:user_id]).bio
+    @skill_array = User.find(params[:user_id]).skills
+    @review_array = User.find(params[:user_id]).reviews
+    @user = User.find(params[:user_id])
+  end
+
   def new
     @order = Order.find(params[:order_id])
     @proposal = @order.proposal
@@ -12,6 +19,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @order = Order.find(params[:order_id])
     @review.order = @order
+    @user = Order.find(params[:order_id]).proposal.user
+    @review.user = @user
 
     authorize @review
     if @review.save!

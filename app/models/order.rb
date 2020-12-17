@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
-  belongs_to :proposal
   has_one :review, dependent: :destroy
-  has_one :payment
+  has_one :payment, dependent: :destroy
+  belongs_to :proposal
   monetize :price_cents
 
   validates :status, inclusion: { in: %w[pending completed] }
