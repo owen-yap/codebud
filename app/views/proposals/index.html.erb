@@ -1,8 +1,9 @@
 <div class="container-sm">
+    <div><%= link_to "< Back", questions_path, class: "muted mt-2" %></div>
     <div class="d-flex justify-content-center flex-column">
-      <%= link_to "< Back", questions_path, class: "muted" %>
+
       <h1 class="main-heading mb-3">Pick Your Tutor</h1>
-      <h2 class="caption"><%= @question.title %></h2>
+      <h2 class="caption">Question: <%= @question.title %></h2>
     </div>
     <div class="text-right">
       <%= link_to "View Question >", question_path(@question), class: "blue" %>
@@ -19,6 +20,25 @@
               <% end %>
             </div>
             <%= link_to 'View full profile', user_reviews_path(proposal.user) %>
+
+            <div class='avg-rate d-flex mt-3'>
+              <span>
+                <% if proposal.user.average_rating %>
+                  <strong><%= proposal.user.average_rating %></strong>
+                  <% proposal.user.full_stars.times.each do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <% proposal.user.half_stars.times.each do %>
+                    <i class="fas fa-star-half-alt"></i>
+                  <% end %>
+                  <% proposal.user.empty_stars.times.each do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                  <span>(<%= proposal.user.reviews.length %> reviews)</span>
+
+                <% end %>
+              </span>
+            </div>
           </div>
 
           <div class="info">
@@ -27,7 +47,7 @@
           </div>
 
           <div class="info">
-            <p class="card-subheading">Price:</p>
+            <p class="card-subheading">Proposed price:</p>
             <p class="card-subheading"><%= proposal.price %></p>
           </div>
 
