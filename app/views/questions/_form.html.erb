@@ -36,9 +36,9 @@
         <%= f.input :start_time, as: :string %>
         <%= f.input :end_time, as: :string %>
       <div>
-        <%= f.input :min_price, collection: 1..20, label:"Min price" %>
-        <%= f.input :max_price, collection: 21..50 %>
+        <%= f.input :min_price, as: :range, collection: 1..100, value:"50", class:"slider" %>
       </div>
+      <p class="price">Budget: <span id="price"> </span></p>
     </div>
   </section>
 
