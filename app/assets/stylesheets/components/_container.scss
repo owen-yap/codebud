@@ -86,3 +86,25 @@
   border-radius: 8px;
   box-shadow: rgba(77, 76, 76, 0.4);
 }
+
+.col-5 {
+  border: solid #F4F4F4 ;
+  width: auto;
+  height: auto;
+  border-right: 3px solid rgb(82, 81, 81);
+  .img {
+    text-align: center;
+  }
+  .tutorname {
+    text-align: center;
+  }
+  .subheading {
+    display: block;
+  }
+}
+
+.right-column-top {
+  padding: 0 0 20px 0;
+  border-bottom: 3px solid rgb(82, 81, 81);
+}
+

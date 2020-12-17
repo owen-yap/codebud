@@ -44,6 +44,7 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'pundit'
 gem 'twilio-ruby'
+gem 'cloudinary', '~> 1.16.0'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     @skill_array = User.find(params[:user_id]).skills
     @review_array = User.find(params[:user_id]).reviews
     @user = User.find(params[:user_id])
-  end
+   end
 
   def new
     @order = Order.find(params[:order_id])
