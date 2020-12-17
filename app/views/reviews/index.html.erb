@@ -17,12 +17,19 @@
           <% end %>
           <div class='avg-rate d-flex mt-3'>
               <span>
-                <strong><%= @review_array.average(:rating)%>
-                  <%# <% @review_array.average(:rating).times do%>
-                    <span>⭐</span>
-                  <%# end %>
+                <strong><%= @user.average_rating %></strong>
+                  <% @user.full_stars.times.each do %>
+                   <i class="fas fa-star"></i>
+                  <% end %>
+                  <% @user.half_stars.times.each do %>
+                    <i class="fas fa-star-half-alt"></i>
+                  <% end %>
+                  <% @user.empty_stars.times.each do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+
                 </strong>
-                <p class='muted'>(<%= @review_array.length %> reviews)</p>
+                <p class='muted'>(<%= @user.reviews.length %> reviews)</p>
               </span>
           </div>
         </div>
@@ -38,12 +45,18 @@
 
       <p class='subheading mt-3'>Reviews</p>
       <div class="right-column-btm flex-column mt-2">
-        <% @review_array.each do |review| %>
+        <% @user.reviews.each do |review| %>
           <div class='review-profile p-2'>
-            <p><%= review.id %>. Rating:
-            <% review.rating.times do %>
-              <span>⭐</span>
-            <% end %></p>
+            <p><%= review.id %>. Rating: 
+              <% review.full_stars.times.each do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% review.half_stars.times.each do %>
+                <i class="fas fa-star-half-alt"></i>
+              <% end %>
+              <% review.empty_stars.times.each do %>
+                <i class="far fa-star"></i>
+              <% end %></p>
             <%= review.content %>
           </div>  
         <% end %>
