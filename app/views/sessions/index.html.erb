@@ -8,24 +8,7 @@
     <div class="col-10 pt-5">
       <div class="container-fluid">
         <div class="row">
-            <div class="d-flex justify-content-center flex-column">
-              <h1 class="main-heading mb-3">Past Questions</h1>
-            <div>
-              <%= link_to "< Back", questions_path, class: "muted mb-2 ml-4" %>
-            </div>
-               <% @session.each do |session| %>
-                  <div class="card-template question mb-3 ml-4">
-                  <div class="info">
-                    <h6 class="title mb-2"><strong><%=session.question.title %></strong></h6>
-                    <p> <%= session.question.rich_body %></p>
-                  </div>
-                  <div>
-                    <%= link_to "View",question_messages_path(session.question), class: "btn fat-btn accepted" %>
-                  </div>
-                  </div>
-              <% end %>
-
-          </div>
+          <%= render 'page' %>
         </div>
       </div>
     </div>
