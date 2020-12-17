@@ -33,10 +33,18 @@
         <%= image_tag 'three.svg', class: "avatar-sm" %>
         Availability and Price
       </p>
-        <%= f.input :start_time, as: :string %>
-        <%= f.input :end_time, as: :string %>
+      <span class="d-flex">
+        <div class="row w-100">
+          <div class="col-6">
+            <%= f.input :start_time, as: :string %>
+          </div>
+          <div class="col-6">
+            <%= f.input :end_time, as: :string %>
+          </div>
+        </div>
+      </span>
       <div class="range-wrap">
-        <%= f.input :budget, as: :range, collection: 1..100, value:"50", class:"slider range" %>
+        <%= f.input :budget, as: :range, collection: 1..100, value:"50", wrapper_html: { class: 'mb-0' } %>
         <span class= "bubble" id="price"> </span>
       </div>
     </div>
