@@ -16,4 +16,5 @@ const initMsgStyle = () => {
     });
   }
 };
+
 export { initMsgStyle };
