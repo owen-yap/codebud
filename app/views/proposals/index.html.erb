@@ -41,12 +41,12 @@
             </div>
           </div>
 
-          <div class="info">
+          <div class="info mr-2">
             <p class="card-subheading">Availability:</p>
-            <p class="card-subheading"><%= proposal.meeting_time %></p>
+            <p class="card-subheading"><%= proposal.meeting_time.strftime("%A , %e %B %Y, %l:%M %P") %></p>
           </div>
 
-          <div class="info">
+          <div class="info ml-3">
             <p class="card-subheading">Proposed price:</p>
             <p class="card-subheading"><%= proposal.price %></p>
           </div>
