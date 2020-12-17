@@ -16,8 +16,14 @@
             <span class='card-tag'><strong><%= skill.name %></strong></span>
           <% end %>
           <div class='avg-rate d-flex mt-3'>
-            <p>Average: <%= @review_array.average(:rating)%>⭐</p>
-            <p class='muted'>Count: (<%= @review_array.length %> reviews)</p>
+              <span>
+                <strong><%= @review_array.average(:rating)%>
+                  <%# <% @review_array.average(:rating).times do%>
+                    <span>⭐</span>
+                  <%# end %>
+                </strong>
+                <p class='muted'>(<%= @review_array.length %> reviews)</p>
+              </span>
           </div>
         </div>
 
@@ -33,12 +39,12 @@
       <p class='subheading mt-3'>Reviews</p>
       <div class="right-column-btm flex-column mt-2">
         <% @review_array.each do |review| %>
-          <div class='review-profile'>
-            <%= review.content %>
-            <p>Rating:
+          <div class='review-profile p-2'>
+            <p><%= review.id %>. Rating:
             <% review.rating.times do %>
               <span>⭐</span>
             <% end %></p>
+            <%= review.content %>
           </div>  
         <% end %>
       </div>
