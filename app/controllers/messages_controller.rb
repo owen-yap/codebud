@@ -19,9 +19,11 @@ class MessagesController < ApplicationController
       # looks for partial _message.html.erb if not default look for _message.json
       MessageChannel.broadcast_to(
         @question,
-        render_to_string(partial: "message", formats: [:html], locals: { message: @message })
+        {
+          html: render_to_string(partial: "message", formats: [:html], locals: { message: @message }),
+          message: @message,
+        }
       )
-      redirect_to question_messages_path(@question), anchor: "message-#{@message.id}"
     else
       render "/index"
     end
