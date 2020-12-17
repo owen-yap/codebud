@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   def update
     order = Order.find(params[:id])
     order.update(order_params)
-    order.selected_proposal.question.update(status: "answered")
+    order.proposal.question.update(status: "answered")
     authorize order
     redirect_to question_messages_path(order.proposal.question)
   end
