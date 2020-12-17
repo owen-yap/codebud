@@ -1,5 +1,6 @@
 import consumer from "./consumer";
 import { fetchWithToken } from "../utils/fetch_with_token";
+import { initMsgStyle } from "../plugins/init_msg_style";
 
 const initChatroomCable = () => {
   console.log("chatroom cable loaded");
@@ -10,6 +11,7 @@ const initChatroomCable = () => {
     const id = messagesContainer.dataset.questionId;
     const current_user = messagesContainer.dataset.currentUserId;
     // listening for broadcast in channel , MessageChannel for this qn
+
     consumer.subscriptions.create(
       { channel: "MessageChannel", id: id },
       {
