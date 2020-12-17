@@ -20,10 +20,14 @@ class User < ApplicationRecord
   end
 
   def full_stars
+    return 0 if average_rating.nil?
+
     average_rating.floor
   end
 
   def half_stars
+    return 0 if average_rating.nil?
+
     (average_rating - full_stars).ceil
   end
 
@@ -35,11 +39,10 @@ class User < ApplicationRecord
     Messages.where(receiver_id: id)
   end
 
-
   # finding messages sent and recieved by this user between the current user
   def messages_with(user)
     Message.where("(receiver_id = ? AND sender_id = ?)
     OR (receiver_id = ? AND sender_id = ?)",
-    user.id, self.id, self.id, user.id)
+                  user.id, id, id, user.id)
   end
 end

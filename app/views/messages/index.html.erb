@@ -33,6 +33,21 @@
     <!-- message window -->
     <div class="col-6 pr-5 pt-5">
       <div class="msg-container p-3">
+        
+        <div class="msg p-2 mt-2">
+          <div id="messages" data-question-id="<%= @question.id %>" data-current-user-id="<%= current_user.id %>">
+            <% @question.messages.each do |message| %>
+              <div class="message-container" id="message-<%= message.id %>" data-user-id="<%= message.user.id %>">
+                <i class="author">
+                  <span><%= message.sender.username %></span>
+                  <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+                </i>
+                <p><%= message.content %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
         <div class= "mt-2">
           <%= simple_form_for [ @question, @message ], remote: true  do |f| %>
             <div class="form-row align-items-center">
@@ -47,25 +62,9 @@
                 </div>
               </div>
             </div>
-
           <% end %>
         </div>
-        <div class="msg p-2 mt-2">
-          <div id="messages" data-question-id="<%= @question.id %>" data-current-user-id="<%=current_user.id%>">
-            <% @question.messages.each do |message| %>
-              <div class="message-container" id="message-<%= message.id %>" data-user-id="<%=message.user.id%>">
-                <i class="author">
-                  <span><%= message.sender.username %></span>
-                  <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-                </i>
-                <p><%= message.content %></p>
-              </div>
-            <% end %>
-          </div>
       </div>
-
-      </div>
-      <%= # link_to "Enter video call", create_room_path(@order), class: "btn light_btn" %>
     </div>
   </div>
 </div>

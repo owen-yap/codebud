@@ -7,11 +7,12 @@ class Review < ApplicationRecord
   end
 
   def full_stars
+    rating = 0 if rating.nil?
     rating.floor
   end
 
   def half_stars
-    (rating - full_stars).ceil
+    (rating - full_stars).ceil unless rating.nil?
   end
 
   def empty_stars
