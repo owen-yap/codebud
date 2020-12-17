@@ -6,10 +6,8 @@ class MessagePolicy < ApplicationPolicy
   end
 
   def create?
-    binding.pry
     # the author of the message is either the tutor or the current user
     record.question.user == user ||
-    record.question.selected_proposal.user == user
+      record.question.selected_proposal.user == user
   end
-
 end

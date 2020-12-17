@@ -1,7 +1,7 @@
 class Message < ApplicationRecord
   # User-Message
   belongs_to :user, foreign_key: 'sender_id'
-  belongs_to :question
+  belongs_to :question, dependent: :destroy
 
   def sender
     user
@@ -10,5 +10,4 @@ class Message < ApplicationRecord
   def receiver
     User.find(receiver_id)
   end
-
 end
