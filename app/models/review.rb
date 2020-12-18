@@ -7,7 +7,6 @@ class Review < ApplicationRecord
   end
 
   def full_stars
-    rating = 0 if rating.nil?
     rating.floor
   end
 

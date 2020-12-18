@@ -1,4 +1,4 @@
 class UserSkill < ApplicationRecord
   belongs_to :user
-  belongs_to :skill, dependent: :destroy
+  belongs_to :skill
 end
