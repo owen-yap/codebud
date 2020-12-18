@@ -49,7 +49,7 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initFormattingToPreBlocks();
   Prism.highlightAll();
-  initMsgStyle();
+  // initMsgStyle();
   setUpTwilio();
   initStarRating();
   initSlider();
