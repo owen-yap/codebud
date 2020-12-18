@@ -26,7 +26,7 @@
               <div class='avg-rate d-flex mt-1' style="color:white">
               <span>
                 <% if proposal.user.average_rating %>
-                  <strong><%= proposal.user.average_rating %></strong>
+                  <strong><%= proposal.user.average_rating.round(2) %></strong>
                   <% proposal.user.full_stars.times.each do %>
                     <i class="fas fa-star" style="color:#ffee32"></i>
                   <% end %>
