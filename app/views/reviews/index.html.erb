@@ -17,7 +17,7 @@
           <div class='avg-rate d-flex mt-3'>
               <span>
               <% unless @user.reviews.empty? %>
-                <strong><%= @user.average_rating %></strong>
+                <strong><%= @user.average_rating.round(2) %></strong>
                   <% @user.full_stars.times.each do %>
                    <i class="fas fa-star"></i>
                   <% end %>

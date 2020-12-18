@@ -23,7 +23,7 @@
 
             <div class='avg-rate d-flex mt-3'>
               <span>
-                <% if proposal.user.average_rating %>
+                <% if proposal.user.average_rating.round(2) %>
                   <strong><%= proposal.user.average_rating %></strong>
                   <% proposal.user.full_stars.times.each do %>
                     <i class="fas fa-star"></i>

@@ -5,6 +5,7 @@ require 'nokogiri'
 require 'httparty'
 
 puts 'Destroying current db....'
+Skill.destroy_all
 Message.destroy_all
 Order.destroy_all
 User.destroy_all
