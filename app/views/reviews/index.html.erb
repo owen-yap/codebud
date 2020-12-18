@@ -18,17 +18,19 @@
               <span>
 
               <% unless @user.reviews.empty? %>
-                <strong><%= @user.average_rating %></strong>
-                <% @user.full_stars.times.each do %>
-                  <i class="fas fa-star"></i>
-                <% end %>
-                <% @user.half_stars.times.each do %>
-                  <i class="fas fa-star-half-alt"></i>
-                <% end %>
-                <% @user.empty_stars.times.each do %>
-                  <i class="far fa-star"></i>
-                <% end %>
-                <p class='muted'>(<%= @user.reviews.length %>)</p>
+                <strong><%= @user.average_rating.round(2) %></strong>
+                  <% @user.full_stars.times.each do %>
+                   <i class="fas fa-star"></i>
+                  <% end %>
+                  <% @user.half_stars.times.each do %>
+                    <i class="fas fa-star-half-alt"></i>
+                  <% end %>
+                  <% @user.empty_stars.times.each do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+
+                </strong>
+                <p class='muted'>(<%= @user.reviews.length %> reviews)</p>
               <% end %>
 
               </span>
