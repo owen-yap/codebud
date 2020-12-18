@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/uikit', to: 'pages#index'
   patch '/skills', to: 'skills#update'
   get '/account', to: 'pages#account'
+  get '/qna', to: 'pages#qna'
   get '/cancel/:id', to: 'proposals#cancel', as: :cancel
   post '/accept_proposal', to: "proposals#accept", as: :accept_proposal
   post "/#{ENV['TELEGRAM_KEY']}", to: "telegram_webhook#index"
