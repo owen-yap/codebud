@@ -37,13 +37,7 @@
         <div class="msg p-2 mt-2">
           <div id="messages" data-question-id="<%= @question.id %>" data-current-user-id="<%= current_user.id %>">
             <% @question.messages.each do |message| %>
-              <div class="message-container" id="message-<%= message.id %>" data-user-id="<%= message.user.id %>">
-                <i class="author">
-                  <span><%= message.sender.username %></span>
-                  <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-                </i>
-                <p><%= message.content %></p>
-              </div>
+              <%= render message %>
             <% end %>
           </div>
         </div>
