@@ -16,6 +16,7 @@
           <% end %>
           <div class='avg-rate d-flex mt-3'>
               <span>
+
               <% unless @user.reviews.empty? %>
                 <strong><%= @user.average_rating.round(2) %></strong>
                   <% @user.full_stars.times.each do %>
@@ -31,6 +32,7 @@
                 </strong>
                 <p class='muted'>(<%= @user.reviews.length %> reviews)</p>
               <% end %>
+
               </span>
           </div>
         </div>
@@ -48,17 +50,22 @@
         <% unless @user.reviews.empty? %>
           <% @user.reviews.each do |review| %>
             <div class='review-profile p-2'>
+              <div class="student mb-2">
+                <%= avatar(review.student, "avatar-sm" ) %>
+                <%= review.student.name %>
+              </div>
               <% unless review.rating.nil? %>
-              <p><%= review.id %>. Rating: 
-                <% review.full_stars.times.each do %>
-                  <i class="fas fa-star"></i>
-                <% end %>
-                <% review.half_stars.times.each do %>
-                  <i class="fas fa-star-half-alt"></i>
-                <% end %>
-                <% review.empty_stars.times.each do %>
-                  <i class="far fa-star"></i>
-                <% end %></p>
+                  <p> 
+                    <% review.full_stars.times.each do %>
+                      <i class="fas fa-star"></i>
+                    <% end %>
+                    <% review.half_stars.times.each do %>
+                      <i class="fas fa-star-half-alt"></i>
+                    <% end %>
+                    <% review.empty_stars.times.each do %>
+                      <i class="far fa-star"></i>
+                    <% end %>
+                  </p>
                 <% end %>
               <%= review.content %>
             </div>  

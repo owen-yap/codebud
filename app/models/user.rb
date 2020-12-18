@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :messages, foreign_key: 'sender_id', dependent: :destroy
   has_many :user_skills, dependent: :destroy
-  has_many :skills, through: :user_skills
+  has_many :skills, through: :user_skills, dependent: :destroy
   has_many :proposals, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_one :bio, dependent: :destroy

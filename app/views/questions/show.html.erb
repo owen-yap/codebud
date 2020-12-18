@@ -10,7 +10,7 @@
           <% end %>
         </div>
         <div>
-          <p>Availability: <%= "#{@question.start_time} to #{@question.end_time}" %> &nbsp; &nbsp; &nbsp; &nbsp;<%= "Price budget: #{@question.budget}" %></p>
+          <p>Availability: <%= "#{@question.start_time} to #{@question.end_time}" %> &nbsp; &nbsp; &nbsp; &nbsp;<%= "Budget: #{@question.budget}" %></p>
         </div>
         <div class="time-tag">
           <p><em>Asked: <%= ((Time.now - @question.created_at)/3600).round(1)%> hrs ago</em></p>

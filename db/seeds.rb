@@ -7,6 +7,7 @@ require 'httparty'
 puts 'Destroying current db....'
 Skill.destroy_all
 Message.destroy_all
+Skill.destroy_all
 Order.destroy_all
 User.destroy_all
 
@@ -33,16 +34,8 @@ data['items'].each do |set|
   )
   user = User.find_by(email: set['owner']['display_name'].downcase.gsub(" ", "_") + '@gmail.com') if !user.valid?
   
-  user.skills << Skill.find(rand(1..14))
+  user.skills << Skill.all.sample
   user.save!
-
-  # skill_name = set['tags'][0].capitalize
-  # if Skill.find_by(name: skill_name).nil?
-  #   skill = Skill.new(name: skill_name )
-  #   skill.save!
-  # else
-  #   skill = Skill.find_by(name: skill_name)
-  # end
 
   puts 'bio creation......☣'
   url_user = set['owner']['link']
@@ -69,7 +62,7 @@ data['items'].each do |set|
   question.end_time = Time.strptime('07/15/2020 10:04', '%m/%d/%Y %H:%M')
 
   question.user = user
-  seeded_skill = Skill.find(rand(1..14))
+  seeded_skill = Skill.all.sample
   question.skills << seeded_skill
   question.save!
 
@@ -97,70 +90,3 @@ puts 'Creating Proposal'
 end
 
 puts "Completed ✨✨✨"
-# %w[Ruby Ruby_on_Rails Python Javascript C PHP Laravel HTML CSS Java Perl SQL Swift Django].each do |skill|
-#   skill = Skill.new(name: skill)
-#   skill.save!
-#   puts 'Skill instance saved!👩‍🏫'
-# end
-
-# user = User.new(name: "John",
-#                 email: "abc@gmail.com",
-#                 username: "JohnDoe",
-#                 tutor: false,
-#                 password: "lewagon")
-# user.bio = Bio.create(content: "I am currently going through university and need to get past my python mods. Someone please help me")
-# user.skills << Skill.find_by_name("Python")
-# user.save!
-
-# tutor1 = User.new(name: Faker::Name.unique.name,
-#                 email: Faker::Internet.email,
-#                 username: Faker::Name.unique.name,
-#                 tutor: true,
-#                 password: "lewagon")
-# tutor1.skills << Skill.find_by_name("Python")
-# tutor1.skills << Skill.find_by_name("Javascript")
-# tutor1.bio = Bio.create(content: "")
-# tutor1.save!
-
-# tutor2 = User.new(name: Faker::Name.unique.name,
-#                 email: Faker::Internet.email,
-#                 username: Faker::Name.unique.name,
-#                 tutor: true,
-#                 password: "lewagon")
-# tutor2.skills << Skill.find_by_name("Ruby")
-# tutor2.skills << Skill.find_by_name("Rails")
-# tutor2.bio = Bio.create(content: "")
-# tutor2.save!
-
-
-
-# 3.times do
-#   question = Question.new(title: Faker::Quotes::Shakespeare.hamlet_quote,
-#                           description: Faker::Quote.matz,
-#                           min_price: (1..5).to_a.sample,
-#                           max_price: (6..10).to_a.sample,
-#                           start_time: Faker::Time.between(from: DateTime.now - 2, to: DateTime.now - 1),
-#                           end_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now))
-#   Skill.all.shuffle.first(2).each do |skill|
-#     question.skills << skill
-#   end
-#   question.user = user
-#   question.save!
-# end
-
-# proposal1 = Proposal.new(price: (1..10).to_a.sample, status: 'pending', meeting_time: DateTime.now )
-# proposal1.question = Question.first
-# proposal1.user = tutor1
-# puts "Proposal created 💍" if proposal1.save!
-
-# proposal2 = Proposal.new(price: (1..10).to_a.sample, status: 'pending', meeting_time: DateTime.now )
-# proposal2.question = Question.first
-# proposal2.user = tutor2
-# puts "Proposal 2 created 💍" if proposal2.save!
-
-# proposal3 = Proposal.new(price: (1..10).to_a.sample, status: 'pending', meeting_time: DateTime.now )
-# proposal3.question = Question.all[1]
-# proposal3.user = tutor2
-# puts "Proposal 3 created 💍" if proposal3.save!
-
-# puts "Completed ✨✨✨"
