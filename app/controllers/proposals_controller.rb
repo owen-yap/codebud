@@ -78,7 +78,7 @@ class ProposalsController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
-        name: order.proposal.question,
+        name: order.proposal.question.title,
         amount: order.proposal.price_cents,
         currency: 'sgd',
         quantity: 1

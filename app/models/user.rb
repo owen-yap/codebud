@@ -35,7 +35,6 @@ class User < ApplicationRecord
     Messages.where(receiver_id: id)
   end
 
-
   # finding messages sent and recieved by this user between the current user
   def messages_with(user)
     Message.where("(receiver_id = ? AND sender_id = ?)
