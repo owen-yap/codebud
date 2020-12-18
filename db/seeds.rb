@@ -5,36 +5,43 @@ require 'nokogiri'
 require 'httparty'
 
 puts 'Destroying current db....'
+Message.destroy_all
 Order.destroy_all
 User.destroy_all
 
 puts 'Seeding current db....'
-url = 'https://api.stackexchange.com/2.2/questions?pagesize=10&order=desc&sort=activity&site=stackoverflow'
+url = 'https://api.stackexchange.com/2.2/questions?pagesize=5&order=desc&sort=activity&site=stackoverflow'
 data = JSON.parse(open(url).read)
+
+
+puts 'skills creation......🎂'
+%w[Ruby Ruby_on_Rails Python Javascript C PHP Laravel HTML CSS Java Perl SQL Swift Django].each do |skill|
+  skill = Skill.new(name: skill)
+  skill.save!
+end
+puts 'Skill instance saved!👩‍🏫'
 
 data['items'].each do |set|
   url_so = set['link']
   puts 'user creation....🦆'
-
+  
   user = User.new(username: set['owner']['display_name'].gsub(" ", "_"),
-                name: set['owner']['display_name'],
-                email: set['owner']['display_name'].downcase.gsub(" ", "_") + '@gmail.com',
-                password: "lewagon"
-                )
+  name: set['owner']['display_name'],
+  email: set['owner']['display_name'].downcase.gsub(" ", "_") + '@gmail.com',
+  password: "lewagon"
+  )
   user = User.find_by(email: set['owner']['display_name'].downcase.gsub(" ", "_") + '@gmail.com') if !user.valid?
-
-  puts 'skills creation......🎂'
-  skill_name = set['tags'][0].capitalize
-  if Skill.find_by(name: skill_name).nil?
-    skill = Skill.new(name: skill_name )
-    skill.save!
-  else
-    skill = Skill.find_by(name: skill_name)
-  end
-
-  user.skills << skill
-
+  
+  user.skills << Skill.find(rand(1..14))
   user.save!
+
+  # skill_name = set['tags'][0].capitalize
+  # if Skill.find_by(name: skill_name).nil?
+  #   skill = Skill.new(name: skill_name )
+  #   skill.save!
+  # else
+  #   skill = Skill.find_by(name: skill_name)
+  # end
 
   puts 'bio creation......☣'
   url_user = set['owner']['link']
@@ -61,7 +68,8 @@ data['items'].each do |set|
   question.end_time = Time.strptime('07/15/2020 10:04', '%m/%d/%Y %H:%M')
 
   question.user = user
-  question.skills << skill
+  seeded_skill = Skill.find(rand(0..14))
+  question.skills << seeded_skill
   question.save!
 
   puts 'user saved! 🎉🎉🎉'
@@ -88,7 +96,7 @@ puts 'Creating Proposal'
 end
 
 puts "Completed ✨✨✨"
-# %w[Ruby Python Javascript C PHP Laravel Lisp Java Perl Rails SQL Swift Django].each do |skill|
+# %w[Ruby Ruby_on_Rails Python Javascript C PHP Laravel HTML CSS Java Perl SQL Swift Django].each do |skill|
 #   skill = Skill.new(name: skill)
 #   skill.save!
 #   puts 'Skill instance saved!👩‍🏫'
