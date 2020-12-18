@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
-
   def update
     order = Order.find(params[:id])
     order.update(order_params)
-    redirect_to question_messages_path(order.proposal.question)
+    order.proposal.question.update(status: "answered")
     authorize order
+    redirect_to question_messages_path(order.proposal.question)
   end
 
   def create_room
