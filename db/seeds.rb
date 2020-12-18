@@ -68,7 +68,7 @@ data['items'].each do |set|
   question.end_time = Time.strptime('07/15/2020 10:04', '%m/%d/%Y %H:%M')
 
   question.user = user
-  seeded_skill = Skill.find(rand(0..14))
+  seeded_skill = Skill.find(rand(1..14))
   question.skills << seeded_skill
   question.save!
 
