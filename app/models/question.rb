@@ -20,7 +20,7 @@ class Question < ApplicationRecord
   }
 
   def selected_proposal
-    return proposals.find_by status: "selected"
+    return proposals.find_by status: ["selected", "completed"]
   end
 
   def applied_by?(given_user)
