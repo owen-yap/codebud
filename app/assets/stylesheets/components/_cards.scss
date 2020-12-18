@@ -46,7 +46,7 @@ a:hover {
 }
 
 .card-tutor {
-  background: $lightblue;
+  background: $darkerblue;
 }
 
 .card-white {
@@ -83,7 +83,8 @@ a:hover {
   .card-tag {
     display: inline-block;
     color: $lightgray;
-    padding: 0.2rem;
+    padding-left: 0.1rem;
+    font-style: italic;
   }
 
   .info {
@@ -93,7 +94,7 @@ a:hover {
     flex-direction: column;
     h2 {
       color: white;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 400;
       margin: 0;
     }
