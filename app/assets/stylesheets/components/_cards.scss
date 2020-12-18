@@ -273,12 +273,9 @@ a:hover .card-order {
   }
 }
 
-<<<<<<< HEAD:app/assets/stylesheets/components/cards.scss
-=======
-
 .time-tag {
     display: inline-block;
-    color: rgb(207, 74, 207);
+    color: #b5cfd8;
     padding-top: 2rem;
   }
 
@@ -289,5 +286,11 @@ a:hover .card-order {
   border-radius: 3px;
   border: solid, 2px $lightblue;
 }
-
->>>>>>> master:app/assets/stylesheets/components/_cards.scss
+.review-profile {
+  width: auto;
+  height: auto;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 4px;
+}

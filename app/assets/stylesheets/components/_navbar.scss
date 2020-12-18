@@ -1,5 +1,9 @@
+.navbar-tutor {
+  background-color: #240046 !important;
+}
+
 .navbar-color {
-  background-color: #000022;
+  background-color: $darkerblue;
 }
 
 .navbar-logo {
@@ -50,6 +54,7 @@
   height: 100vh;
   border-right: solid 1px black;
   position: fixed;
+  width: 15%;
   a {
     color: black;
     font-size: 1.3rem;

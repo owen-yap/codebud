@@ -1,5 +1,24 @@
-<div class="container">
-  <%= link_to "< Back", :back, class: "muted mt-2 mb-4" %>
-  <h3>Ask a Question</h3>
-  <%= render "form", question: @question %>
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-2">
+      <%= render 'shared/sidenav' %>
+    </div>
+
+    <div class="col-7 pt-5 ml-3">
+      <div class="d-flex justify-content-center flex-column">
+        <h1 class="main-heading mb-3">Ask a Questions</h1>
+         <div class="container-fluid">
+            <div class='question-links d-flex'>
+              <%= link_to "< Back", :back, class: "muted" %>
+              <%= link_to "How to ask a good question?", :back, class: "muted" %>
+            </div>
+          <div class="row justify-content-center">
+            <%= render "form", question: @question %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

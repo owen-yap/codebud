@@ -1,5 +1,5 @@
 
-<div class="container-sm">
+<div class="container-sm mb-3">
    <%= link_to "< Back", root_path, class: "muted mt-5" %>
    <div class="card-template question mb-3 mt-3">
       <div class="info">
@@ -10,7 +10,7 @@
           <% end %>
         </div>
         <div>
-          <p>Availability: <%= "#{@question.start_time} to #{@question.end_time}" %> &nbsp; &nbsp; &nbsp; &nbsp;<%= "Price range: #{@question.min_price} to #{@question.max_price}" %></p>
+          <p>Availability: <%= "#{@question.start_time} to #{@question.end_time}" %> &nbsp; &nbsp; &nbsp; &nbsp;<%= "Price budget: #{@question.budget}" %></p>
         </div>
         <div class="time-tag">
           <p><em>Asked: <%= ((Time.now - @question.created_at)/3600).round(1)%> hrs ago</em></p>
@@ -67,7 +67,7 @@
       <%= link_to "Delete Question",
           question_path(@question),
           method: :delete,
-          data: { confirm: "Are you deleting this question?"}, class: "btn dark-btn" %>
+          data: { confirm: "Are you deleting this question?"}, class: "btn delete-btn" %>
     </div>
   <% end %>
 </div>

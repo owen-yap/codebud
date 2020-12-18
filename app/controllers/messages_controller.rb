@@ -4,11 +4,6 @@ class MessagesController < ApplicationController
     @question = Question.find(params[:question_id])
     @order = @question.selected_proposal.order
     @message = Message.new
-    if @question.user == current_user || @question.selected_proposal.user == current_user
-      render :index
-    else
-      render :index #:not_authorized
-    end
   end
 
   def create
@@ -24,7 +19,10 @@ class MessagesController < ApplicationController
       # looks for partial _message.html.erb if not default look for _message.json
       MessageChannel.broadcast_to(
         @question,
-        render_to_string(partial: "message", formats: [:html], locals: { message: @message })
+        {
+          html: render_to_string(partial: "message", formats: [:html], locals: { message: @message }),
+          message: @message,
+        }
       )
     else
       render "/index"

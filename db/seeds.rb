@@ -5,10 +5,8 @@ require 'nokogiri'
 require 'httparty'
 
 puts 'Destroying current db....'
-Message.destroy_all
-Bio.destroy_all
+Order.destroy_all
 User.destroy_all
-Skill.destroy_all
 
 puts 'Seeding current db....'
 url = 'https://api.stackexchange.com/2.2/questions?pagesize=10&order=desc&sort=activity&site=stackoverflow'
@@ -58,8 +56,7 @@ data['items'].each do |set|
   html_doc.search('#question-header > h1 > a').each do |element|
     question.title = element.text.strip
   end
-  question.min_price = (1..9).to_a.sample
-  question.max_price = (15..39).to_a.sample
+  question.budget = (15..39).to_a.sample
   question.start_time = Time.strptime('06/30/2020 12:34', '%m/%d/%Y %H:%M')
   question.end_time = Time.strptime('07/15/2020 10:04', '%m/%d/%Y %H:%M')
 

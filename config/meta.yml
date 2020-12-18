@@ -1,0 +1,5 @@
+meta_product_name: "Codebud"
+meta_title: "Codebud - Instant help for your coding questions"
+meta_description: "Codebud connects novice coders to student tutors. Get your most frustrating coding questions answered quickly and affordably now."
+meta_image: "linkedin-logo.png" # should exist in `app/assets/images/`
+linkedin_account: "https://www.linkedin.com/company/codebud/"   # required for Twitter Cards

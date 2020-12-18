@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #000022">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-color <%= "navbar-tutor" if user_signed_in? && current_user.tutor %>" >
   <div class="container">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "codebud-logo-1-light.png", class: 'navbar-logo' %>
@@ -18,25 +18,7 @@
         <ul class="navbar-nav nav-right">
           <li class="nav-item active navlink">
             <%= link_to questions_path, class: "how-it-works mr-3" do %>
-              Dashboard
-            <% end %>
-          </li>
-
-          <li class="nav-item active navlink">
-            <%= link_to root_path, class: "mr-3" do %>
-              <%= image_tag "speech-bubble.svg" %>
-            <% end %>
-          </li>
-
-          <li class="nav-item active navlink">
-            <%= link_to root_path, class: "mr-3" do %>
-              <%= image_tag "friends.svg" %>
-            <% end %>
-          </li>
-
-          <li class="nav-item active navlink">
-            <%= link_to root_path, class: "mr-3" do %>
-              <%= image_tag "bell.svg" %>
+              <%# Dashboard %>
             <% end %>
           </li>
 
