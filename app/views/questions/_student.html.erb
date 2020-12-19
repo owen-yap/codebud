@@ -25,9 +25,15 @@
             <p><em>Asked: <%= ((Time.now - question.created_at)/3600).round(1)%> hrs ago</em></p>
           </div>
       </div>
-        <% if question.selected_proposal %>
+        <% if question&.selected_proposal&.order&.status == 'paid' %>
           <%= link_to "View",question_messages_path(question), class: "btn fat-btn accepted" %>
           <!-- link to view the question with the selected tutor -->
+        <% elsif question&.selected_proposal&.order&.status == 'pending' %>
+          <%= simple_form_for @order do |f| %>
+            <%= f.input :proposal_id, as: :hidden, input_html: {value: question.selected_proposal.id } %>
+
+            <%= f.submit 'Pay', class: "btn light-btn mb-3" %>
+          <% end %>
         <% else %>
           <%= link_to "Pick a Tutor", question_proposals_path(question), class: "btn fat-btn" %>
           <!-- link to view the proposals and select the tutors-->

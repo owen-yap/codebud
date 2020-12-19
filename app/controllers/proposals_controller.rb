@@ -69,7 +69,9 @@ class ProposalsController < ApplicationController
     order.proposal = proposal
     # add the proposal on the params to the right order
     # intiate the payment
+
     if proposal.price.zero?
+      order.status = "paid"
       order.save!
       redirect_to root_path
       return

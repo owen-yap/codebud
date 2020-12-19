@@ -16,12 +16,12 @@ User.destroy_all
 # data = JSON.parse(open(url).read)
 
 
-# puts 'skills creation......🎂'
-# %w[Ruby Ruby_on_Rails Python Javascript C PHP Laravel HTML CSS Java Perl SQL Swift Django].each do |skill|
-#   skill = Skill.new(name: skill)
-#   skill.save!
-# end
-# puts 'Skill instance saved!👩‍🏫'
+puts 'skills creation......🎂'
+%w[Ruby Ruby_on_Rails Python Javascript C PHP Laravel HTML CSS Java Perl SQL Swift Django].each do |skill|
+  skill = Skill.new(name: skill)
+  skill.save!
+end
+puts 'Skill instance saved!👩‍🏫'
 
 # data['items'].each do |set|
 #   url_so = set['link']

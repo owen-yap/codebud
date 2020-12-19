@@ -6,12 +6,12 @@ class QuestionsController < ApplicationController
   def index
     @questions = current_user.questions.where(status: ["pending", "in progress"])
     @proposals = current_user.proposals.where(status: %w[pending selected rejected])
-
     if params[:query].present?
       @pagy, @all_questions = pagy(Question.where(status: "pending").global_search(params[:query]), items: 3)
     else
       @pagy, @all_questions = pagy(Question.where(status: "pending"), items: 3)
     end
+    @order = Order.new
   end
 
   def new

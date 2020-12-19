@@ -1,24 +1,25 @@
 <div class=" container w-50 justify-content-center pt-5">
 	<div class="question-form">
 			<%= simple_form_for @bio do |f| %>
-		<section>
-			<% if current_user.tutor %>
-				<%= f.input :content, label: "Tell us about your experiences and credientials" %>
-			<% else %>
-				<%= f.input :content, label: "Let your tutors know your current learning progress" %>
-			<% end %>
-				<%# there's no link btw bio and skills, hence we use simple_fields to allow skills instance to be displayed on bio form %>
-			<% if current_user.tutor %>
-				<p class="mt-2">What are your strengths?</p>
-			<% else %>
-				<p class="mt-2">What are you currently learning / familiar with?</p>
-			<% end %>
-			<%= f.simple_fields_for :user do |user_form| %>
-				<%= user_form.collection_check_boxes :skill_ids, Skill.all, :id, :name,
-				item_label_class: 'skills-label', item_wrapper_class: 'skills-item', label: "What are you currently learning / good at?" %>
-			<% end %>
-		</section>
-				<%= f.submit class: "btn light-btn mt-3" %>
+				<section>
+					<% if current_user.tutor %>
+						<%= f.input :content, label: "Tell us about your experiences and credientials" %>
+					<% else %>
+						<%= f.input :content, label: "Let your tutors know your current learning progress" %>
+					<% end %>
+						<%# there's no link btw bio and skills, hence we use simple_fields to allow skills instance to be displayed on bio form %>
+					<% if current_user.tutor %>
+						<p class="mt-2">What are your strengths?</p>
+					<% else %>
+						<p class="mt-2">What are you currently learning / familiar with?</p>
+					<% end %>
+					<%= f.simple_fields_for :user do |user_form| %>
+						<%= user_form.collection_check_boxes :skill_ids, Skill.all, :id, :name,
+						item_label_class: 'skills-label', item_wrapper_class: 'skills-item', label: "What are you currently learning / good at?" %>
+					<% end %>
+				</section>
+				<%= f.button :submit, class: "btn light-btn mt-3" %>
+				<%= f.button :submit, "Skip", class: "btn light-btn mt-3" %>
 			<% end %>
 	</div>
 </div>

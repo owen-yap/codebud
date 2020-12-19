@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   belongs_to :proposal
   monetize :price_cents
 
-  validates :status, inclusion: { in: %w[pending completed] }
+  validates :status, inclusion: { in: %w[pending paid completed] }
 
   def payer
     proposal.question.user

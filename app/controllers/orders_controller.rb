@@ -37,10 +37,41 @@ class OrdersController < ApplicationController
     # Generate the token
   end
 
+  def create
+    proposal = Proposal.find(params[:order][:proposal_id])
+    proposal.order.destroy
+    order = Order.new(order_params)
+    # add the proposal on the params to the right order
+    # intiate the payment
+    order.save!
+    authorize order
+
+    if order.proposal.price.zero?
+      order.save!
+      redirect_to root_path
+      return
+    end
+
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: order.proposal.question.title,
+        amount: order.proposal.price_cents,
+        currency: 'sgd',
+        quantity: 1
+      }],
+      success_url: root_url,
+      cancel_url: questions_url
+    )
+    order.save!
+    order.update(session_id: session.id)
+    redirect_to new_order_payment_path(order)
+  end
+
   private
 
   def order_params
-    params.require(:order).permit(:status)
+    params.require(:order).permit(:status, :proposal_id)
   end
 
   def setup_tokens
