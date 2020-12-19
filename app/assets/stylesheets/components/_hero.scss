@@ -1,7 +1,11 @@
 .hero-bg {
   background-image: url('landing-bg.png');
-  background-size: 100%;
+  background-size: cover;
   height: 100vh;
+}
+
+.hero svg {
+  width: 100%;
 }
 
 .hero-content {
