@@ -44,11 +44,12 @@
 }
 
 .information {
-  font-size: 20px;
-  color: #000000;
-  &:hover {
-    transition-duration: 0.8s;
-    text-decoration: none;
+  font-size: 0.9rem;
+  display: inline-block;
+  width: 20%;
+
+  img {
+    width: 20px;
   }
 }
 
