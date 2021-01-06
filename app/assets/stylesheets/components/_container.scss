@@ -111,3 +111,15 @@
 .form-section {
   display: flex;
 }
+
+footer {
+  background-color: $darkerblue;
+
+  .footer-logo {
+    width: 300px;
+  }
+
+  .icon {
+    width: 24px;
+  }
+}
