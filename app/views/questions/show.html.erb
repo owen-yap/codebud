@@ -1,6 +1,8 @@
 
 <div class="container-sm mb-3">
-   <%= link_to "< Back", root_path, class: "muted mt-5" %>
+  <%= link_to "< Back", root_path, class: "muted mt-5 mb-3" %>
+  
+  <p>Subscribe to @codebud_bot on telegram to receive a notification whenever a tutor applies for your question</p>
    <div class="card-template question mb-3 mt-3">
       <div class="info">
         <h3 class="title mb-2"><%= @question.title %> </h3>
@@ -10,7 +12,7 @@
           <% end %>
         </div>
         <div>
-          <p>Availability: <%= "#{@question.start_time} to #{@question.end_time}" %> &nbsp; &nbsp; &nbsp; &nbsp;<%= "Budget: #{@question.budget}" %></p>
+          <p>Availability: <%= "#{@question.start_time.strftime("%A , %e %B %Y, %l:%M %P")} / #{@question.end_time.strftime('%A , %e %B %Y, %l:%M %P')}" %> &nbsp; &nbsp; &nbsp; &nbsp;</p>
         </div>
         <div class="time-tag">
           <p><em>Asked: <%= ((Time.now - @question.created_at)/3600).round(1)%> hrs ago</em></p>
@@ -37,6 +39,7 @@
                 <%= simple_form_for([@question, @proposal]) do |f| %>
                   <%= f.input :price, label: 'Price' %>
                   <%= f.input :meeting_time, label: 'Available Time' %>
+                  <%= f.input :message, label: 'Message' %>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <% if @question.applied_by?(current_user)  %>

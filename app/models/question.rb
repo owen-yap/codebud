@@ -6,11 +6,9 @@ class Question < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_rich_text :rich_body
 
-  validates :start_time, :end_time, :title, :rich_body, :budget, presence: true
+  validates :start_time, :end_time, :title, :rich_body, presence: true
   validate :end_time_after_start_time
   validates :status, inclusion: { in: ["pending", "in progress", "answered"] }
-
-  monetize :price_cents
 
   include PgSearch::Model
   pg_search_scope :global_search, against: %i[title description], associated_against: {

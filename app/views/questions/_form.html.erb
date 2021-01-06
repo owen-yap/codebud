@@ -57,17 +57,13 @@
             </div>
           </div>
         </span>
-        <div class="range-wrap">
-          <%= f.input :budget, label: "Price", as: :range, collection: 1..100, value:"50", wrapper_html: { class: 'mb-0' } %>
-          <span class= "bubble" id="price"> </span>
-        </div>
       </div>
     </section>
     <p class="information m-4">
       <%= image_tag "information.svg" %>
-      A typical session will last anywhere between 15-90mins. Setting a reasonable price for bigger requests (e.g. )
+      A typical session will last anywhere between 15-90mins
     </p>
   </div>
 
-  <%= f.button :submit, "Submit", class: "btn light-btn mb-5 mt-5"%>
+  <%= f.button :submit, "Submit", class: "btn light-btn mb-5 mt-2"%>
 <% end %>

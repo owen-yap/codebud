@@ -21,7 +21,7 @@ class ProposalsController < ApplicationController
       if question.proposals.count == 1
         message = "A tutor just applied for your question!"
       else
-        message = "#{question.proposals.count} tutors have applied for your question!"
+        message = "A tutor has just applied for your question! \n\n Included message: #{proposal.message}"
       end
       HTTParty.post(url, body: {
                       chat_id: question.user.chat_id,
@@ -94,7 +94,7 @@ class ProposalsController < ApplicationController
   end
 
   def proposal_params
-    params.require(:proposal).permit(:price, :status, :meeting_time)
+    params.require(:proposal).permit(:price, :status, :meeting_time, :message)
   end
   # def set_proposal
   #   @proposal = Proposal.find(params[:id])

@@ -48,6 +48,9 @@
           <div class="info">
             <p class="proposal-p">Availability:</p>
             <p class="proposal-p"><%= proposal.meeting_time.strftime("%A , %e %B %Y, %l:%M %P") %></p>
+            <br>
+            <p class="proposal-p">Included Message: </p>
+            <p class="proposal-p"><%= proposal.message %></p>
           </div>
 
           <div class="info ml-4 w-50">
