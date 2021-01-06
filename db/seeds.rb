@@ -17,7 +17,7 @@ User.destroy_all
 
 
 puts 'skills creation......🎂'
-%w[Ruby Ruby_on_Rails Python Javascript C PHP Laravel HTML CSS Java Perl SQL Swift Django].each do |skill|
+%w[Ruby Ruby_on_Rails Python Javascript C PHP Laravel HTML CSS Java Perl SQL Swift Django R].each do |skill|
   skill = Skill.new(name: skill)
   skill.save!
 end
