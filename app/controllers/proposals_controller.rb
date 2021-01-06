@@ -18,11 +18,7 @@ class ProposalsController < ApplicationController
     question = proposal.question
     if question.user.chat_id
       url = "https://api.telegram.org/bot#{ENV['TELEGRAM_KEY']}/sendMessage"
-      if question.proposals.count == 1
-        message = "A tutor just applied for your question!"
-      else
-        message = "A tutor has just applied for your question! \n\n Included message: #{proposal.message}"
-      end
+      message = "A tutor has just applied for your question! \n\n Included message: #{proposal.message}"
       HTTParty.post(url, body: {
                       chat_id: question.user.chat_id,
                       text: message,
