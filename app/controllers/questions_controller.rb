@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
     if @question.save!
       redirect_to question_path(@question)
       url = "https://api.telegram.org/bot#{ENV['TELEGRAM_KEY']}/sendMessage"
-      message = "New Question 🖐\n\n ◼<b>Question:</b> #{@question.title}\n\n ◼<b>Topics</b>: #{@question.skills.pluck(:name).join(' ')}\n\n ◼<b>Availability:</b> #{@question.start_time}\n#{@question.end_time}\n\n Apply for this question now at https://codebud.co on your desktop"
+      message = "New Question 🖐\n\n ◼<b>Question:</b> #{@question.title}\n\n ◼<b>Topics</b>: #{@question.skills.pluck(:name).join(' ')}\n\n ◼<b>Availability:</b> #{@question.start_time.strftime('%A , %e %B %Y, %l:%M %P')}\n#{@question.end_time.strftime('%A , %e %B %Y, %l:%M %P')}\n\n Apply for this question now at https://codebud.co on your desktop"
       HTTParty.post(url, body: {
                       chat_id: "@codebud_tutors",
                       text: message,
