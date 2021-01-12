@@ -7,7 +7,6 @@ class Question < ApplicationRecord
   has_rich_text :rich_body
 
   validates :start_time, :end_time, :title, :rich_body, presence: true
-  validate :end_time_after_start_time
   validates :status, inclusion: { in: ["pending", "in progress", "answered"] }
 
   include PgSearch::Model
