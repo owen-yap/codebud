@@ -12,7 +12,7 @@
           <% end %>
         </div>
         <div>
-          <p>Availability: <%= "#{@question.start_time.strftime("%A , %e %B %Y, %l:%M %P")} / #{@question.end_time.strftime('%A , %e %B %Y, %l:%M %P')}" %> &nbsp; &nbsp; &nbsp; &nbsp;</p>
+          <p>Availability: <%= "#{@question.start_time.strftime("%A, %e %B %Y, %l:%M %P") unless @question.start_time.nil?} / #{@question.end_time.strftime('%A , %e %B %Y, %l:%M %P') unless @question.end_time.nil?}" %> &nbsp; &nbsp; &nbsp; &nbsp;</p>
         </div>
         <div class="time-tag">
           <p><em>Asked: <%= ((Time.now - @question.created_at)/3600).round(1)%> hrs ago</em></p>

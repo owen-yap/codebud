@@ -6,7 +6,7 @@ class Question < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_rich_text :rich_body
 
-  validates :start_time, :end_time, :title, :rich_body, presence: true
+  validates :title, presence: true
   validates :status, inclusion: { in: ["pending", "in progress", "answered"] }
 
   include PgSearch::Model
@@ -22,13 +22,5 @@ class Question < ApplicationRecord
 
   def applied_by?(given_user)
     proposals.where(user: given_user).exists?
-  end
-
-  private
-
-  def end_time_after_start_time
-    return if end_time.blank? || start_time.blank?
-
-    errors.add(:end_time, "must be after the start time") if end_time < start_time
   end
 end
